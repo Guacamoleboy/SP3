@@ -6,3 +6,5 @@ Git used for our SP3 project\
 \
 **Jonas Meinert Larsen // Andreas Rovelt**
 
+![Visuals](/Images/logo.jpg)
+

@@ -55,7 +55,11 @@ public class Program {
 
     // ________________________________________________________
 
-    public void displayUsers(){
+    public void displayUsersDev(){ // Debug & Dev only
+
+        for(User u : user){
+            System.out.println(u);
+        }
 
     }
 

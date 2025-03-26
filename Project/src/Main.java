@@ -11,6 +11,10 @@
 
 public class Main { // Client class
 
+    // Attributes
+
+    // ________________________________________________________
+
     public static void main(String[] args) {
 
         // Toggles our program as "p"
@@ -20,5 +24,7 @@ public class Main { // Client class
         p.startSession();
         //p.runProgramLoop();
         p.endSession();
+
     }
-}
+
+} // Main end

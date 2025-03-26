@@ -52,9 +52,9 @@ public class Program {
                     maxID = userID;
                 }
 
-            }
+            } // For-loop
 
-        }
+        } // If-statement
 
         userCount = user.size();
         ID = maxID + 1;

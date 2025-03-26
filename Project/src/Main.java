@@ -18,7 +18,7 @@ public class Main { // Client class
     public static void main(String[] args) {
 
         // Toggles our program as "p"
-        Program p = new Program();
+        Program p = new Program("Netflix");
 
         // Uses our value "p" to startSession and so on
         p.startSession();

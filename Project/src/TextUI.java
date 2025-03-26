@@ -1,7 +1,7 @@
 /*
 
     Featured in this TextUI
-    _______________
+    _______________________
 
     Prompts:                        Displays:
     Numeric                         Msg
@@ -70,9 +70,26 @@ public class TextUI { // Our own custom generic TextUI class
 
     public int promptNumeric(String msg){
 
-        System.out.println(msg);
-        String input = scanner.nextLine();
-        int numInput = Integer.parseInt(input);
+        int numInput = 0;
+        boolean valid = false;
+
+        while (!valid){
+
+            displayMsg(msg);
+            String input = scanner.nextLine();
+
+            try {
+
+                numInput = Integer.parseInt(input);
+                valid = true;
+
+            } catch (NumberFormatException e){
+
+                displayMsg("Error. Please write a valid number..");
+
+            } // Try-catch end
+
+        } // While loop end
 
         return numInput;
 

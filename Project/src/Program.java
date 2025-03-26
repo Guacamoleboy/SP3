@@ -7,6 +7,7 @@ public class Program {
     private static FileIO io = new FileIO();
 
     private String name;
+    private int ID;
     private ArrayList <User> user;
     private User currentUser;
 
@@ -41,6 +42,14 @@ public class Program {
     // ________________________________________________________
 
     public void registerUser(){
+
+
+        String playerName = ui.promptText("Please enter a name..");
+
+        // What if a user enters nothing? Blank. Or a number? We probably only want names.
+
+        this.createUser(playerName, ID);
+
 
     }
 

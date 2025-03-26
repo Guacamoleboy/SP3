@@ -15,6 +15,10 @@ import java.io.*;
 
 public class FileIO { // Data
 
+    // Attributes
+
+    // ________________________________________________________
+
     public void saveData(ArrayList <String> list, String path, String header){
 
         try {

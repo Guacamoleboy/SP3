@@ -2,15 +2,58 @@
 
 'By Andreas Rovelt & Jonas Meinert Larsen
 
+'Visuals
+<style>
+document {
+  BackGroundColor grey
+}
+root {
+  FontColor #?black:white
+  LineColor black
+}
+</style>
+
 'Person
-:user: as user
+:user: as user #orange;line:black;line.bold;text:black
 
 'Set up the usecase with alts
-usecase feet as fe
-usecase moreFeet as mofe
+usecase Start as st
+usecase RegisterUser as ru
+usecase Login as login
+usecase MainMenu as mame
+usecase BookmarkMovie as bm
+usecase ChooseMovie as cm
+usecase RemoveFromLiked as rfl
+usecase PlayMovie as play
+usecase CatchExceptions as catch
 
 'Sequence
-user --> fe
-fe --> mofe
+user --> st
+st --> ru
+ru --> login
+login --> mame
+login --> catch
+ru --> catch
+catch --> login #line:red;line.bold;text:red
+catch --> ru #line:red;line.bold;text:red
+catch --> mame #line:red;line.bold;text:red
+mame --> cm
+mame --> rfl
+mame --> play
+mame --> bm
+cm --> catch
+rfl --> catch
+play --> catch
+bm --> catch
+
+'Notes
+note left of user
+    <b>Use case diagram by:</b>
+    <b>Andreas Rovelt & Jonas Meinert Larsen</b>
+    <b>Version 1.0</b>
+    <b>Date: <color :blue>26/03-2025</color></b>
+end note
+
+'End of Use Case Diagram
 
 @enduml

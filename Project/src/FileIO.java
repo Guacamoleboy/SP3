@@ -13,7 +13,7 @@
 import java.util.*;
 import java.io.*;
 
-public class FileIO { // Data
+public class FileIO { // Custom generic FileIO
 
     // Attributes
 

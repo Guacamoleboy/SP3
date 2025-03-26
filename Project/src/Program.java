@@ -25,8 +25,12 @@ public class Program {
     public void startSession(){
 
         ArrayList <String> data = io.readData("data/userData.csv");
-        ui.displayMsg("Welcome to " + this.name);
+        ui.displayMsg("Welcome to " + this.name + ".");
 
+        checkForAccount();
+
+
+        /*
         if(!data.isEmpty()){
 
             for(String s : data){
@@ -35,6 +39,28 @@ public class Program {
                 createUser(values[0], userID);
             }
 
+        } // If statement end
+        */
+
+    }
+
+    // ________________________________________________________
+
+    public void checkForAccount(){
+
+        String startSessionAnswer = ui.promptText("Do you have an account?");
+
+        if(startSessionAnswer.equalsIgnoreCase("yes")){
+            login();
+        } else if (startSessionAnswer.equalsIgnoreCase("no")) {
+            registerUser();
+        } else if (startSessionAnswer.equalsIgnoreCase("y")) {
+            login();
+        } else if (startSessionAnswer.equalsIgnoreCase("n")) {
+            registerUser();
+        } else {
+            System.out.println("Invalid input.. Please try again!");
+            checkForAccount();
         }
 
     }
@@ -43,13 +69,17 @@ public class Program {
 
     public void registerUser(){
 
-
         String playerName = ui.promptText("Please enter a name..");
 
         // What if a user enters nothing? Blank. Or a number? We probably only want names.
 
         this.createUser(playerName, ID);
 
+    }
+
+    // ________________________________________________________
+
+    public void login(){
 
     }
 

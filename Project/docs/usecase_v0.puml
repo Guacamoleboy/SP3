@@ -1,0 +1,16 @@
+@startuml
+
+'By Andreas Rovelt & Jonas Meinert Larsen
+
+'Person
+:user: as user
+
+'Set up the usecase with alts
+usecase feet as fe
+usecase moreFeet as mofe
+
+'Sequence
+user --> fe
+fe --> mofe
+
+@enduml

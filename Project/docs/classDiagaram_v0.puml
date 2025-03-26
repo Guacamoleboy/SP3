@@ -1,0 +1,22 @@
+@startuml
+
+'By Andreas Rovelt & Jonas Meinert Larsen
+
+'Adding classes
+class Deez
+abstract class Nuts
+
+'Sequence
+Deez *-- Nuts
+
+'Attributes & Methods
+class Deez {
+    -private
+    #protected
+    +public
+    -private()
+    #protected()
+    +public()
+}
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+
+'By Andreas Rovelt & Jonas Meinert Larsen
+
+'Sequence
+Feet -> Feet
+Feet -> MoreFeet
+Feet -> EvenMoreFeet
+
+'Loops
+loop
+MoreFeet -> EvenMoreFeet
+end loop
+
+@enduml

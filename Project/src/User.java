@@ -5,13 +5,17 @@ public class User {
     // Attributes
     private String name;
     private int ID;
+    private int age;
+    private String gender;
 
     // ________________________________________________________
 
-    public User(String name, int ID){
+    public User(String name, int ID, int age, String gender){
 
         this.name = name;
         this.ID = ID;
+        this.age = age;
+        this.gender = gender;
 
     } // Constructor
 
@@ -37,7 +41,7 @@ public class User {
 
     public String toCSV(){
 
-        return name + ", " + ID;
+        return name + ", " + ID + ", " + age + ", " + gender;
 
     }
 
@@ -55,6 +59,18 @@ public class User {
 
         return this.ID;
 
+    }
+
+    // ________________________________________________________
+
+    public int getAge(){
+        return this.age;
+    }
+
+    // ________________________________________________________
+
+    public String getGender(){
+        return this.gender;
     }
 
 }

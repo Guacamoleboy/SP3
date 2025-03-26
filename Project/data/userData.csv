@@ -1,2 +1,4 @@
-Name, ID
-Jonas, 0
+Name, ID, Age, Gender
+jonas, 0, 69, male
+Jonaslarsen69, 1, 69, female
+gedelort, 2, 77, male

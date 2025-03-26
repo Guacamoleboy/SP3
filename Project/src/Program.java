@@ -73,6 +73,18 @@ public class Program {
 
     public void endSession(){
 
+        ArrayList <String> playerData = new ArrayList<>();
+
+        for(User u : user){
+
+            String s = u.toCSV();
+            playerData.add(s);
+
+        }
+
+        io.saveData(playerData, "data/userData.csv", "Name, ID");
+        ui.displayMsg("Program has saved data. Shutting down...");
+
     }
 
 } // Program end

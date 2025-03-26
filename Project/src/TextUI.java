@@ -1,3 +1,16 @@
+/*
+
+    Featured in this TextUI
+    _______________
+
+    Prompts:                        Displays:
+    Numeric                         Msg
+    Binary                          List
+    Text
+    Choises (ArrayList)
+
+*/
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

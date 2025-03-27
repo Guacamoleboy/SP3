@@ -138,7 +138,6 @@ public class Program {
         // Sending user to login method
         login();
 
-
     }
 
     // ________________________________________________________

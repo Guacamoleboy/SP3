@@ -7,6 +7,9 @@
     Numeric                         Msg
     Binary                          List
     Text
+    Double
+    Char
+    CharAZ
     Choises (ArrayList)
 
     Last updated: 27-03-2025
@@ -57,6 +60,8 @@ public class TextUI { // Our own custom generic TextUI class
 
         String choice = this.promptText(msg).toLowerCase();
 
+        // Added most common user replies so we don't have to rely on y/n only.
+
         switch (choice){
             case "y":
                 return true;
@@ -73,6 +78,10 @@ public class TextUI { // Our own custom generic TextUI class
             case "n":
                 return false;
             case "no":
+                return false;
+            case "na":
+                return false;
+            case "nah":
                 return false;
             case "nope":
                 return false;
@@ -111,6 +120,105 @@ public class TextUI { // Our own custom generic TextUI class
         } // While loop end
 
         return numInput;
+
+    }
+
+    // ________________________________________________________
+
+    public double promptDecimal(String msg){
+
+        double numInput = 1.0;
+        boolean valid = false;
+
+        while (!valid){
+
+            displayMsg(msg);
+            String input = scanner.nextLine();
+
+            try{
+
+                numInput = Double.parseDouble(input);
+                valid = true;
+
+            } catch (NumberFormatException e){
+
+                displayMsg("Please enter a valid decimal number..");
+
+            } // Try-catch end
+
+        } // While end
+
+        return numInput;
+
+    }
+
+    // ________________________________________________________
+
+    public char promptChar(String msg){
+
+        // Basically just takes the first character of a given String and stores it as a char
+
+        char charInput = '0';
+        boolean valid = false;
+
+        while (!valid){
+
+            displayMsg(msg);
+            String input = scanner.nextLine();
+
+            if(input.length() > 0){
+
+                charInput = input.charAt(0);
+                valid = true;
+
+            } else {
+
+                displayMsg("Please enter a valid character..");
+            }
+
+        }
+
+        return charInput;
+
+    }
+
+    // ________________________________________________________
+
+    public char promptCharAZ(String msg){
+
+        // Only allow single letters.
+
+        char charInput = '0';
+        boolean valid = false;
+
+        while (!valid){
+
+            displayMsg(msg);
+            String input = scanner.nextLine();
+
+            if(input.length() == 1){
+
+                charInput = Character.toUpperCase(input.charAt(0));
+
+                if(charInput >= 'A' && charInput <= 'Z'){
+
+                    valid = true;
+
+                } else {
+
+                    displayMsg("Wrong input. Please only use A - Z..");
+
+                } // if end (INNER)
+
+            } else {
+
+                displayMsg("Please only enter a single character..");
+
+            } // if end (OUTTER)
+
+        }
+
+        return charInput;
 
     }
 

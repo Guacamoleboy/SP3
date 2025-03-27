@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/domainModel_v0.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/domainModel_v0.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TextUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/classDiagaram_v0.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/classDiagaram_v0.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/sequence_v0.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sequence_v0.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +59,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Janua/Desktop/Git/SP3/Project/docs/images",
+    "last_opened_file_path": "C:/Users/jonas/Desktop/Git/SP3/Project/docs/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -106,6 +104,7 @@
       <workItem from="1743067218410" duration="529000" />
       <workItem from="1743067757606" duration="9664000" />
       <workItem from="1743090255989" duration="1662000" />
+      <workItem from="1743102955866" duration="1455000" />
     </task>
     <servers />
   </component>

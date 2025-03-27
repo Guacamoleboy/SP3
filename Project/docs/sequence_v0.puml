@@ -2,14 +2,37 @@
 
 'By Andreas Rovelt & Jonas Meinert Larsen
 
-'Sequence
-Feet -> Feet
-Feet -> MoreFeet
-Feet -> EvenMoreFeet
+'Visuals
+<style>
+document {
+  BackGroundColor grey
+}
+root {
+  FontColor #?black:white
+  LineColor black
+}
+</style>
 
-'Loops
+'Sequence
+Main -> Program
+Program -> FileIO
+FileIO -> Program
+Program -> TextUI
+
 loop
-MoreFeet -> EvenMoreFeet
+Program -> Register
+Register -> Program
 end loop
+
+Program -> Login
+
+Login -> DevMenu
+DevMenu -> DevMenu
+Login -> MainMenu
+MainMenu -> MainMenu
+
+MainMenu -> Program
+DevMenu -> Program
+
 
 @enduml

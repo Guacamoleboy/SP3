@@ -2,21 +2,119 @@
 
 'By Andreas Rovelt & Jonas Meinert Larsen
 
+'Visuals
+<style>
+document {
+  BackGroundColor grey
+}
+root {
+  FontColor #?black:white
+  LineColor black
+}
+</style>
+
 'Adding classes
-class Deez
-abstract class Nuts
+class Main
+class Program
+class FileIO
+class TextUI
+class MainMenu
+class DevMenu
+class Menu
+class User
 
 'Sequence
-Deez *-- Nuts
+Main *-- Program
+Program *-- FileIO
+Program *-- TextUI
+Program *-- User
+User *-- Menu
+Menu *-- MainMenu
+Menu *-- DevMenu
 
 'Attributes & Methods
-class Deez {
-    -private
-    #protected
-    +public
-    -private()
-    #protected()
-    +public()
+class Main {
+    +Program
+    +String[] args()
 }
+
+class Program {
+    -TextUI ui
+    -FileIO io
+    -String name
+    -String gender
+    -String banned
+    -int age
+    -int ID
+    -int userCount
+    -User currentUser
+    -ArrayList <User> user
+    +Program(name)
+    +startSession()
+    +endSession()
+    +registerUser()
+    +createUser()
+    +checkForAccount()
+    +devLogin()
+    +login()
+    +banUser()
+}
+
+class FileIO {
+    +saveData()
+    +readData()
+}
+
+class TextUI {
+    -Scanner
+    +promptNumeric()
+    +promptBinary()
+    +promptText()
+    +displayMsg()
+}
+
+abstract class Menu {
+    +startSession()
+    +endSession()
+    +runMenuLoop()
+}
+
+class User {
+    +User(name, ID, age, gender, banned, password)
+    -String name
+    -String password
+    -int age
+    -int ID
+    -String gender
+    -String banned
+    +toCSV()
+    +getAge()
+    +getGender()
+    +getID()
+    +getName()
+    +getPassword()
+    +getBanned()
+}
+
+class MainMenu {
+    +startSession()
+    +endSession()
+    +runMenuLoop()
+}
+
+class DevMenu {
+    +startSession()
+    +endSession()
+    +runMenuLoop()
+}
+
+
+'Notes
+note as n1
+    <b>Class Diagram by</b>
+    <b>Andreas Rovelt & Jonas Meinert Larsen</b>
+    <b>Version 1.0</b>
+    <b>Date: <color :blue>27-03-2025</color></b>
+end note
 
 @enduml

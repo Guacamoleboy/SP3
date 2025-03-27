@@ -44,8 +44,9 @@ public class Program {
                 int userAge = Integer.parseInt(values[2].trim());
                 String userGender = values[3].trim();
                 String userBanned = values[4].trim();
+                String userPassword = values[5].trim();
 
-                createUser(username, userID, userAge, userGender, userBanned);
+                createUser(username, userID, userAge, userGender, userBanned, userPassword);
                 ID++;
                 userCount++;
 
@@ -101,6 +102,7 @@ public class Program {
     public void registerUser(){
 
         String playerName = ui.promptText("Please enter a username..");
+        String playerPassword = ui.promptText("Please enter a password..");
         int playerAge = ui.promptNumeric("Please enter your age..");
         String playerGender = ui.promptText("Please enter your gender..");
         String playerBanned = "No";
@@ -119,7 +121,7 @@ public class Program {
 
         // What if a user enters nothing? Blank. Or a number? We probably only want names.
 
-        this.createUser(playerName, ID, playerAge, playerGender, playerBanned);
+        this.createUser(playerName, ID, playerAge, playerGender, playerBanned, playerPassword);
 
 
     }
@@ -129,7 +131,27 @@ public class Program {
     public void devLogin(){ // Hidden login for devs & admins
 
         String devUser = ui.promptText("Developer login page\nEnter username:");
-        String devPass = ui.promptText("Enter password:");
+        String devPass = "";
+
+        if(devUser.equalsIgnoreCase("dev") || devUser.equalsIgnoreCase("admin")){
+            devPass = ui.promptText("\nHello, " + devUser + "\nEnter password:");
+
+            if(devUser.equalsIgnoreCase("dev") && devPass.equalsIgnoreCase("dev")){
+                // Forward to dev menu
+                System.out.println("Dev access gained"); // Placeholder & Debug
+            }
+
+            if(devUser.equalsIgnoreCase("admin") && devPass.equalsIgnoreCase("admin")){
+                // Forward to dev menu
+                System.out.println("Dev access gained"); // Placeholder & Debug
+            }
+
+            // Allows devs to try again if failed
+            ui.promptBinary("Access denied. Try again?");
+
+        }
+
+
 
     }
 
@@ -152,9 +174,9 @@ public class Program {
 
     // ________________________________________________________
 
-    public void createUser(String name, int ID, int age, String gender, String banned){
+    public void createUser(String name, int ID, int age, String gender, String banned, String password){
 
-        User u = new User(name, ID, age, gender, banned);
+        User u = new User(name, ID, age, gender, banned, password);
         user.add(u);
 
     }
@@ -188,7 +210,7 @@ public class Program {
 
         }
 
-        io.saveData(playerData, "data/userData.csv", "Name, ID, Age, Gender, Banned");
+        io.saveData(playerData, "data/userData.csv", "Name, ID, Age, Gender, Banned, Password");
         ui.displayMsg("Program has saved data. Shutting down...");
 
     }

@@ -4,6 +4,7 @@ public class User {
 
     // Attributes
     private String name;
+    private String password;
     private int ID;
     private int age;
     private String gender;
@@ -11,13 +12,14 @@ public class User {
 
     // ________________________________________________________
 
-    public User(String name, int ID, int age, String gender, String banned){
+    public User(String name, int ID, int age, String gender, String banned, String password){
 
         this.name = name;
         this.ID = ID;
         this.age = age;
         this.gender = gender;
         this.banned = banned;
+        this.password = password;
 
     } // Constructor
 
@@ -43,7 +45,7 @@ public class User {
 
     public String toCSV(){
 
-        return name + ", " + ID + ", " + age + ", " + gender + ", " + banned;
+        return name + ", " + ID + ", " + age + ", " + gender + ", " + banned + ", " + password;
 
     }
 

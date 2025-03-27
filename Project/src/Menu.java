@@ -1,32 +1,23 @@
-public class DevMenu extends Menu{ // Menu for devs
+public abstract class Menu {
 
     // Attributes
 
     // ________________________________________________________
 
-    public DevMenu(){
+    public Menu(){
 
     }
 
     // ________________________________________________________
 
-    @Override
-    public void startSession(){
-
-    }
+    public abstract void startSession();
 
     // ________________________________________________________
 
-    @Override
-    public void endSession(){
-
-    }
+    public abstract void endSession();
 
     // ________________________________________________________
 
-    @Override
-    public void runMenuLoop(){
-
-    }
+    public abstract void runMenuLoop();
 
 }

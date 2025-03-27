@@ -1,3 +1,6 @@
 Name, ID, Age, Gender, Banned
 Jonas, 1, 69, Male, No
 Andreas, 2, 1, Female, No
+Dev, 3, 0, Dog, No
+Admin, 4, 0, Cat, no
+Gedelort, 5, 0, Female, No

@@ -69,23 +69,29 @@ public class Program {
 
     public void checkForAccount(){
 
-        String startSessionAnswer = ui.promptText("Do you have an account?");
+        String startSessionAnswer = ui.promptText("Do you have an account?").toLowerCase();
 
-        if(startSessionAnswer.equalsIgnoreCase("yes")){
-            login();
-        } else if (startSessionAnswer.equalsIgnoreCase("no")) {
-            registerUser();
-        } else if (startSessionAnswer.equalsIgnoreCase("y")) {
-            login();
-        } else if (startSessionAnswer.equalsIgnoreCase("dev")) {
-            devLogin();
-        } else if (startSessionAnswer.equalsIgnoreCase("admin")) {
-            devLogin();
-        } else if (startSessionAnswer.equalsIgnoreCase("n")) {
-            registerUser();
-        } else {
-            System.out.println("Invalid input.. Please try again!");
-            checkForAccount();
+        switch (startSessionAnswer){
+            case "yes":
+                login();
+                break;
+            case "y":
+                login();
+                break;
+            case "no":
+                registerUser();
+                break;
+            case "n":
+                registerUser();
+                break;
+            case "dev":
+                devLogin();
+                break;
+            case "admin":
+                devLogin();
+                break;
+            default:
+                checkForAccount();
         }
 
     }

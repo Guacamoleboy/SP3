@@ -7,15 +7,17 @@ public class User {
     private int ID;
     private int age;
     private String gender;
+    private String banned;
 
     // ________________________________________________________
 
-    public User(String name, int ID, int age, String gender){
+    public User(String name, int ID, int age, String gender, String banned){
 
         this.name = name;
         this.ID = ID;
         this.age = age;
         this.gender = gender;
+        this.banned = banned;
 
     } // Constructor
 
@@ -41,7 +43,7 @@ public class User {
 
     public String toCSV(){
 
-        return name + ", " + ID + ", " + age + ", " + gender;
+        return name + ", " + ID + ", " + age + ", " + gender + ", " + banned;
 
     }
 

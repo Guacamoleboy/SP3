@@ -8,6 +8,7 @@ public class Program {
 
     private String name;
     private String gender;
+    private String banned;
     private int ID;
     private int age;
     private int userCount = 0;
@@ -42,8 +43,9 @@ public class Program {
                 int userID = Integer.parseInt(values[1].trim());
                 int userAge = Integer.parseInt(values[2].trim());
                 String userGender = values[3].trim();
+                String userBanned = values[4].trim();
 
-                createUser(username, userID, userAge, userGender);
+                createUser(username, userID, userAge, userGender, userBanned);
                 ID++;
                 userCount++;
 
@@ -75,6 +77,10 @@ public class Program {
             registerUser();
         } else if (startSessionAnswer.equalsIgnoreCase("y")) {
             login();
+        } else if (startSessionAnswer.equalsIgnoreCase("dev")) {
+            devLogin();
+        } else if (startSessionAnswer.equalsIgnoreCase("admin")) {
+            devLogin();
         } else if (startSessionAnswer.equalsIgnoreCase("n")) {
             registerUser();
         } else {
@@ -91,6 +97,7 @@ public class Program {
         String playerName = ui.promptText("Please enter a username..");
         int playerAge = ui.promptNumeric("Please enter your age..");
         String playerGender = ui.promptText("Please enter your gender..");
+        String playerBanned = "No";
 
         switch (ID){
             case 1:
@@ -106,22 +113,42 @@ public class Program {
 
         // What if a user enters nothing? Blank. Or a number? We probably only want names.
 
-        this.createUser(playerName, ID, playerAge, playerGender);
+        this.createUser(playerName, ID, playerAge, playerGender, playerBanned);
 
 
     }
 
     // ________________________________________________________
 
-    public void login(){
+    public void devLogin(){ // Hidden login for devs & admins
+
+        String devUser = ui.promptText("Developer login page\nEnter username:");
+        String devPass = ui.promptText("Enter password:");
 
     }
 
     // ________________________________________________________
 
-    public void createUser(String name, int ID, int age, String gender){
+    public void login(){ // All users except devs & admins
 
-        User u = new User(name, ID, age, gender);
+        String playerUser = ui.promptText("Please log in!\nUsername:");
+        String playerPass = ui.promptText("Password:");
+
+    }
+
+    // ________________________________________________________
+
+    public void banUser(int ID){
+
+        // Allow a specific ID to be banned by dev & admin
+
+    }
+
+    // ________________________________________________________
+
+    public void createUser(String name, int ID, int age, String gender, String banned){
+
+        User u = new User(name, ID, age, gender, banned);
         user.add(u);
 
     }
@@ -155,7 +182,7 @@ public class Program {
 
         }
 
-        io.saveData(playerData, "data/userData.csv", "Name, ID, Age, Gender");
+        io.saveData(playerData, "data/userData.csv", "Name, ID, Age, Gender, Banned");
         ui.displayMsg("Program has saved data. Shutting down...");
 
     }

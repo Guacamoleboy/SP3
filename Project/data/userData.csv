@@ -1,6 +1,3 @@
-Name, ID, Age, Gender
-dev, 0, 0, male
-admin, 1, 0, male
-gedelort, 2, 77, male
-cooked, 3, 20, female
-ham, 4, 10, male
+Name, ID, Age, Gender, Banned
+Jonas, 1, 69, Male, No
+Andreas, 2, 1, Female, No

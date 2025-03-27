@@ -14,7 +14,7 @@
     Date
     PhoneNumber
     PasswordConfirmation
-    Choises (ArrayList)
+    Choice (ArrayList)
 
     Last updated: 27-03-2025
     Updated by: Jonas
@@ -70,27 +70,9 @@ public class TextUI { // Our own custom generic TextUI class
         // Added most common user replies so we don't have to rely on y/n only.
 
         switch (choice){
-            case "y":
+            case "y", "yes", "yea", "yup", "yeah", "ya":
                 return true;
-            case "yes":
-                return true;
-            case "yea":
-                return true;
-            case "yup":
-                return true;
-            case "yeah":
-                return true;
-            case "ya":
-                return true;
-            case "n":
-                return false;
-            case "no":
-                return false;
-            case "na":
-                return false;
-            case "nah":
-                return false;
-            case "nope":
+            case "n", "no", "na", "nah", "nope":
                 return false;
             default:
                 promptText("Invalid input.. Try again\n");

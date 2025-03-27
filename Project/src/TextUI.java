@@ -9,7 +9,8 @@
     Text
     Choises (ArrayList)
 
-    Last updated: 26-03-2025
+    Last updated: 27-03-2025
+    Updated by: Jonas
 
 */
 
@@ -54,15 +55,20 @@ public class TextUI { // Our own custom generic TextUI class
 
     public boolean promptBinary(String msg){
 
-        String choice = this.promptText(msg);
+        String choice = this.promptText(msg).toLowerCase();
 
-        if(choice.equalsIgnoreCase("Y")){
-            return true;
-        } else if (choice.equalsIgnoreCase("N")){
-            return false;
+        switch (choice){
+            case "y":
+                return true;
+            case "yes":
+                return true;
+            case "n":
+                return false;
+            case "no":
+                return false;
+            default:
+                return false;
         }
-
-        return false; // Default
 
     }
 

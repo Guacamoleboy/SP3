@@ -10,6 +10,10 @@
     Double
     Char
     CharAZ
+    Email
+    Date
+    PhoneNumber
+    PasswordConfirmation
     Choises (ArrayList)
 
     Last updated: 27-03-2025
@@ -17,7 +21,6 @@
 
 */
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -94,6 +97,17 @@ public class TextUI { // Our own custom generic TextUI class
                 promptBinary(msg);
         }
 
+        /*
+
+        Allow users to suggest new keywords that have failed? Like if I type "nopers"
+        and I genuinely think it's correct and a valid response.. Should I as user
+        be allowed to press "Keyword failed.. Think it's correct? Suggest it for future updates.." ?
+
+        I think it would be a cool little feature.
+
+        */
+
+
         return promptBinary(msg); // Default return value
 
     }
@@ -164,12 +178,13 @@ public class TextUI { // Our own custom generic TextUI class
         displayMsg(msg);
         boolean valid = false;
 
-        while(true){
+        while(!valid){
 
             emailInput = scanner.nextLine().trim();
 
-            if(emailInput.matches("\"^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$\"")){
+            if(emailInput.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")){
 
+                valid = true;
                 return emailInput;
 
             } else {
@@ -179,6 +194,9 @@ public class TextUI { // Our own custom generic TextUI class
             } // If end
 
         } // While end
+
+        // Un-reachable cuz of if-else statement
+        return null;
 
     }
 
@@ -196,7 +214,7 @@ public class TextUI { // Our own custom generic TextUI class
         */
 
         String dateInput;
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-mm-yyyy");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy"); // MM not mm | mm apparently is minutes
         boolean valid = false;
 
         displayMsg(msg + "(dd-mm-yyyy)");
@@ -230,7 +248,7 @@ public class TextUI { // Our own custom generic TextUI class
 
             numberInput = scanner.nextLine().trim();
 
-            if(numberInput.matches("^\\+?[0-9]{10,15}$")){
+            if(numberInput.matches("^\\+?[0-9]{8,8}$")){ // 8,8 allows danish only phone numbers
 
                 return numberInput;
 
@@ -247,6 +265,27 @@ public class TextUI { // Our own custom generic TextUI class
     // ________________________________________________________
 
     public boolean promptPasswordConfirmation(String msg){
+
+        /*
+
+        How to use | Example
+        ____________________
+
+        String playerPassword = ui.promptText("Please enter a password..");
+        boolean passwordTest = false;
+
+        // Allows us to loop over the password part
+        while(!passwordTest){
+
+            passwordTest = ui.promptPasswordConfirmation(playerPassword);
+
+            if(!passwordTest){
+                ui.displayMsg("\nPasswords don't match.. Try again.\n");
+            }
+
+        }
+
+        */
 
         String passwordConfirmation = promptText("Please confirm your password:");
         return msg.equalsIgnoreCase(passwordConfirmation);

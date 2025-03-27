@@ -73,22 +73,13 @@ public class Program {
         String startSessionAnswer = ui.promptText("Do you have an account?").toLowerCase();
 
         switch (startSessionAnswer){
-            case "yes":
+            case "y", "yes", "yea", "yup", "yeah", "ya", "yessir", "yur":
                 login();
                 break;
-            case "y":
-                login();
-                break;
-            case "no":
+            case "n", "no", "na", "nah", "nope":
                 registerUser();
                 break;
-            case "n":
-                registerUser();
-                break;
-            case "dev":
-                devLogin();
-                break;
-            case "admin":
+            case "dev", "admin", "administrator", "developer":
                 devLogin();
                 break;
             default:
@@ -226,6 +217,8 @@ public class Program {
     // ________________________________________________________
 
     public void runProgramLoop(){
+
+        // Not needed?
 
     }
 

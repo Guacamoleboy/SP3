@@ -70,7 +70,7 @@ public class TextUI { // Our own custom generic TextUI class
         // Added most common user replies so we don't have to rely on y/n only.
 
         switch (choice){
-            case "y", "yes", "yea", "yup", "yeah", "ya":
+            case "y", "yes", "yea", "yup", "yeah", "ya", "yessir", "yur":
                 return true;
             case "n", "no", "na", "nah", "nope":
                 return false;

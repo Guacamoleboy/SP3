@@ -2,6 +2,17 @@
 
 'By Andreas Rovelt & Jonas Meinert Larsen
 
+'Visuals
+<style>
+document {
+  BackGroundColor grey
+}
+root {
+  FontColor #?black:white
+  LineColor black
+}
+</style>
+
 'Objects
 object Program
 object FileIO
@@ -15,7 +26,23 @@ object DevMenu
 object Menu
 
 'Sequence
+Main <-- Program #line:black;line.bold;
+Program <-- TextUI #line:black;line.bold;
+Program <-- FileIO #line:black;line.bold;
+Program <-- User #line:black;line.bold;
+User <-- Register #line:black;line.bold;
+User <-- Login #line:black;line.bold;
+Register <-- Login #line:black;line.bold;
+Login <-- Menu #line:black;line.bold;
+Menu <|-- DevMenu #line:black;line.bold;
+Menu <|-- MainMenu #line:black;line.bold;
 
-
+'Notes
+note as n1
+    <b>Domain Model by:</b>
+    <b>Andreas Rovelt & Jonas Meinert Larsen</b>
+    <b>Version 1.0</b>
+    <b>Date: <color :blue>27-03-2025</color></b>
+end note
 
 @enduml

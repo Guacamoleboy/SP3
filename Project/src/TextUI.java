@@ -71,7 +71,7 @@ public class TextUI { // Our own custom generic TextUI class
                 promptBinary(msg);
         }
 
-        return false;
+        return promptBinary(msg); // Default return value
 
     }
 

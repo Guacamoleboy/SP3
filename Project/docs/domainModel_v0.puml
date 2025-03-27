@@ -1,0 +1,21 @@
+@startuml
+
+'By Andreas Rovelt & Jonas Meinert Larsen
+
+'Objects
+object Program
+object FileIO
+object TextUI
+object User
+object Main
+object Register
+object Login
+object Dev
+object MainMenu
+object DevMenu
+
+'Sequence
+
+
+
+@enduml

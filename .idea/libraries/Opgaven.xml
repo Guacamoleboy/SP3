@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Opgaven">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Opgaven/billeder-til_serier.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Opgaven/billeder-til-film.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

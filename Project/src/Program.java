@@ -109,19 +109,34 @@ public class Program {
 
         switch (ID){
             case 1:
-                System.out.println("\nWow! First user ever.. Thank you so much.\n");
+                ui.displayMsg("\nWow! First user ever.. Thank you so much.\n");
                 break;
             case 100:
-                System.out.println("You're our customer number 100! Thank you so much.");
+                ui.displayMsg("You're our customer number 100! Thank you so much.");
                 break;
             case 1000:
-                System.out.println("There were 999 accounts before you signed up. On behalf of COMPANY - Thank you for being number 1000!");
+                ui.displayMsg("There were 999 accounts before you signed up. On behalf of COMPANY - Thank you for being number 1000!");
+                break;
+            case 10000:
+                ui.displayMsg("You are account number 10.0000! Amazing. Thank you so much for being part of our journey.");
                 break;
         }
 
         // What if a user enters nothing? Blank. Or a number? We probably only want names.
 
         this.createUser(playerName, ID, playerAge, playerGender, playerBanned, playerPassword);
+
+        ui.displayMsg("\nThanks for making an account. Sending you to login page..\n");
+
+        // I think it's great having some sort of slowdown here
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            System.out.println("Error. Contact a developer..");
+        }
+
+        // Sending user to login method
+        login();
 
 
     }
@@ -130,7 +145,7 @@ public class Program {
 
     public void devLogin(){ // Hidden login for devs & admins
 
-        String devUser = ui.promptText("Developer login page\nEnter username:");
+        String devUser = ui.promptText("\nDeveloper login page\nEnter username:");
         String devPass = "";
 
         if(devUser.equalsIgnoreCase("dev") || devUser.equalsIgnoreCase("admin")){
@@ -146,13 +161,12 @@ public class Program {
                 System.out.println("Dev access gained"); // Placeholder & Debug
             }
 
-            // Allows devs to try again if failed
-            ui.promptBinary("Access denied. Try again?");
-
         }
 
-
-
+        /*
+        // Allows devs to try again if failed
+        ui.promptBinary("Access denied. Try again?");
+        */
     }
 
     // ________________________________________________________

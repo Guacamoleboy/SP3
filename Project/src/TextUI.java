@@ -62,9 +62,19 @@ public class TextUI { // Our own custom generic TextUI class
                 return true;
             case "yes":
                 return true;
+            case "yea":
+                return true;
+            case "yup":
+                return true;
+            case "yeah":
+                return true;
+            case "ya":
+                return true;
             case "n":
                 return false;
             case "no":
+                return false;
+            case "nope":
                 return false;
             default:
                 promptText("Invalid input.. Try again\n");

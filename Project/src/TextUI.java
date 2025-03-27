@@ -17,6 +17,10 @@
 
 */
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -149,6 +153,103 @@ public class TextUI { // Our own custom generic TextUI class
         } // While end
 
         return numInput;
+
+    }
+
+    // ________________________________________________________
+
+    public String promptEmail(String msg){
+
+        String emailInput;
+        displayMsg(msg);
+        boolean valid = false;
+
+        while(true){
+
+            emailInput = scanner.nextLine().trim();
+
+            if(emailInput.matches("\"^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$\"")){
+
+                return emailInput;
+
+            } else {
+
+                displayMsg("Invalid format. Please try again..");
+
+            } // If end
+
+        } // While end
+
+    }
+
+    // ________________________________________________________
+
+    public LocalDate promptDate(String msg){
+
+        /*
+
+        How to use
+        __________
+
+        LocalDate testDate = ui.promptDate("Please enter a date..");
+
+        */
+
+        String dateInput;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-mm-yyyy");
+        boolean valid = false;
+
+        displayMsg(msg + "(dd-mm-yyyy)");
+
+        while(true){
+
+            dateInput = scanner.nextLine().trim();
+
+            try{
+
+                return LocalDate.parse(dateInput, dtf);
+
+            } catch (DateTimeParseException e) {
+
+                displayMsg("Invalid input. Try again.. Hint: dd-mm-yyyy");
+
+            } // Try-catch end
+
+        } // While end
+
+    }
+
+    // ________________________________________________________
+
+    public String promptPhoneNumber(String msg){
+
+        String numberInput;
+        displayMsg(msg);
+
+        while(true){
+
+            numberInput = scanner.nextLine().trim();
+
+            if(numberInput.matches("^\\+?[0-9]{10,15}$")){
+
+                return numberInput;
+
+            } else {
+
+                displayMsg("Invalid number.. Try again!");
+
+            }
+
+        }
+
+    }
+
+    // ________________________________________________________
+
+    public boolean promptPasswordConfirmation(String msg){
+
+        String passwordConfirmation = promptText("Please confirm your password:");
+        return msg.equalsIgnoreCase(passwordConfirmation);
 
     }
 

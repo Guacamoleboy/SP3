@@ -102,7 +102,28 @@ public class Program {
     public void registerUser(){
 
         String playerName = ui.promptText("Please enter a username..");
+
+        // Don't allow blank or invalid usernames
+        if(playerName.isBlank() || !playerName.matches("[a-zA-Z]+")){
+            ui.displayMsg("Invalid username.. Please only use alphabetic characters!");
+            return;
+        }
+
+        // Put this into the while loop over passwordTest if you want it to ask user to redo entire password
         String playerPassword = ui.promptText("Please enter a password..");
+        boolean passwordTest = false;
+
+        // Allows us to loop over the password part
+        while(!passwordTest){
+
+            passwordTest = ui.promptPasswordConfirmation(playerPassword);
+
+            if(!passwordTest){
+                ui.displayMsg("\nPasswords don't match.. Try again.\n");
+            }
+
+        }
+
         int playerAge = ui.promptNumeric("Please enter your age..");
         String playerGender = ui.promptText("Please enter your gender..");
         String playerBanned = "No";
@@ -121,8 +142,6 @@ public class Program {
                 ui.displayMsg("You are account number 10.0000! Amazing. Thank you so much for being part of our journey.");
                 break;
         }
-
-        // What if a user enters nothing? Blank. Or a number? We probably only want names.
 
         this.createUser(playerName, ID, playerAge, playerGender, playerBanned, playerPassword);
 

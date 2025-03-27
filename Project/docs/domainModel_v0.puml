@@ -10,9 +10,9 @@ object User
 object Main
 object Register
 object Login
-object Dev
 object MainMenu
 object DevMenu
+object Menu
 
 'Sequence
 

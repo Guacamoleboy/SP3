@@ -67,8 +67,11 @@ public class TextUI { // Our own custom generic TextUI class
             case "no":
                 return false;
             default:
-                return false;
+                promptText("Invalid input.. Try again\n");
+                promptBinary(msg);
         }
+
+        return false;
 
     }
 

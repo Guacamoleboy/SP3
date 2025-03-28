@@ -1,0 +1,44 @@
+@startuml
+
+'By Andreas Rovelt, Jonas Meinert Larsen & Ebou
+'Version 1.0
+'Date: 28-03-2025
+
+'Visuals
+<style>
+document {
+  BackGroundColor grey
+}
+root {
+  FontColor #?black:white
+  LineColor black
+}
+</style>
+
+'Sequence
+Main -> Program: startSession()
+Program -> FileIO: readData()
+FileIO -> Program
+Program -> TextUI: prompts()
+
+loop
+Program -> Register: register()
+Register -> Program: createUser()
+Program -> FileIO: saveData()
+FileIO -> Program
+end loop
+
+Program -> Login: login()
+
+Login -> DevMenu: MainMenu()
+DevMenu -> DevMenu: runMenuLoop()
+Login -> MainMenu: MainMenu()
+MainMenu -> MainMenu: runMenuLoop()
+
+MainMenu -> Program: endSession()
+DevMenu -> Program: endSession()
+Program -> FileIO: saveData()
+FileIO -> Program: endSession()
+
+
+@enduml

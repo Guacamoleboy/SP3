@@ -3,8 +3,8 @@
     Featured in this TextUI
     _______________________
 
-    Prompts:                        Displays:
-    Numeric                         Msg
+    Prompts:                        Displays:                   Random:
+    Numeric                         Msg                         Single (min - max)
     Binary                          List
     Text
     Double
@@ -16,6 +16,8 @@
     PasswordConfirmation
     Gender
     Choice (ArrayList)
+    rollDice
+    RandomLetterAZ
 
     Last updated: 28-03-2025
     Updated by: Jonas
@@ -26,12 +28,14 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class TextUI { // Our own custom generic TextUI class
 
     // Attributes
     Scanner scanner = new Scanner(System.in);
+    Random random = new Random();
 
     // ________________________________________________________
 
@@ -40,6 +44,60 @@ public class TextUI { // Our own custom generic TextUI class
         for(int i = 0; i < list.size(); i++){
             System.out.println(i+1 + ". " + list.get(i));
         }
+
+    }
+
+    // ________________________________________________________
+
+    public int randomSingle(){
+
+        int numberOne = promptNumeric("Please enter a minimum number");
+        int numberTwo = promptNumeric("Please enter a max number");
+
+        int randomNumber = random.nextInt(numberOne, numberTwo);
+        return randomNumber;
+
+    }
+
+    // ________________________________________________________
+
+    public String promptRandomLetterAZ(){
+
+        String input = promptText("Please enter a random letter from A-Z..");
+
+        try {
+
+            if(input.matches("\\d+")){ // Invalid characters handle
+                displayMsg("Please only use valid inputs.");
+            }
+
+            char singleLetter = (char) ('A' + random.nextInt(26)); // A-Z (26)
+            return String.valueOf(singleLetter);
+
+        } catch (IllegalArgumentException e) {
+
+            displayMsg("Invalid input. Try again.");
+            return promptRandomLetterAZ();
+
+        }
+
+    }
+
+    // ________________________________________________________
+
+    public int rollDice(){
+
+        int amountOfDice = promptNumeric("Please enter how many dices you wish to use");
+        int totalSum = 0;
+        int[] dice = new int[amountOfDice];
+
+        for(int i = 0; i < dice.length; i++){
+            dice[i] = random.nextInt(1, 7);
+            displayMsg("You rolled a " + dice[i]);
+            totalSum += dice[i];
+        }
+
+        return totalSum;
 
     }
 

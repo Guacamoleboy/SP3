@@ -4,9 +4,10 @@
     _______________________
 
     saveData
-    readData
+    readData (ArrayList)
+    readData (Array)
 
-    Last updated: 26-03-2025
+    Last updated: 28-03-2025
 
 */
 
@@ -66,6 +67,32 @@ public class FileIO { // Custom generic FileIO
         } // Try-catch end
 
         return data; // Return ArrayList of type String
+
+    }
+
+    public String[] readData(String path, int length) {
+
+        String[] data = new String[length];
+        File file = new File(path);
+
+        try{
+            //new scaner created
+            Scanner scan = new Scanner(file);
+            scan.nextLine(); //skip header;
+
+            int i = 0;  // Counter
+
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                data[i]=line;
+                i++;
+            }
+
+        } catch (FileNotFoundException e){
+            System.out.println("File not found: "+ e.getMessage());
+        }
+
+        return data;
 
     }
 

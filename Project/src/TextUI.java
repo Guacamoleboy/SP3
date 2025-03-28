@@ -14,9 +14,10 @@
     Date
     PhoneNumber
     PasswordConfirmation
+    Gender
     Choice (ArrayList)
 
-    Last updated: 27-03-2025
+    Last updated: 28-03-2025
     Updated by: Jonas
 
 */

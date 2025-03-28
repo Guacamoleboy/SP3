@@ -9,6 +9,7 @@
     CSVFixer
 
     Last updated: 28-03-2025
+    Updated by: Jonas
 
 */
 

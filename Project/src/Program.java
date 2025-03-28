@@ -93,6 +93,7 @@ public class Program {
     public void registerUser(){
 
         String playerName = ui.promptText("Please enter a username..");
+        String playerGender = ui.promptGender("Please enter a gender..");
 
         // Don't allow blank or invalid usernames
         if(playerName.isBlank() || !playerName.matches("[a-zA-Z]+")){
@@ -116,7 +117,7 @@ public class Program {
         }
 
         int playerAge = ui.promptNumeric("Please enter your age..");
-        String playerGender = ui.promptText("Please enter your gender..");
+        //String playerGender = ui.promptText("Please enter your gender..");
         String playerBanned = "No";
 
         switch (ID){

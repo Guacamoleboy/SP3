@@ -54,11 +54,38 @@ public class TextUI { // Our own custom generic TextUI class
 
     public String promptText(String msg){
 
-        System.out.println(msg);
+        displayMsg(msg);
         String input = scanner.nextLine();
 
         return input;
 
+    }
+
+    // ________________________________________________________
+
+    public String promptGender(String msg){
+
+        boolean valid = false;
+        String input = "";
+
+        while(!valid){
+
+            displayMsg(msg);
+            input = scanner.nextLine();
+
+            if(input.equalsIgnoreCase("Male") || input.equalsIgnoreCase("Female")){
+
+                valid = true;
+
+            } else {
+
+                displayMsg("\nInvalid input..\n");
+
+            } // If-else end
+
+        } // While end
+
+        return input;
     }
 
     // ________________________________________________________

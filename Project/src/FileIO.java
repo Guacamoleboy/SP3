@@ -74,6 +74,8 @@ public class FileIO { // Custom generic FileIO
 
     // ________________________________________________________
 
+    // Overloading by NOT having same parameters as the original. This allows multiple with same name.
+
     public String[] readData(String path, int length) {
 
         String[] data = new String[length];

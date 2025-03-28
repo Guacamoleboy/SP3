@@ -7,8 +7,10 @@
     readData (ArrayList)
     readData (Array)
     CSVFixer
+    clearData
+    createBackupAndClearFile (Used for clearData)
 
-    Last updated: 28-03-2025
+    Last updated: 29-03-2025
     Updated by: Jonas
 
 */
@@ -193,6 +195,142 @@ public class FileIO { // Custom generic FileIO
 
         }
 
+    }
+
+    // ________________________________________________________
+
+    /*
+
+    How to use:
+    ___________
+
+    clearData("data/userData.csv);
+
+    What it does:
+    _____________
+
+    Takes a .csv file. Reads that file and saves it as a _backup file.
+    The original .csv file then gets all data EXCEPT the header removed.
+    This will allow any .csv file to be totally reset.
+
+    Expected output:
+    ________________
+
+    userData.csv (All data removed except the header)
+    userData_backup.csv (All original data saved in this file)
+
+    Rainy day:
+    __________
+
+    Can make a code that removes the _backup file after x-amount of days. This will ensure
+    that all data is removed at some point and not stored on any servers or databases.
+
+    */
+
+    public void clearData(String path) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user twice to make sure they REALLY want to remove the .csv data.
+        System.out.println("Please confirm twice that you want to remove all data from this .csv file (yes/no):");
+        String response1 = scanner.nextLine().trim();
+
+        if (!response1.equalsIgnoreCase("yes")) {
+            System.out.println("You have typed no. Prompt ending...");
+            return; // Exit prompt
+        }
+
+        System.out.println("Are you really sure you want to delete all data? (yes/no): ");
+        String response2 = scanner.nextLine().trim();
+
+        if (!response2.equalsIgnoreCase("yes")) {
+            System.out.println("You have typed no. Prompt ending...");
+            return; // Exit prompt
+        }
+
+        // If prompts have been passed, go on and remove the data and make a _backup .csv file
+        File originalFile = new File(path);
+
+        if (!originalFile.exists()) {
+            System.out.println("Error. File not found. Check path and try again...");
+            return; // Exit prompt
+        }
+
+        String header = null;
+        StringBuilder fileContent = new StringBuilder();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(originalFile))) {
+
+            String line;
+            int lineNumber = 0;
+
+            // Read the header (first line)
+            if ((header = reader.readLine()) != null) {
+                System.out.println("Header: '" + header + "'");
+            }
+
+            // Output in console
+            while ((line = reader.readLine()) != null) {
+                lineNumber++;
+                fileContent.append(line).append("\n");
+                System.out.println("Line " + (lineNumber + 1) + ": '" + line + "'");
+            }
+
+        } catch (IOException e) {
+
+            System.out.println("Error reading the file.");
+
+        }
+
+        // Backup and clearing data
+        if (header != null && !header.trim().isEmpty()) {
+
+            createBackupAndClearFile(path, header, fileContent.toString());
+
+        } else {
+
+            System.out.println("Original CSV file is empty or header is invalid.");
+
+        } // If-else end
+
+    }
+
+    // ________________________________________________________
+
+    /*
+
+    ** DO NOT REMOVE**
+
+    Used for clearData()
+
+    ** DO NOT REMOVE**
+
+    */
+
+    private void createBackupAndClearFile(String path, String header, String fileContent) {
+        File originalFile = new File(path);
+        String backupFilePath = path.replace(".csv", "_backup.csv");
+
+        // This is needed else it'll fail ()
+        try (BufferedWriter backupWriter = new BufferedWriter(new FileWriter(backupFilePath));
+             BufferedWriter originalWriter = new BufferedWriter(new FileWriter(originalFile, false))){
+
+            backupWriter.write(header);
+            backupWriter.newLine();
+            backupWriter.write(fileContent);
+
+
+            originalWriter.write(header);
+            originalWriter.newLine();
+
+            System.out.println("Backup created: " + backupFilePath);
+            System.out.println("Original file cleared, only header retained.");
+
+        } catch (IOException e) {
+
+            System.out.println("Error while processing the file.");
+
+        }
     }
 
 } // FileIO end

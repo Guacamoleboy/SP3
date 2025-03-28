@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/CSVFixer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/filmData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/filmData.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/seriesData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/seriesData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSVFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileIO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +111,7 @@
       <workItem from="1743147872169" duration="421000" />
       <workItem from="1743166387877" duration="1963000" />
       <workItem from="1743168456863" duration="29000" />
-      <workItem from="1743197839326" duration="692000" />
+      <workItem from="1743197839326" duration="1735000" />
     </task>
     <servers />
   </component>

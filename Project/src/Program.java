@@ -116,10 +116,8 @@ public class Program {
 
         }
 
-        String playerGender = ui.promptGender("Please enter a gender..");
-
+        String playerGender = ui.promptGender("Please enter your gender..");
         int playerAge = ui.promptNumeric("Please enter your age..");
-        //String playerGender = ui.promptText("Please enter your gender..");
         String playerBanned = "No";
 
         switch (ID){

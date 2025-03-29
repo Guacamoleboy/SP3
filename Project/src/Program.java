@@ -222,14 +222,6 @@ public class Program {
 
     // ________________________________________________________
 
-    public void runProgramLoop(){
-
-        // Not needed?
-
-    }
-
-    // ________________________________________________________
-
     public void saveData(){
 
         ArrayList <String> playerData = new ArrayList<>();

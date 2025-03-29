@@ -19,13 +19,19 @@ public class Main { // Client class
 
         // Toggles our program as "p"
         Program p = new Program("Drakeflix");
+
+        /*
+
+        Testing backup when data is cleared. Please don't remove.
+
         FileIO io = new FileIO();
         io.clearData("data/userData.csv");
+        */
 
         // Uses our value "p" to startSession and so on
-        //p.startSession();
+        p.startSession();
         //p.runProgramLoop();
-        //p.endSession();
+        p.endSession();
 
     }
 

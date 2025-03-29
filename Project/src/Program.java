@@ -29,7 +29,7 @@ public class Program {
     public void startSession(){
 
         ArrayList <String> data = io.readData("data/userData.csv");
-        ui.displayMsg("Welcome to " + this.name + ".");
+        ui.displayMsg("\nWelcome to " + this.name + ".\n");
 
         // Allows us to keep adding accounts. Increases ID by 1 each time.
         int maxID = 0;
@@ -92,12 +92,13 @@ public class Program {
 
     public void registerUser(){
 
+        // Currently only supports normal characters. Maybe make it so numbers and symbols are included?
         String playerName = ui.promptText("Please enter a username..");
 
         // Don't allow blank or invalid usernames
         if(playerName.isBlank() || !playerName.matches("[a-zA-Z]+")){
-            ui.displayMsg("Invalid username.. Please only use alphabetic characters!");
-            return;
+            ui.displayMsg("Invalid username.. Please only use alphabetic characters!\n");
+            registerUser(); // Recursion
         }
 
         // Put this into the while loop over passwordTest if you want it to ask user to redo entire password
@@ -241,7 +242,8 @@ public class Program {
         }
 
         io.saveData(playerData, "data/userData.csv", "Username, ID, Age, Gender, Password, Banned");
-        ui.displayMsg("Program has saved data.");
+
+        //ui.displayMsg("Program has saved data."); || DEBUG
 
     }
 

@@ -1,9 +1,7 @@
-import java.util.*;
-
 public class User {
 
     // Attributes
-    private String name;
+    private String username;
     private String password;
     private int ID;
     private int age;
@@ -12,9 +10,9 @@ public class User {
 
     // ________________________________________________________
 
-    public User(String name, int ID, int age, String gender, String banned, String password){
+    public User(String username, int ID, int age, String gender, String banned, String password){
 
-        this.name = name;
+        this.username = username;
         this.ID = ID;
         this.age = age;
         this.gender = gender;
@@ -25,27 +23,9 @@ public class User {
 
     // ________________________________________________________
 
-    public String fixCSV(){
-
-        /*
-
-        Some fields in our data has under the max data fields. So by default we have like
-        16 fields that needs to be filled. Some of our movies / series are under that. This
-        means our github .csv file looks stupid. Need to fix that here by adding 0 untill maxNumber
-        has been reached.
-
-        */
-
-        // Placeholder for now.
-        return name;
-
-    }
-
-    // ________________________________________________________
-
     public String toCSV(){
 
-        return name + ", " + ID + ", " + age + ", " + gender + ", " + banned + ", " + password;
+        return this.username + ", " + this.ID + ", " + this.age + ", " + this.gender + ", " + this.password + ", " + this.banned;
 
     }
 
@@ -53,7 +33,7 @@ public class User {
 
     public String getName(){
 
-        return this.name;
+        return this.username;
 
     }
 

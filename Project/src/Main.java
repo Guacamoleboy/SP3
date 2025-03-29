@@ -31,7 +31,6 @@ public class Main { // Client class
         // Uses our value "p" to startSession and so on
         p.startSession();
         //p.runProgramLoop();
-        p.endSession();
 
     }
 

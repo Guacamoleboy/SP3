@@ -1,3 +1,2 @@
-Name, ID, Age, Gender, Password, Banned
-Dev, 0, 0, Dog, Dev, No
-Admin, 1, 0, Cat, Admin, No
+Username, ID, Age, Gender, Password, Banned
+Shrek, 1, 69, Male, No, Shrek

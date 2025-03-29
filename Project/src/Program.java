@@ -43,8 +43,8 @@ public class Program {
                 int userID = Integer.parseInt(values[1].trim());
                 int userAge = Integer.parseInt(values[2].trim());
                 String userGender = values[3].trim();
-                String userBanned = values[4].trim();
-                String userPassword = values[5].trim();
+                String userPassword = values[4].trim();
+                String userBanned = values[5].trim();
 
                 createUser(username, userID, userAge, userGender, userBanned, userPassword);
                 ID++;
@@ -93,7 +93,6 @@ public class Program {
     public void registerUser(){
 
         String playerName = ui.promptText("Please enter a username..");
-        String playerGender = ui.promptGender("Please enter a gender..");
 
         // Don't allow blank or invalid usernames
         if(playerName.isBlank() || !playerName.matches("[a-zA-Z]+")){
@@ -116,6 +115,8 @@ public class Program {
 
         }
 
+        String playerGender = ui.promptGender("Please enter a gender..");
+
         int playerAge = ui.promptNumeric("Please enter your age..");
         //String playerGender = ui.promptText("Please enter your gender..");
         String playerBanned = "No";
@@ -135,9 +136,12 @@ public class Program {
                 break;
         }
 
-        this.createUser(playerName, ID, playerAge, playerGender, playerBanned, playerPassword);
+        createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned);
 
         ui.displayMsg("\nThanks for making an account. Sending you to login page..\n");
+
+        // Saves our data
+        saveData();
 
         // I think it's great having some sort of slowdown here
         try {
@@ -198,9 +202,9 @@ public class Program {
 
     // ________________________________________________________
 
-    public void createUser(String name, int ID, int age, String gender, String banned, String password){
+    public void createUser(String username, int ID, int age, String gender, String password, String banned){
 
-        User u = new User(name, ID, age, gender, banned, password);
+        User u = new User(username, ID, age, gender, password, banned);
         user.add(u);
 
     }
@@ -225,7 +229,7 @@ public class Program {
 
     // ________________________________________________________
 
-    public void endSession(){
+    public void saveData(){
 
         ArrayList <String> playerData = new ArrayList<>();
 
@@ -236,8 +240,8 @@ public class Program {
 
         }
 
-        io.saveData(playerData, "data/userData.csv", "Name, ID, Age, Gender, Banned, Password");
-        ui.displayMsg("Program has saved data. Shutting down...");
+        io.saveData(playerData, "data/userData.csv", "Username, ID, Age, Gender, Password, Banned");
+        ui.displayMsg("Program has saved data.");
 
     }
 

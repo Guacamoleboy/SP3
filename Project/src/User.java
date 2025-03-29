@@ -40,17 +40,13 @@ public class User {
     // ________________________________________________________
 
     public String getName(){
-
         return this.username;
-
     }
 
     // ________________________________________________________
 
     public int getID(){
-
         return this.ID;
-
     }
 
     // ________________________________________________________
@@ -63,6 +59,12 @@ public class User {
 
     public String getGender(){
         return this.gender;
+    }
+
+    // ________________________________________________________
+
+    public String getBanned(){
+        return this.banned;
     }
 
 }

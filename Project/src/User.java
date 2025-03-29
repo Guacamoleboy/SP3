@@ -31,6 +31,14 @@ public class User {
 
     // ________________________________________________________
 
+    public String toCSVSuggest(String value, int ID, String added){
+
+        return value + ", " + ID + ", " + added;
+
+    }
+
+    // ________________________________________________________
+
     public String getName(){
 
         return this.username;

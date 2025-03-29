@@ -7,6 +7,7 @@ public class Program {
     private static FileIO io = new FileIO();
 
     private String name;
+    private String startSessionAnswer;
     private String gender;
     private String banned;
     private int ID;
@@ -70,7 +71,7 @@ public class Program {
 
     public void checkForAccount(){
 
-        String startSessionAnswer = ui.promptText("Do you have an account?").toLowerCase();
+        startSessionAnswer = ui.promptText("Do you have an account?").toLowerCase();
 
         switch (startSessionAnswer){
             case "y", "yes", "yea", "yup", "yeah", "ya", "yessir", "yur":
@@ -83,7 +84,16 @@ public class Program {
                 devLogin();
                 break;
             default:
+
+                boolean suggest = ui.promptBinary("\nWrong input.. Do you think it's a valid input?");
+
+                if(suggest){
+                    ui.displayMsg("\nThanks for your suggestion.. We will check it soon!\n");
+                    saveDataSuggest();
+                }
+
                 checkForAccount();
+
         }
 
     }
@@ -234,6 +244,28 @@ public class Program {
         io.saveData(playerData, "data/userData.csv", "Username, ID, Age, Gender, Password, Banned");
 
         //ui.displayMsg("Program has saved data."); || DEBUG
+
+    }
+
+    // ________________________________________________________
+
+    public void saveDataSuggest(){
+
+        ArrayList <String> suggestData = new ArrayList<>();
+        int suggestID = 0;
+        String added = "No";
+
+        for(User u : user){
+
+            suggestID++;
+            String s = u.toCSVSuggest(startSessionAnswer, suggestID, added);
+            suggestData.add(s);
+
+        }
+
+        io.saveData(suggestData, "data/suggestPrompts.csv", "Value, ID, Added");
+
+        //ui.displayMsg("Suggestion Prompt has saved data."); || DEBUG
 
     }
 

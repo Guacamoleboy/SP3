@@ -308,28 +308,43 @@ public class FileIO { // Custom generic FileIO
     */
 
     private void createBackupAndClearFile(String path, String header, String fileContent) {
+
         File originalFile = new File(path);
-        String backupFilePath = path.replace(".csv", "_backup.csv");
+        String originalFileName = new File(path).getName().replace(".csv", "");
+        String backupDir = "data/backup/";
+        String backupBaseName = backupDir + originalFileName + "_backup";
+        String backupFilePath = backupBaseName + ".csv";
 
-        // This is needed else it'll fail ()
-        try (BufferedWriter backupWriter = new BufferedWriter(new FileWriter(backupFilePath));
-             BufferedWriter originalWriter = new BufferedWriter(new FileWriter(originalFile, false))){
+        // Ensure unique filename by appending a number if needed
+        int count = 1;
+        while (new File(backupFilePath).exists()) {
+            backupFilePath = backupBaseName + "_" + count + ".csv";
+            count++;
+        }
 
-            backupWriter.write(header);
-            backupWriter.newLine();
-            backupWriter.write(fileContent);
+        try {
+            // Ensure backup directory exists
+            File backupDirectory = new File(backupDir);
+            if (!backupDirectory.exists()) {
+                backupDirectory.mkdirs();
+            }
 
+            try (BufferedWriter backupWriter = new BufferedWriter(new FileWriter(backupFilePath));
+                 BufferedWriter originalWriter = new BufferedWriter(new FileWriter(originalFile, false))) {
 
-            originalWriter.write(header);
-            originalWriter.newLine();
+                backupWriter.write(header);
+                backupWriter.newLine();
+                backupWriter.write(fileContent);
 
-            System.out.println("Backup created: " + backupFilePath);
-            System.out.println("Original file cleared, only header retained.");
+                originalWriter.write(header);
+                originalWriter.newLine();
+
+                System.out.println("Backup created: " + backupFilePath);
+                System.out.println("Original file cleared, only header retained.");
+            }
 
         } catch (IOException e) {
-
             System.out.println("Error while processing the file.");
-
         }
     }
 

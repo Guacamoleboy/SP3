@@ -18,8 +18,10 @@
     Choice (ArrayList)
     rollDice
     RandomLetterAZ
+    TextColor (console)
+    BackgroundColor (console)
 
-    Last updated: 28-03-2025
+    Last updated: 30-03-2025
     Updated by: Jonas
 
 */
@@ -443,6 +445,88 @@ public class TextUI { // Our own custom generic TextUI class
         }
 
         return choices;
+
+    }
+
+    // ________________________________________________________
+
+    /*
+
+    How to use:
+    ___________
+
+    ui.displayMsg(ui.promptTextColor("red") + "Netflix" + ui.promptTextColor("reset"));
+
+    */
+
+    public String promptTextColor(String msg){
+
+        switch(msg.toLowerCase()){
+
+            case "black":
+                return "\u001B[30m";
+            case "red":
+                return "\u001B[31m";
+            case "green":
+                return "\u001B[32m";
+            case "yellow":
+                return "\u001B[33m";
+            case "blue":
+                return "\u001B[34m";
+            case "purple":
+                return "\u001B[35m";
+            case "cyan":
+                return "\u001B[36m";
+            case "white":
+                return "\u001B[37m";
+            case "reset":
+                return "\u001B[0m";
+            default:
+                displayMsg("INVALID COLOR");
+                return "|invalid color|";
+
+        } // Switch-case end
+
+    }
+
+    // ________________________________________________________
+
+    /*
+
+    How to use:
+    ___________
+
+    ui.displayMsg(ui.promptTextColor("red") + ui.promptBackgroundColor("white") + "Netflix" + ui.promptTextColor("reset"));
+
+    */
+
+    public String promptBackgroundColor(String msg){
+
+        switch(msg.toLowerCase()){
+
+            case "black":
+                return "\u001B[40m";
+            case "red":
+                return "\u001B[41m";
+            case "green":
+                return "\u001B[42m";
+            case "yellow":
+                return "\u001B[43m";
+            case "blue":
+                return "\u001B[44m";
+            case "purple":
+                return "\u001B[45m";
+            case "cyan":
+                return "\u001B[46m";
+            case "white":
+                return "\u001B[47m";
+            case "reset":
+                return "\u001B[0m";
+            default:
+                displayMsg("INVALID BACKGROUND COLOR");
+                return "|invalid background color|";
+
+        } // Switch-case end
 
     }
 

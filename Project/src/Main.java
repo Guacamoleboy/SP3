@@ -1,7 +1,7 @@
 /*
 
     Authors: Andreas Rovelt, Jonas Meinert Larsen & Ebou
-    Version 1.0
+    Version 0.2.0
     SP3
 
     Comments:
@@ -12,13 +12,14 @@
 public class Main { // Client class
 
     // Attributes
+    private static TextUI ui = new TextUI();
 
     // ________________________________________________________
 
     public static void main(String[] args) {
 
         // Toggles our program as "p"
-        Program p = new Program("Drakeflix");
+        Program p = new Program(ui.promptTextColor("red") + "Drakeflix" + ui.promptTextColor("reset"));
 
         /*
 

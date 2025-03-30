@@ -9,8 +9,9 @@
     CSVFixer
     clearData
     createBackupAndClearFile (Used for clearData)
+    deleteAfter30Days
 
-    Last updated: 29-03-2025
+    Last updated: 30-03-2025
     Updated by: Jonas
 
 */
@@ -301,7 +302,7 @@ public class FileIO { // Custom generic FileIO
 
     ** DO NOT REMOVE**
 
-    Used for clearData()
+         Used for clearData()
 
     ** DO NOT REMOVE**
 
@@ -346,6 +347,12 @@ public class FileIO { // Custom generic FileIO
         } catch (IOException e) {
             System.out.println("Error while processing the file.");
         }
+    }
+
+    // ________________________________________________________
+
+    public void deleteAfter30Days(String path, String endsWith){
+
     }
 
 } // FileIO end

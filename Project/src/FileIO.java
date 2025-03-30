@@ -16,8 +16,13 @@
 
 */
 
+import java.nio.file.Files;
+import java.nio.file.Path; // Read meta data from file
+import java.nio.file.Paths; // Read meta data from file
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
 import java.io.*;
+import java.util.concurrent.TimeUnit;
 
 public class FileIO { // Custom generic FileIO
 
@@ -226,9 +231,16 @@ public class FileIO { // Custom generic FileIO
     Can make a code that removes the _backup file after x-amount of days. This will ensure
     that all data is removed at some point and not stored on any servers or databases.
 
+    Important:
+    __________
+
+    dirPath = "data/backup/
+    fileEnding = "_backup"
+    fileFormat = ".csv"
+
     */
 
-    public void clearData(String path) {
+    public void clearData(String path, String dirPath, String fileEnding, String fileFormat) {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -286,7 +298,7 @@ public class FileIO { // Custom generic FileIO
         // Backup and clearing data
         if (header != null && !header.trim().isEmpty()) {
 
-            createBackupAndClearFile(path, header, fileContent.toString());
+            createBackupAndClearFile(path, header, fileContent.toString(), dirPath, fileEnding, fileFormat);
 
         } else {
 
@@ -300,6 +312,13 @@ public class FileIO { // Custom generic FileIO
 
     /*
 
+    Important:
+    __________
+
+    dirPath = "data/backup/
+    fileEnding = "_backup"
+    fileFormat = ".csv"
+
     ** DO NOT REMOVE**
 
          Used for clearData()
@@ -308,18 +327,18 @@ public class FileIO { // Custom generic FileIO
 
     */
 
-    private void createBackupAndClearFile(String path, String header, String fileContent) {
+    private void createBackupAndClearFile(String path, String header, String fileContent, String dirPath, String fileEnding, String fileFormat) {
 
         File originalFile = new File(path);
-        String originalFileName = new File(path).getName().replace(".csv", "");
-        String backupDir = "data/backup/";
-        String backupBaseName = backupDir + originalFileName + "_backup";
-        String backupFilePath = backupBaseName + ".csv";
+        String originalFileName = new File(path).getName().replace(fileFormat, "");
+        String backupDir = dirPath;
+        String backupBaseName = backupDir + originalFileName + fileEnding;
+        String backupFilePath = backupBaseName + fileFormat;
 
         // Ensure unique filename by appending a number if needed
         int count = 1;
         while (new File(backupFilePath).exists()) {
-            backupFilePath = backupBaseName + "_" + count + ".csv";
+            backupFilePath = backupBaseName + "_" + count + fileFormat;
             count++;
         }
 
@@ -351,8 +370,101 @@ public class FileIO { // Custom generic FileIO
 
     // ________________________________________________________
 
-    public void deleteAfter30Days(String path, String endsWith){
+    /*
 
-    }
+    How to use:
+    ___________
+
+    FileIO io = new FileIO();
+    io.deleteAfter30Days("data/backup/", "_backup.csv")
+
+    Expected output:
+    ________________
+
+    Files >= 30 days == REMOVED
+    Files < 30 days == NOT REMOVED BUT DISPLAYED
+    ERROR == Display error and why it's failing
+
+    Cost / Benefit:
+    _______________
+
+    Should only be prompted like once per 7 days.
+
+    Rainy day:
+    __________
+
+    Make the method run automaticly after 7 days.
+
+    */
+
+    public void deleteAfter30Days(String folderPath, String endsWith){
+
+        // File object with our directory (NOT OUR .csv FILE)
+        File file = new File(folderPath);
+
+        // Checks if our path exist and is a directory first
+        if(file.exists() && file.isDirectory()){
+
+            // Array to hold our files with _backup.csv ending
+            File[] files = file.listFiles((dir, name) -> name.endsWith(endsWith));
+
+            if(files != null && files.length > 0){
+
+                // For-each to loop through files
+                for(File f : files){
+
+                    // Try catch to catch exceptions
+                    try{
+
+                        Path p = Paths.get(f.getAbsolutePath());
+                        BasicFileAttributes attributes = Files.readAttributes(p, BasicFileAttributes.class);
+                        long creationTimeMilliseconds = attributes.creationTime().toMillis();
+                        long currentTimeMilliseconds = System.currentTimeMillis();
+
+                        // Convert our time from milliseconds to days
+                        long ageInMilliseconds = currentTimeMilliseconds - creationTimeMilliseconds;
+                        long ageInDays = TimeUnit.MILLISECONDS.toDays(ageInMilliseconds);
+
+                        if(ageInDays >= 30){
+
+                            boolean deleted = f.delete();
+
+                            if(deleted){
+
+                                System.out.println("File deleted: " + f.getName());
+
+                            } else {
+
+                                System.out.println("Failed to removed file: " + f.getName());
+
+                            } // If-end (4)
+
+                        } else {
+
+                            System.out.println("Not yet 30 days: " + f.getName() + " | Age: " + ageInDays + " days old.");
+
+                        } // If-end (3)
+
+                    } catch (Exception e) {
+
+                        System.out.println("Error. Please try again.");
+
+                    } // Try-catch end
+
+                } // For-each end
+
+            } else {
+
+                System.out.println("No " + endsWith + " files found in this directory..");
+
+            } // If-end (2)
+
+        } else {
+
+            System.out.println("Invalid directory path.. Please try again.");
+
+        } // If-end (MAIN)
+
+    } // Class end
 
 } // FileIO end

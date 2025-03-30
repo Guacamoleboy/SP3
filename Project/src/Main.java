@@ -13,21 +13,17 @@ public class Main { // Client class
 
     // Attributes
     private static TextUI ui = new TextUI();
+    private static FileIO io = new FileIO();
 
     // ________________________________________________________
 
     public static void main(String[] args) {
 
         // Toggles our program as "p"
-        Program p = new Program(ui.promptTextColor("red") + "Drakeflix" + ui.promptTextColor("reset"));
+        Program p = new Program(ui.promptTextColor("red") +"Drakeflix" + ui.promptTextColor("reset"));
 
-        /*
-
-        Testing backup when data is cleared. Please don't remove.
-
-        FileIO io = new FileIO();
-        io.clearData("data/userData.csv");
-        */
+        System.out.println("\n");
+        io.deleteAfter30Days("data/backup/", "_backup.csv");
 
         // Uses our value "p" to startSession and so on
         p.startSession();

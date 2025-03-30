@@ -20,6 +20,7 @@
     RandomLetterAZ
     TextColor (console)
     BackgroundColor (console)
+    TextFormat (console)
 
     Last updated: 30-03-2025
     Updated by: Jonas
@@ -479,6 +480,22 @@ public class TextUI { // Our own custom generic TextUI class
                 return "\u001B[36m";
             case "white":
                 return "\u001B[37m";
+            case "grey":
+                return "\u001B[90m";
+            case "bright red":
+                return "\u001B[91m";
+            case "bright green":
+                return "\u001B[92m";
+            case "bright yellow":
+                return "\u001B[93m";
+            case "bright blue":
+                return "\u001B[94m";
+            case "bright purple":
+                return "\u001B[95m";
+            case "bright cyan":
+                return "\u001B[96m";
+            case "bright white":
+                return "\u001B[97m";
             case "reset":
                 return "\u001B[0m";
             default:
@@ -520,11 +537,54 @@ public class TextUI { // Our own custom generic TextUI class
                 return "\u001B[46m";
             case "white":
                 return "\u001B[47m";
+            case "grey":
+                return "\u001B[100m";
+            case "bright red":
+                return "\u001B[101m";
+            case "bright green":
+                return "\u001B[102m";
+            case "bright yellow":
+                return "\u001B[103m";
+            case "bright blue":
+                return "\u001B[104m";
+            case "bright purple":
+                return "\u001B[105m";
+            case "bright cyan":
+                return "\u001B[106m";
+            case "bright white":
+                return "\u001B[107m";
             case "reset":
                 return "\u001B[0m";
             default:
                 displayMsg("INVALID BACKGROUND COLOR");
                 return "|invalid background color|";
+
+        } // Switch-case end
+
+    }
+
+    // ________________________________________________________
+
+    public String promptTextFormat(String msg){
+
+        switch(msg.toLowerCase()){
+
+            case "bold":
+                return "\u001B[1m";
+            case "italic":
+                return "\u001B[3m";
+            case "underline":
+                return "\u001B[4m";
+            case "cross out":
+                return "\u001B[9m";
+            case "cross out reset":
+                return "\u001B[29m";
+            case "outline":
+                return "\u001B[51m";
+            case "outline reset":
+                return "\u001B[54m";
+            default:
+                return "|Invalid input|";
 
         } // Switch-case end
 

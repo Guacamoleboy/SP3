@@ -27,6 +27,7 @@ import java.util.concurrent.TimeUnit;
 public class FileIO { // Custom generic FileIO
 
     // Attributes
+    private static final String red = "\u001B[31m";
 
     // ________________________________________________________
 
@@ -245,7 +246,7 @@ public class FileIO { // Custom generic FileIO
         Scanner scanner = new Scanner(System.in);
 
         // Prompt the user twice to make sure they REALLY want to remove the .csv data.
-        System.out.println("Please confirm twice that you want to remove all data from this .csv file (yes/no):");
+        System.out.println("Please confirm twice that you want to remove all data from this .csv file:");
         String response1 = scanner.nextLine().trim();
 
         if (!response1.equalsIgnoreCase("yes")) {
@@ -253,7 +254,7 @@ public class FileIO { // Custom generic FileIO
             return; // Exit prompt
         }
 
-        System.out.println("Are you really sure you want to delete all data? (yes/no): ");
+        System.out.println(red + "Are you really sure you want to delete all data?: ");
         String response2 = scanner.nextLine().trim();
 
         if (!response2.equalsIgnoreCase("yes")) {

@@ -499,7 +499,6 @@ public class TextUI { // Our own custom generic TextUI class
             case "reset":
                 return "\u001B[0m";
             default:
-                displayMsg("INVALID COLOR");
                 return "|invalid color|";
 
         } // Switch-case end
@@ -556,7 +555,6 @@ public class TextUI { // Our own custom generic TextUI class
             case "reset":
                 return "\u001B[0m";
             default:
-                displayMsg("INVALID BACKGROUND COLOR");
                 return "|invalid background color|";
 
         } // Switch-case end

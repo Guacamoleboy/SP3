@@ -22,9 +22,6 @@ public class Main { // Client class
         // Toggles our program as "p"
         Program p = new Program(ui.promptTextColor("red") +"Drakeflix" + ui.promptTextColor("reset"));
 
-        System.out.println("\n");
-        io.deleteAfter30Days("data/backup/", "_backup.csv");
-
         // Uses our value "p" to startSession and so on
         p.startSession();
 

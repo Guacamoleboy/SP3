@@ -10,7 +10,7 @@ import java.awt.*;
 /*
 
     Allows soft edges to JTextField
-    Change curvature to adjust for softer edges
+    Change curvature to adjust for softer edgess
 
 */
 

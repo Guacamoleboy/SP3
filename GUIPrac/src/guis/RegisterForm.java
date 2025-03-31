@@ -14,7 +14,7 @@ public class RegisterForm extends Form { // Subclass
     // Attributes
 
     Font fontOne = new Font("Arial", BOLD, 40);
-    Font fontVersion = new Font("Arial", BOLD, 10);
+    Font fontVersion = new Font("Arial", BOLD, 20);
     Font fontTwo = new Font("Arial", BOLD, 25);
     Font fontInfo = new Font("Arial", BOLD, 15);
     Font fontForm = new Font("Arial", Font.PLAIN, 20);
@@ -53,14 +53,14 @@ public class RegisterForm extends Form { // Subclass
 
         // Label
         JLabel loginLabel = new JLabel("Create Account");
-        loginLabel.setBounds(getWidth()/2, 100, 300, 100);
+        loginLabel.setBounds(getWidth()/2, 20, 300, 100);
         loginLabel.setForeground(Constants.GREY_COLOR); // Font color
         loginLabel.setFont(fontOne);
         loginLabel.setHorizontalAlignment(SwingConstants.CENTER); // Center text
 
         JLabel versionControl = new JLabel("Version 0.1.0");
-        versionControl.setBounds(850, 600, 100, 50);
-        versionControl.setForeground(Constants.BLACK_COLOR);
+        versionControl.setBounds(800, 600, 150, 50);
+        versionControl.setForeground(Constants.GREY_COLOR);
         versionControl.setFont(fontVersion);
         versionControl.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -78,28 +78,39 @@ public class RegisterForm extends Form { // Subclass
 
         // Text Fields
         JTextField usernameField = new RoundedEdges(30);
-        usernameField.setBounds(500, 200, 300, 50);
+        usernameField.setBounds(500, 120, 300, 50);
         usernameField.setBackground(Constants.GREY_COLOR);
         usernameField.setForeground(Constants.WHITE_COLOR);
         usernameField.setFont(fontForm);
 
         JTextField passwordField = new RoundedEdges(30);
-        passwordField.setBounds(500, 280, 300, 50);
+        passwordField.setBounds(500, 200, 300, 50);
         passwordField.setBackground(Constants.GREY_COLOR);
         passwordField.setForeground(Constants.WHITE_COLOR);
         passwordField.setFont(fontForm);
 
         JTextField passwordConfirmField = new RoundedEdges(30);
-        passwordConfirmField.setBounds(500, 360, 300, 50);
+        passwordConfirmField.setBounds(500, 280, 300, 50);
         passwordConfirmField.setBackground(Constants.GREY_COLOR);
         passwordConfirmField.setForeground(Constants.WHITE_COLOR);
         passwordConfirmField.setFont(fontForm);
 
         JTextField ageField = new RoundedEdges(30);
-        ageField.setBounds(500, 440, 300, 50);
+        ageField.setBounds(500, 360, 300, 50);
         ageField.setBackground(Constants.GREY_COLOR);
         ageField.setForeground(Constants.WHITE_COLOR);
         ageField.setFont(fontForm);
+
+        /*
+        JToggleButton maleButton = new JToggleButton("I'm Male");
+        JToggleButton femaleButton = new JToggleButton("I'm Female");
+        */
+
+        JButton registerButton = new JButton("Register");
+        registerButton.setBounds(575, 520, 150, 50);
+        registerButton.setBackground(Constants.GREY_COLOR);
+        registerButton.setForeground(Constants.WHITE_COLOR);
+        registerButton.setFont(fontForm);
 
         // Add components
         add(loginLabel);
@@ -111,6 +122,8 @@ public class RegisterForm extends Form { // Subclass
         add(passwordField);
         add(passwordConfirmField);
         add(ageField);
+
+        add(registerButton);
 
         add(orangeRect);
 

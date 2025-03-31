@@ -5,7 +5,6 @@ package guis;
 import constants.Constants;
 import javax.swing.*;
 import java.awt.*;
-import static java.awt.Font.*;
 
 // _________________________________________
 
@@ -13,17 +12,11 @@ public class LoginForm extends Form { // Subclass
 
     // Attributes
 
-    Font fontOne = new Font("Arial", BOLD, 40);
-    Font fontVersion = new Font("Arial", BOLD, 10);
-    Font fontTwo = new Font("Arial", BOLD, 25);
-    Font fontInfo = new Font("Arial", BOLD, 15);
-    Font fontForm = new Font("Arial", Font.PLAIN, 20);
-
     // _________________________________________
 
     public LoginForm(){
 
-        super("Login");
+        super("Version 0.1.0");
         getContentPane().setBackground(Constants.PRIMARY_COLOR);
         components();
 
@@ -53,44 +46,58 @@ public class LoginForm extends Form { // Subclass
         orangeRect.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 2, Constants.GREY_COLOR));
 
         // JLabels
-        JLabel loginLabel = new JLabel("Log in");
-        loginLabel.setBounds(getWidth()/2, 100, 300, 100);
+        JLabel loginLabel = new JLabel("Log In");
+        loginLabel.setBounds(getWidth()/2, 150, 300, 100);
         loginLabel.setForeground(Constants.GREY_COLOR); // Font color
-        loginLabel.setFont(fontOne);
+        loginLabel.setFont(Constants.fontOne);
         loginLabel.setHorizontalAlignment(SwingConstants.CENTER); // Center text
 
         JLabel versionControl = new JLabel("Version 0.1.0");
-        versionControl.setBounds(850, 600, 100, 50);
-        versionControl.setForeground(Constants.BLACK_COLOR);
-        versionControl.setFont(fontVersion);
+        versionControl.setBounds(800, 600, 150, 50);
+        versionControl.setForeground(Constants.GREY_COLOR);
+        versionControl.setFont(Constants.fontVersion);
         versionControl.setHorizontalAlignment(SwingConstants.CENTER);
 
-        JLabel loginTitle = new JLabel("<html><center>Welcome to Drakeflix<br>______________</center></html>");
+        JLabel loginTitle = new JLabel("<html><center>PLACEHOLDER<br>______________</center></html>");
         loginTitle.setBounds(15, 100, 300, 300);
         loginTitle.setForeground(Constants.GREY_COLOR);
-        loginTitle.setFont(fontTwo);
+        loginTitle.setFont(Constants.fontTwo);
         loginTitle.setHorizontalAlignment(SwingConstants.CENTER);
 
-        JLabel loginInfo = new JLabel("<html><center>This program was made by<br>Guacamoleboy<br>GUI Prac 1.0<br>SP3</center></html>");
+        JLabel loginInfo = new JLabel("<html><center>TEXT PLACEHOLDER</center></html>");
         loginInfo.setBounds(15, 200, 300, 300);
         loginInfo.setForeground(Constants.GREY_COLOR);
-        loginInfo.setFont(fontInfo);
+        loginInfo.setFont(Constants.fontInfo);
         loginInfo.setHorizontalAlignment(SwingConstants.CENTER);
 
         // JTextFields
-        JTextField usernameField = new RoundedEdges(30);
-        usernameField.setBounds(500, 200, 300, 50);
+        JTextField usernameField = new RoundedEdgesTextField(30);
+        usernameField.setBounds(500, 250, 300, 50);
         usernameField.setBackground(Constants.GREY_COLOR);
         usernameField.setForeground(Constants.WHITE_COLOR);
-        usernameField.setFont(fontForm);
+        usernameField.setFont(Constants.fontForm);
 
-        JTextField passwordField = new RoundedEdges(30);
-        passwordField.setBounds(500, 280, 300, 50);
+        JTextField passwordField = new RoundedEdgesTextField(30);
+        passwordField.setBounds(500, 330, 300, 50);
         passwordField.setBackground(Constants.GREY_COLOR);
         passwordField.setForeground(Constants.WHITE_COLOR);
-        passwordField.setFont(fontForm);
+        passwordField.setFont(Constants.fontForm);
+
+        // Buttons
+        JButton registerButton = new RoundedEdgesButton("Log In");
+        registerButton.setBounds(500, 410, 145, 50);
+        registerButton.setBackground(Constants.GREY_COLOR);
+        registerButton.setForeground(Constants.WHITE_COLOR);
+        registerButton.setFont(Constants.fontForm);
+
+        JButton loginButton = new RoundedEdgesButton("Register");
+        loginButton.setBounds(655, 410, 145, 50);
+        loginButton.setBackground(Constants.GREY_COLOR);
+        loginButton.setForeground(Constants.WHITE_COLOR);
+        loginButton.setFont(Constants.fontForm);
 
         // Add components
+
         add(loginLabel);
         add(loginTitle);
         add(loginInfo);
@@ -98,6 +105,9 @@ public class LoginForm extends Form { // Subclass
 
         add(usernameField);
         add(passwordField);
+
+        add(registerButton);
+        add(loginButton);
 
         add(orangeRect);
 

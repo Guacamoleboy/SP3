@@ -14,14 +14,14 @@ import java.awt.*;
 
 */
 
-public class RoundedEdges extends JTextField {
+public class RoundedEdgesTextField extends JTextField {
 
     // Attributes
     private int curvature = 20;
 
     // _________________________________________
 
-    public RoundedEdges(int col){
+    public RoundedEdgesTextField(int col){
         super(col);
         setOpaque(false);
         setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));

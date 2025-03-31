@@ -9,6 +9,7 @@
 import javax.swing.*;
 import guis.LoginForm;
 import guis.RegisterForm;
+import guis.ForgotPassword;
 
 // _________________________________________
 
@@ -24,8 +25,11 @@ public class Main { // Client class
 
             @Override
             public void run() {
+
                 new LoginForm().setVisible(false);
-                new RegisterForm().setVisible(true);
+                new RegisterForm().setVisible(false);
+                new ForgotPassword().setVisible(true);
+
             }
 
         });

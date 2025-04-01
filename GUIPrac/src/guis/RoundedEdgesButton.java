@@ -17,7 +17,7 @@ import java.awt.*;
 public class RoundedEdgesButton extends JButton {
 
     // Attributes
-    private int curvature = 20;
+    private int curvature = 25;
 
     // _________________________________________
 
@@ -47,13 +47,16 @@ public class RoundedEdgesButton extends JButton {
 
     @Override
     protected void paintBorder(Graphics g){
+
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        g2.setColor(getForeground());
+        // Allows us to remove the stupid white border around buttons
+        g2.setColor(new Color(0, 0, 0, 0));
         g2.drawRoundRect(0, 0, getWidth(), getHeight(), curvature, curvature);
 
         g2.dispose(); // Performance issues if it's not there
+
     }
 
 }

@@ -26,9 +26,9 @@ public class Main { // Client class
             @Override
             public void run() {
 
-                new LoginForm().setVisible(false);
+                new LoginForm().setVisible(true);
                 new RegisterForm().setVisible(false);
-                new ForgotPassword().setVisible(true);
+                new ForgotPassword().setVisible(false);
 
             }
 

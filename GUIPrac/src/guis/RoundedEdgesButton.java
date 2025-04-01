@@ -9,7 +9,7 @@ import java.awt.*;
 
 /*
 
-    Allows soft edges to JTextField
+    Allows soft edges to JButton
     Change curvature to adjust for softer edgess
 
 */

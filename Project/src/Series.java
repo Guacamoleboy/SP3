@@ -1,38 +1,37 @@
 import java.util.ArrayList;
 
-public class Bookmarked {
+public class Series {
 
     // Attributes
     private int ID;
-    private ArrayList <Media> savedMedia;
     private String name;
+    private ArrayList <Media> files;
     private Media media;
 
     // ________________________________________________________
 
-    public Bookmarked(){
+    public Series(int ID, String name){
+        this.ID = ID;
+        this.name = name;
+        files = new ArrayList<>();
+    }
+
+    // ________________________________________________________
+
+    public void addToSeries(Media media){
 
     }
 
     // ________________________________________________________
 
-    public void addBookmark(Media media, String name, int ID){
+    public void removeFromSeries(Media media){
 
     }
 
     // ________________________________________________________
 
-    public void removeBookmark(Media media, String name, int ID){
-
-    }
-
-    // ________________________________________________________
-
-    public Media getMedia(){
-
-        // Placeholder
-        return media;
-
+    public int getID(){
+        return this.ID;
     }
 
     // ________________________________________________________
@@ -43,8 +42,18 @@ public class Bookmarked {
 
     // ________________________________________________________
 
-    public int getID(){
-        return this.ID;
+    public ArrayList <Media> getFiles(){
+
+        // Placeholder
+        return files;
     }
 
-}
+    // ________________________________________________________
+
+    public Media getFile(int ID){
+
+        // Placeholder
+        return media;
+    }
+
+} // Class end

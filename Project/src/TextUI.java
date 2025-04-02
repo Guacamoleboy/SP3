@@ -359,7 +359,7 @@ public class TextUI { // Our own custom generic TextUI class
         */
 
         String passwordConfirmation = promptText("Please confirm your password:");
-        return msg.equalsIgnoreCase(passwordConfirmation);
+        return msg.equals(passwordConfirmation);
 
     }
 

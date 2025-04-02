@@ -1,6 +1,6 @@
-/*
+package util;/*
 
-    Featured in this FileIO
+    Featured in this util.FileIO
     _______________________
 
     saveData
@@ -24,7 +24,7 @@ import java.util.*;
 import java.io.*;
 import java.util.concurrent.TimeUnit;
 
-public class FileIO { // Custom generic FileIO
+public class FileIO { // Custom generic util.FileIO
 
     // Attributes
     private static final String red = "\u001B[31m";
@@ -212,7 +212,7 @@ public class FileIO { // Custom generic FileIO
     How to use:
     ___________
 
-    FileIO io = new FileIO();
+    util.FileIO io = new util.FileIO();
     io.clearData("data/userData.csv", "data/backup", "_backup", ".csv");
 
     What it does:
@@ -378,7 +378,7 @@ public class FileIO { // Custom generic FileIO
     How to use:
     ___________
 
-    FileIO io = new FileIO();
+    util.FileIO io = new util.FileIO();
     io.deleteAfter30Days("data/backup/", "_backup.csv")
 
     Expected output:
@@ -470,4 +470,4 @@ public class FileIO { // Custom generic FileIO
 
     } // Class end
 
-} // FileIO end
+} // util.FileIO end

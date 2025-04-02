@@ -1,0 +1,206 @@
+@startuml
+'Andreas, Olivia, Daud & Jonas
+
+'Visuals
+
+'Setup
+class Main
+class Program
+class User
+class TextUI
+class FileIO
+class MainMenu
+class DevMenu
+class Register
+class Login
+class Series
+class Movies
+class History
+class Bookmarked
+class Admin
+class UserSettings
+class Video
+
+'Sequence
+Main <-- Program
+Program <-- TextUI
+Program <-- FileIO
+Program <-- User
+User <-- Register
+User <-- Login
+Register <-- MainMenu
+Login <-- DevMenu
+Login <-- MainMenu
+Video <|-- Series
+Video <|-- Movies
+MainMenu <|-- Bookmarked
+MainMenu <|-- History
+MainMenu <|-- UserSettings
+DevMenu <|-- Admin
+MainMenu <-- Video
+
+'Class
+class Main{
+    -private static TextUI
+    -Program p
+    +startSession()
+}
+
+class Program{
+    -private TextUI
+    -private FileIO
+    +public Program(String name)
+    +registerUser()
+    +createUser()
+    +endSession()
+    +saveData()
+    +devLogin()
+    +login()
+}
+
+class FileIO{
+    +public saveData()
+    +public readData()
+    +public clearData()
+    +public createFile()
+}
+
+class TextUI{
+    +AlotOfPrompts()
+    +DisplayOptions()
+    +public Scanner scanner
+}
+
+class User{
+    -String username
+    -String password
+    -boolean banned
+    -String gender
+    -int age
+    -int ID
+    +user()
+    +toCSV()
+    +RelevantGetters()
+    +String getName()
+    +String getPassword()
+    +boolean isBanned()
+    +String getGender()
+    +int getAge()
+    +int getID()
+    +void setName()
+    +void setPassword()
+    +void ban()
+    +void setGender()
+    +void setAge()
+    +void setID()
+}
+
+class Register{
+    -String username
+    -String password
+    -String gender
+    -int age
+    +Register(String username, String password, String gender, int age)
+}
+
+class Login{
+    -String username
+    -String password
+    -int ID
+    +void Login(String username, String password, int ID)
+}
+
+class MainMenu{
+    #ArrayList<Categories>
+    #ArrayList<Movies>
+    #ArrayList<Series>
+    #ArrayList<Bookmarked>
+    #ArrayList<History>
+}
+
+class DevMenu{
+    -Admin admin
+}
+
+class Bookmarked{
+    -int ID
+    +public addMovie(String name, int ID)
+    +public removeMovie(String name, int ID)
+    +int getID()
+
+}
+
+class Admin{
+    +public changePassword()
+    +public changeUsername()
+    +clearByID()
+    +banUser()
+}
+
+class Movies{
+    -int ID
+    -String Name
+    -Video movie
+    +Movies(int ID, String name, File file)
+    +void addBookmark(name, ID)
+    +void removeBookmark(name, ID)
+    +void addToHistory(name, ID, time)
+    +int getID()
+    +String getName()
+    +Video getMovie()
+}
+
+class Series{
+    -int ID
+    -String Name
+    -ArrayList<video> files
+    +Movies(int ID, String name, File file)
+    +void addBookmark(name, ID)
+    +void removeBookmark(name, ID)
+    +void addToHistory(name, ID, time)
+    +int getID()
+    +String getName()
+    +File getFile()
+    +int getDuration()
+}
+
+class History{
+    -ArrayList<String> movieNames
+    -String name
+    -String ID
+    -float duration
+    +History(String name, int ID, float duration)
+    +ArrayList<String> getHistory()
+    +addHistory(String name, int ID, float time)
+}
+
+class UserSettings{
+
+}
+
+class Video {
+    -int ID
+    -String name
+    -File file
+    -float duration
+    +Video(int ID, String name, File file)
+    +void getVideo(int ID)
+    +int getDuration()
+}
+
+
+@enduml
+
+
+
+
+
+
+
+
+
+
+
+
+
+

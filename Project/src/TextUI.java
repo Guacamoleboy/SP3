@@ -427,7 +427,7 @@ public class TextUI { // Our own custom generic TextUI class
 
             } // if end (OUTTER)
 
-        }
+        } // While-end
 
         return charInput;
 

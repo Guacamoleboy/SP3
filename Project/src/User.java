@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class User {
 
     // Attributes
@@ -7,6 +9,8 @@ public class User {
     private int age;
     private String gender;
     private String banned;
+    protected ArrayList <History> history;
+    protected ArrayList <Bookmarked> bookmarked;
 
     // ________________________________________________________
 

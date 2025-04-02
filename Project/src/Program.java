@@ -106,7 +106,7 @@ public class Program {
         String playerName = ui.promptText("Please enter a username..");
 
         // Don't allow blank or invalid usernames
-        if(playerName.isBlank() || !playerName.matches("[a-zA-Z]+")){
+        if(playerName.isBlank() || !playerName.matches("[a-zA-Z0-9]+")){
             ui.displayMsg("Invalid username.. Please only use alphabetic characters!\n");
             registerUser(); // Recursion
         }

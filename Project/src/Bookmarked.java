@@ -12,7 +12,7 @@ public class Bookmarked {
 
     public Bookmarked(){
 
-    }
+    } // Constructor
 
     // ________________________________________________________
 

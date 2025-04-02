@@ -1,6 +1,6 @@
 /*
 
-    Authors: Andreas Rovelt, Jonas Meinert Larsen & Ebou
+    Authors: Andreas, Daud, Olivia, Jonas
     Version 0.2.0
     SP3
 
@@ -15,8 +15,6 @@ public class Main { // Client class
     private static TextUI ui = new TextUI();
 
     // ________________________________________________________
-
-    // Test of pull JONAS
 
     public static void main(String[] args) {
 

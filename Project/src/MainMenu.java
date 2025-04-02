@@ -1,3 +1,6 @@
+import util.FileIO;
+import util.TextUI;
+
 public class MainMenu extends Menu{ // Menu for everyone other than devs & admins
 
     // Attributes
@@ -13,8 +16,6 @@ public class MainMenu extends Menu{ // Menu for everyone other than devs & admin
 
         //Display data
         ui.displayMsg("\nWelcome to the Main Menu, NAME.\n");
-
-
 
 
     }

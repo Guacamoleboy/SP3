@@ -9,7 +9,7 @@ class Program
 class User
 class TextUI
 class FileIO
-class MainMenu
+abstract class MainMenu
 class DevMenu
 class Register
 class Login
@@ -19,174 +19,218 @@ class History
 class Bookmarked
 class Admin
 class UserSettings
-class Video
+class Media
 
 'Sequence
-Main <-- Program
-Program <-- TextUI
-Program <-- FileIO
-Program <-- User
-User <-- Register
-User <-- Login
-Register <-- MainMenu
-Login <-- DevMenu
-Login <-- MainMenu
-Video <|-- Series
-Video <|-- Movies
-MainMenu <|-- Bookmarked
-MainMenu <|-- History
-MainMenu <|-- UserSettings
+Main --> Program
+Program --> TextUI
+Program --> FileIO
+Program --> Register
+Program --> Login
+Login --> User
+Login --> Register
+Register --> User
+User --> MainMenu
+Login --> DevMenu
+Media <|-- Series
+Media <|-- Movies
+MainMenu <-- Bookmarked
+MainMenu <-- History
+MainMenu --> UserSettings
 DevMenu <|-- Admin
-MainMenu <-- Video
+MainMenu --> Media
+User --> UserSettings
 
 'Class
 class Main{
-    -private static TextUI
+    - static TextUI
     -Program p
     +startSession()
 }
 
 class Program{
-    -private TextUI
-    -private FileIO
-    +public Program(String name)
-    +registerUser()
-    +createUser()
-    +endSession()
-    +saveData()
-    +devLogin()
-    +login()
+    - TextUI
+    - FileIO
+    + Program(String name)
+    + registerUser()
+    + createUser()
+    + endSession()
+    + saveData()
+    + devLogin()
+    + login()
 }
 
 class FileIO{
-    +public saveData()
-    +public readData()
-    +public clearData()
-    +public createFile()
+    + saveData()
+    + readData()
+    + clearData()
+    + createFile()
 }
 
 class TextUI{
-    +AlotOfPrompts()
-    +DisplayOptions()
-    +public Scanner scanner
+    + AlotOfPrompts()
+    + DisplayOptions()
+    + Scanner scanner
 }
 
 class User{
-    -String username
-    -String password
-    -boolean banned
-    -String gender
-    -int age
-    -int ID
-    +user()
-    +toCSV()
-    +RelevantGetters()
-    +String getName()
-    +String getPassword()
-    +boolean isBanned()
-    +String getGender()
-    +int getAge()
-    +int getID()
-    +void setName()
-    +void setPassword()
-    +void ban()
-    +void setGender()
-    +void setAge()
-    +void setID()
+    - String username
+    - String password
+    - boolean banned
+    - String gender
+    - int age
+    - int ID
+    # ArrayList<History> history
+    # ArrayList<Bookmarked> bookmarked
+
+    'Setters
+    + user()
+    + toCSV()
+    + void addtoHistory(Media media)
+    + void removeFromHistory(Media media)
+    + void addToBookmaked(Media media)
+    + void removeFromBookmarked(Media media)
+    + void setName()
+    + void setPassword()
+    + void ban()
+    + void setGender()
+    + void setAge()
+    + void setID()
+
+    'Getters
+    + String getName()
+    + String getPassword()
+    + boolean isBanned()
+    + String getGender()
+    + int getAge()
+    + int getID()
 }
 
 class Register{
-    -String username
-    -String password
-    -String gender
-    -int age
-    +Register(String username, String password, String gender, int age)
+    - String username
+    - String password
+    - String gender
+    - int age
+    + Register(String username, String password, String gender, int age)
 }
 
 class Login{
-    -String username
-    -String password
-    -int ID
-    +void Login(String username, String password, int ID)
+    - String username
+    - String password
+    - int ID
+    + void Login(String username, String password, int ID)
 }
 
-class MainMenu{
-    #ArrayList<Categories>
-    #ArrayList<Movies>
-    #ArrayList<Series>
-    #ArrayList<Bookmarked>
-    #ArrayList<History>
+abstract class MainMenu{
+    -Scanner scan
+    # ArrayList<Categories>
+    # ArrayList<Media> bookmarked
+    # ArrayList<Media> history
+    + startSession()
+    + endSession()
+    'Hvis vi laver GUI
+    + menuLoop()
+    'Hvis vi laver kun tekstbaseret
+    + selectOption()
+
 }
 
 class DevMenu{
-    -Admin admin
-}
-
-class Bookmarked{
-    -int ID
-    +public addMovie(String name, int ID)
-    +public removeMovie(String name, int ID)
-    +int getID()
-
+    - Admin admin
 }
 
 class Admin{
-    +public changePassword()
-    +public changeUsername()
-    +clearByID()
-    +banUser()
+    + changePassword()
+    + changeUsername()
+    + clearByID()
+    + banUser()
+}
+
+class Media {
+    - int ID
+    - String title
+    - File file
+    - int releaseYear
+    - double rating
+    - String category
+    - float duration
+    + Media(int ID, String title, File file, int releaseYear, double rating, String category)
+
+    ' Getters
+    + void getMedia(int ID)
+    + void getCategory(int ID)
+    + void getReleaseYear(int ID)
+    + void getRating(int ID)
+    + int getDuration()
 }
 
 class Movies{
-    -int ID
-    -String Name
-    -Video movie
-    +Movies(int ID, String name, File file)
-    +void addBookmark(name, ID)
-    +void removeBookmark(name, ID)
-    +void addToHistory(name, ID, time)
-    +int getID()
-    +String getName()
-    +Video getMovie()
+    - ArrayList<Media> movies
+    - int ID
+    - String Name
+    'Setters
+    + void addMovie(int ID, String name, File file)
+    + void removeMovie(int ID, String name, File file)
+
+    ' Getters
+    + int getID()
+    + String getName()
+    + ArrayList<Media> getMovies()
 }
 
-class Series{
-    -int ID
-    -String Name
-    -ArrayList<video> files
-    +Movies(int ID, String name, File file)
-    +void addBookmark(name, ID)
-    +void removeBookmark(name, ID)
-    +void addToHistory(name, ID, time)
-    +int getID()
-    +String getName()
-    +File getFile()
-    +int getDuration()
+class Series {
+    'Havde forestillet mig at lave name+ID som ID på serien
+    - int ID
+    - String Name
+    - ArrayList<Media> files
+    + Series(int ID, String name)
+
+    'Setter
+    + void addToSeries(Media media)
+    + void removeFromSeries(Media media)
+
+    'Getters
+    + int getID()
+    + String getName()
+    + ArrayList<Media> getFiles()
+    + Media getFile(int ID)
 }
+
 
 class History{
-    -ArrayList<String> movieNames
-    -String name
-    -String ID
-    -float duration
-    +History(String name, int ID, float duration)
-    +ArrayList<String> getHistory()
-    +addHistory(String name, int ID, float time)
+    - Media media
+    - String name
+    - int ID
+    - float duration
+    + void addToHistory(Media media, String name, int ID, float duration)
+
+    ' Getters
+    + Media getMedia()
+    + String getName()
+    + int getID()
+    + float getduration()
+}
+
+class Bookmarked{
+    - ArrayList<Media> savedMedia
+    - String name
+    - int ID
+    + void addBookmark(Media media, String name, int ID)
+    + void removeBookmark(Media media, String name, int ID)
+
+    'Getters
+    + Media getMedia()
+    + String getName()
+    + int getID()
 }
 
 class UserSettings{
-
+    + void deleteAccount()
+    + void pauseAccount(LocalDateTime period)
+   'Kan ikke huske præcist om det hedder LocalDateTime
 }
 
-class Video {
-    -int ID
-    -String name
-    -File file
-    -float duration
-    +Video(int ID, String name, File file)
-    +void getVideo(int ID)
-    +int getDuration()
-}
+
 
 
 @enduml

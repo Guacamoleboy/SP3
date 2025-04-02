@@ -28,6 +28,7 @@ public class FileIO { // Custom generic FileIO
 
     // Attributes
     private static final String red = "\u001B[31m";
+    private static final String reset = "\u001B[0m";
 
     // ________________________________________________________
 
@@ -211,7 +212,8 @@ public class FileIO { // Custom generic FileIO
     How to use:
     ___________
 
-    clearData("data/userData.csv);
+    FileIO io = new FileIO();
+    io.clearData("data/userData.csv", "data/backup", "_backup", ".csv");
 
     What it does:
     _____________
@@ -254,7 +256,7 @@ public class FileIO { // Custom generic FileIO
             return; // Exit prompt
         }
 
-        System.out.println(red + "Are you really sure you want to delete all data?: ");
+        System.out.println(red + "Are you really sure you want to delete all data?: " + reset);
         String response2 = scanner.nextLine().trim();
 
         if (!response2.equalsIgnoreCase("yes")) {

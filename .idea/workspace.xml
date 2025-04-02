@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b3f8056-31fe-4c8e-8772-9cb5bca132f3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Project/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/Main.java" afterDir="false" />
+    <list default="true" id="7b3f8056-31fe-4c8e-8772-9cb5bca132f3" name="Changes" comment="Shiiii">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +37,16 @@
   "selectedUrlAndAccountId": {
     "url": "https://github.com/Guacamoleboy/SP3.git",
     "accountId": "c7a534f4-f588-4f3c-a91d-aeae4a71f63d"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "Guacamoleboy",
+    "repository": "SP3"
   }
 }]]></component>
   <component name="ProjectColorInfo">{
@@ -56,7 +66,7 @@
     "DefaultPlantUmlFileTemplate": "UML Class",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Daud",
+    "git-widget-placeholder": "#75 on Daud",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Janua/Desktop/Git/SP3/GUIPrac",
     "node.js.detected.package.eslint": "true",
@@ -64,6 +74,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -94,11 +105,51 @@
       <updated>1743063111269</updated>
       <workItem from="1743063112490" duration="891000" />
       <workItem from="1743581198424" duration="2075000" />
-      <workItem from="1743600106989" duration="584000" />
+      <workItem from="1743600106989" duration="7940000" />
     </task>
+    <task id="LOCAL-00001" summary="Shiiii">
+      <option name="closed" value="true" />
+      <created>1743600786790</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743600786791</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Shiiii">
+      <option name="closed" value="true" />
+      <created>1743600849874</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743600849874</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Shiiii">
+      <option name="closed" value="true" />
+      <created>1743628279408</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1743628279408</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Shiiii" />
+    <option name="LAST_COMMIT_MESSAGE" value="Shiiii" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Project/src/Program.java</url>
+          <line>145</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

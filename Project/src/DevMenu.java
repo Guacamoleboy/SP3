@@ -6,6 +6,8 @@ public class DevMenu extends Menu{ // Menu for devs
 
     public DevMenu(){
 
+
+
     }
 
     // ________________________________________________________

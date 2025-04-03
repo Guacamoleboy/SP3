@@ -114,6 +114,14 @@ public class Program {
             registerUser(); // Recursion
         }
 
+        //Checks if username is already taken
+        for(User u : user) {
+            if (playerName.equalsIgnoreCase(u.getName())) {
+                ui.displayMsg("Account name already exist.. Please choose another!\n");
+                registerUser();
+            }
+        }
+
         // Put this into the while loop over passwordTest if you want it to ask user to redo entire password
         String playerPassword = ui.promptText("Please enter a password..");
         boolean passwordTest = false;

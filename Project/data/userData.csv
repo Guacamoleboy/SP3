@@ -1,1 +1,2 @@
-Username, ID, Age, Gender, Password, Banned
+Username, ID, Age, Gender, Password, Banned, Status
+Shrek333, 1, 55, Male, Shrek, No, Active

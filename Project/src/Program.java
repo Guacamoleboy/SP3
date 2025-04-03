@@ -49,8 +49,9 @@ public class Program {
                 String userGender = values[3].trim();
                 String userPassword = values[4].trim();
                 String userBanned = values[5].trim();
+                String userStatus = values[6].trim();
 
-                createUser(username, userID, userAge, userGender, userPassword, userBanned);
+                createUser(username, userID, userAge, userGender, userPassword, userBanned, userStatus);
                 ID++;
                 userCount++;
 
@@ -133,6 +134,7 @@ public class Program {
         String playerGender = ui.promptGender("Please enter your gender..");
         int playerAge = ui.promptNumeric("Please enter your age..");
         String playerBanned = "No";
+        String playerStatus = "Active";
 
         switch (ID){
             case 1:
@@ -149,7 +151,7 @@ public class Program {
                 break;
         }
 
-        createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned);
+        createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned, playerStatus);
 
         ui.displayMsg("\nThanks for making an account. Sending you to login page..\n");
 
@@ -220,9 +222,9 @@ public class Program {
 
     // ________________________________________________________
 
-    public void createUser(String username, int ID, int age, String gender, String password, String banned){
+    public void createUser(String username, int ID, int age, String gender, String password, String banned, String status){
 
-        User u = new User(username, ID, age, gender, password, banned);
+        User u = new User(username, ID, age, gender, password, banned, status);
         user.add(u);
 
     }
@@ -250,7 +252,7 @@ public class Program {
 
         }
 
-        io.saveData(playerData, "data/userData.csv", "Username, ID, Age, Gender, Password, Banned");
+        io.saveData(playerData, "data/userData.csv", "Username, ID, Age, Gender, Password, Banned, Status");
 
         //ui.displayMsg("Program has saved data."); || DEBUG
 

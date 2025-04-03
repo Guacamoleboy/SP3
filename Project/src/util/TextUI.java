@@ -1,6 +1,6 @@
-/*
+package util;/*
 
-    Featured in this TextUI
+    Featured in this util.TextUI
     _______________________
 
     Prompts:                        Displays:                   Random:
@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class TextUI { // Our own custom generic TextUI class
+public class TextUI { // Our own custom generic util.TextUI class
 
     // Attributes
     Scanner scanner = new Scanner(System.in);
@@ -165,7 +165,7 @@ public class TextUI { // Our own custom generic TextUI class
                 return false;
             default:
                 promptText("Invalid input.. Try again\n");
-                promptBinary(msg);
+                return promptBinary(msg);
         }
 
         /*
@@ -177,9 +177,6 @@ public class TextUI { // Our own custom generic TextUI class
         I think it would be a cool little feature.
 
         */
-
-
-        return promptBinary(msg); // Default return value
 
     }
 
@@ -588,4 +585,5 @@ public class TextUI { // Our own custom generic TextUI class
 
     }
 
-} // TextUI end
+
+} // util.TextUI end

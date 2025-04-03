@@ -1,23 +1,29 @@
+import java.util.ArrayList;
+
 public class User {
 
     // Attributes
     private String username;
     private String password;
+    private String status;
     private int ID;
     private int age;
     private String gender;
     private String banned;
+    protected ArrayList <History> history;
+    protected ArrayList <Bookmarked> bookmarked;
 
     // ________________________________________________________
 
-    public User(String username, int ID, int age, String gender, String banned, String password){
+    public User(String username, int ID, int age, String gender, String password, String banned, String status){
 
         this.username = username;
         this.ID = ID;
         this.age = age;
         this.gender = gender;
-        this.banned = banned;
         this.password = password;
+        this.banned = banned;
+        this.status = status;
 
     } // Constructor
 
@@ -25,7 +31,7 @@ public class User {
 
     public String toCSV(){
 
-        return this.username + ", " + this.ID + ", " + this.age + ", " + this.gender + ", " + this.password + ", " + this.banned;
+        return this.username + ", " + this.ID + ", " + this.age + ", " + this.gender + ", " + this.password + ", " + this.banned + ", " + this.status;
 
     }
 
@@ -65,6 +71,12 @@ public class User {
 
     public String getBanned(){
         return this.banned;
+    }
+
+    // ________________________________________________________
+
+    public String getStatus(){
+        return this.status;
     }
 
 }

@@ -1,3 +1,6 @@
+import util.FileIO;
+import util.TextUI;
+
 import java.util.*;
 
 public class Program {
@@ -5,6 +8,8 @@ public class Program {
     // Attributes
     private static TextUI ui = new TextUI();
     private static FileIO io = new FileIO();
+    private MainMenu mainmenu = new MainMenu();
+    private DevMenu devmenu = new DevMenu();
 
     private String name;
     private String startSessionAnswer;
@@ -46,8 +51,9 @@ public class Program {
                 String userGender = values[3].trim();
                 String userPassword = values[4].trim();
                 String userBanned = values[5].trim();
+                String userStatus = values[6].trim();
 
-                createUser(username, userID, userAge, userGender, userPassword, userBanned);
+                createUser(username, userID, userAge, userGender, userPassword, userBanned, userStatus);
                 ID++;
                 userCount++;
 
@@ -106,9 +112,17 @@ public class Program {
         String playerName = ui.promptText("Please enter a username..");
 
         // Don't allow blank or invalid usernames
-        if(playerName.isBlank() || !playerName.matches("[a-zA-Z]+")){
+        if(playerName.isBlank() || !playerName.matches("[a-zA-Z0-9]+")){
             ui.displayMsg("Invalid username.. Please only use alphabetic characters!\n");
             registerUser(); // Recursion
+        }
+
+        //Checks if username is already taken
+        for(User u : user) {
+            if (playerName.equalsIgnoreCase(u.getName())) {
+                ui.displayMsg("Account name already exist.. Please choose another!\n");
+                registerUser();
+            }
         }
 
         // Put this into the while loop over passwordTest if you want it to ask user to redo entire password
@@ -118,7 +132,9 @@ public class Program {
         // Allows us to loop over the password part
         while(!passwordTest){
 
+            System.out.print(ui.promptTextColor("red"));
             passwordTest = ui.promptPasswordConfirmation(playerPassword);
+            System.out.print(ui.promptTextColor("reset"));
 
             if(!passwordTest){
                 ui.displayMsg("\nPasswords don't match.. Try again.\n");
@@ -129,6 +145,7 @@ public class Program {
         String playerGender = ui.promptGender("Please enter your gender..");
         int playerAge = ui.promptNumeric("Please enter your age..");
         String playerBanned = "No";
+        String playerStatus = "Active";
 
         switch (ID){
             case 1:
@@ -145,7 +162,7 @@ public class Program {
                 break;
         }
 
-        createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned);
+        createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned, playerStatus);
 
         ui.displayMsg("\nThanks for making an account. Sending you to login page..\n");
 
@@ -172,7 +189,7 @@ public class Program {
         String devPass = "";
 
         if(devUser.equalsIgnoreCase("dev") || devUser.equalsIgnoreCase("admin")){
-            devPass = ui.promptText("\nHello, " + devUser + "\nEnter password:");
+            devPass = ui.promptText("\nHello, " + ui.promptTextColor("red") + devUser + ui.promptTextColor("reset") + "!\nEnter password:");
 
             if(devUser.equalsIgnoreCase("dev") && devPass.equalsIgnoreCase("dev")){
                 // Forward to dev menu
@@ -181,10 +198,12 @@ public class Program {
 
             if(devUser.equalsIgnoreCase("admin") && devPass.equalsIgnoreCase("admin")){
                 // Forward to dev menu
-                System.out.println("Dev access gained"); // Placeholder & Debug
+                System.out.println("\nDev access gained"); // Placeholder & Debug
             }
 
         }
+
+        devmenu.startSession(devUser);
 
         /*
         // Allows devs to try again if failed
@@ -196,9 +215,97 @@ public class Program {
 
     public void login(){ // All users except devs & admins
 
-        String playerUser = ui.promptText("Please log in!\nUsername:");
-        String playerPass = ui.promptText("Password:");
+        String playerUser = "";
+        int counter = 0;
 
+        // Have to use while loop else it'll infinite loop
+        while(true) {
+
+            if(counter <= 3) {
+
+                playerUser = ui.promptText("\nPlease log in!\nUsername:");
+
+                // Checks if username exist
+                if (!usernameCheck(playerUser)) {
+                    System.out.println("\nAccount not found..");
+                    counter++;
+                    continue;
+                }
+
+                String playerPass = ui.promptText("Password:");
+
+                // sets to 0 if passed username prompt
+                counter = 0;
+
+                // Checks if username and password match
+                if (!passwordCheck(playerPass, playerUser)) {
+                    System.out.println("\nPassword doesn't match the username..");
+                    counter++;
+                    continue;
+                }
+
+                ui.displayMsg("\nWelcome, " + playerUser + "! Loading Main Menu..");
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    ui.displayMsg("Error. Contact a dev...");
+                }
+
+                mainmenu.startSession(playerUser);
+                break;
+
+            }
+
+            if(counter > 3) {
+
+                ui.displayMsg("Too many fail attempts. Shutting down...");
+
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    ui.displayMsg("Error. Contact a developer");
+                }
+
+                System.exit(0);
+            }
+
+        } // While end
+
+    }
+
+    // ________________________________________________________
+
+    public boolean usernameCheck(String username){
+
+        String path = "data/userData.csv";
+        ArrayList <String> data = io.readData(path);
+
+        for (String s : data){
+            String[] values = s.split(", ");
+            if(values[0].equals(username)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    // ________________________________________________________
+
+    public boolean passwordCheck(String password, String username){
+
+        String path = "data/userData.csv";
+        ArrayList <String> data = io.readData(path);
+
+        for (String s : data){
+            String[] values = s.split(", ");
+            if(values[0].equals(username) && values[4].equals(password)){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     // ________________________________________________________
@@ -211,9 +318,9 @@ public class Program {
 
     // ________________________________________________________
 
-    public void createUser(String username, int ID, int age, String gender, String password, String banned){
+    public void createUser(String username, int ID, int age, String gender, String password, String banned, String status){
 
-        User u = new User(username, ID, age, gender, password, banned);
+        User u = new User(username, ID, age, gender, password, banned, status);
         user.add(u);
 
     }
@@ -241,7 +348,7 @@ public class Program {
 
         }
 
-        io.saveData(playerData, "data/userData.csv", "Username, ID, Age, Gender, Password, Banned");
+        io.saveData(playerData, "data/userData.csv", "Username, ID, Age, Gender, Password, Banned, Status");
 
         //ui.displayMsg("Program has saved data."); || DEBUG
 

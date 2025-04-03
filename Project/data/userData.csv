@@ -1,8 +1,11 @@
-Username, ID, Age, Gender, Password, Banned
-Shrek, 1, 69, Male, Shrek, No
-Ebou, 2, 70, Female, Password, No
-Guacamoleboy, 3, 55, male, Jonas, No
-Yups, 4, 60, male, ShrekErLivet, No
-Shrek, 5, 50, male, ShrekIsLife, No
-Test, 6, 11, Female, TestNarko, No
-Usernamee, 7, 55, Male, No, Test
+Username, ID, Age, Gender, Password, Banned, Status
+Shrek111, 1, 13, Male, Shrek1, No, Active
+Shrek222, 2, 14, Male, Shrek1, No, Active
+Shrek333, 3, 12, Male, Shrek1, No, Inactive
+Shrek444, 4, 10, Female, Shrek2, No, Paused
+Shrek555, 5, 121, Female, Shrek3, No, Active
+Shrek666, 6, 140, Male, Shrek2, Yes, Inactive
+Shrek777, 7, 160, Female, Shrek1, Yes, Paused
+Shrek888, 8, 40, Male, Shrek2, Yes, Inactive
+Shrek999, 9, 51, Female, ShrekErLivet, No, Active
+Shrek1010, 10, 70, Male, Drake, Yes, Paused

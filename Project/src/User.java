@@ -4,6 +4,8 @@ import util.*;
 public class User {
 
     // Attributes
+    private static TextUI ui = new TextUI();
+
     private String username;
     private String password;
     private String status;

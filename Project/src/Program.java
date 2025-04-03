@@ -208,39 +208,58 @@ public class Program {
     public void login(){ // All users except devs & admins
 
         String playerUser = "";
+        int counter = 0;
 
         // Have to use while loop else it'll infinite loop
         while(true) {
 
-            playerUser = ui.promptText("\nPlease log in!\nUsername:");
+            while(counter <= 3) {
 
-            // Checks if username exist
-            if (!usernameCheck(playerUser)) {
-                System.out.println("\nAccount not found..");
-                continue;
+                playerUser = ui.promptText("\nPlease log in!\nUsername:");
+
+                // Checks if username exist
+                if (!usernameCheck(playerUser)) {
+                    System.out.println("\nAccount not found..");
+                    counter++;
+                    continue;
+                }
+
+                String playerPass = ui.promptText("Password:");
+
+                // sets to 0 if passed username prompt
+                counter = 0;
+
+                // Checks if username and password match
+                if (!passwordCheck(playerPass, playerUser)) {
+                    System.out.println("\nPassword doesn't match the username..");
+                    counter++;
+                    continue;
+                }
+
+                ui.displayMsg("\nWelcome, " + playerUser + "! Loading Main Menu..");
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    ui.displayMsg("Error. Contact a dev...");
+                }
+
+                mainmenu.startSession(playerUser);
+                break;
+
             }
 
-            String playerPass = ui.promptText("Password:");
-
-            // Checks if username and password match
-            if (!passwordCheck(playerPass, playerUser)) {
-                System.out.println("\nPassword doesn't match the username..");
-                continue;
-            }
-
-            ui.displayMsg("\nWelcome, " + playerUser + "! Loading Main Menu..");
+            ui.displayMsg("Too many fail attempts. Shutting down...");
 
             try{
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                ui.displayMsg("Error. Contact a dev...");
+                Thread.sleep(2000);
+            } catch (InterruptedException e){
+                ui.displayMsg("Error. Contact a developer");
             }
 
-            break;
+            System.exit(0);
 
         } // While end
-
-        mainmenu.startSession(playerUser);
 
     }
 

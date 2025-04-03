@@ -24,6 +24,14 @@ public class MainMenu extends Menu { // Menu for everyone other than devs & admi
 
     // ________________________________________________________
 
+    public void accountSettings(String username){
+
+        super.accountSettings(username);
+
+    }
+
+    // ________________________________________________________
+
     @Override
     public void endSession(){
 

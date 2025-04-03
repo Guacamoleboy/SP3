@@ -221,7 +221,7 @@ public class Program {
         // Have to use while loop else it'll infinite loop
         while(true) {
 
-            while(counter <= 3) {
+            if(counter <= 3) {
 
                 playerUser = ui.promptText("\nPlease log in!\nUsername:");
 
@@ -257,15 +257,18 @@ public class Program {
 
             }
 
-            ui.displayMsg("Too many fail attempts. Shutting down...");
+            if(counter > 3) {
 
-            try{
-                Thread.sleep(2000);
-            } catch (InterruptedException e){
-                ui.displayMsg("Error. Contact a developer");
+                ui.displayMsg("Too many fail attempts. Shutting down...");
+
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    ui.displayMsg("Error. Contact a developer");
+                }
+
+                System.exit(0);
             }
-
-            System.exit(0);
 
         } // While end
 

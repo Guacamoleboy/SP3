@@ -1,14 +1,3 @@
-/*
-
-    Authors: Andreas, Daud, Olivia, Jonas
-    Version 0.2.0
-    SP3
-
-    Comments:
-    N/A
-
-*/
-
 import util.TextUI;
 import constants.Constants;
 
@@ -21,14 +10,14 @@ public class Main { // Client class
 
     public static void main(String[] args) {
 
-        // Toggles our program as "p"
+        // Display the version of the app
         ui.displayMsg(ui.promptTextColor("red") + Constants.versionControl + ui.promptTextColor("reset"));
-        Program p = new Program(ui.promptTextColor("red") +"Netflix" + ui.promptTextColor("reset"));
 
-        // Uses our value "p" to startSession and so on
-        p.startSession();
+        // Create an instance of MainMenu (this will handle the session and login)
+        MainMenu mainMenu = new MainMenu();
 
+        // Start the session
+        mainMenu.startSession();
     }
 
 } // Main end
-

@@ -1,73 +1,134 @@
 import java.util.ArrayList;
-import java.util.Random;
+import util.*;
 
 public class User {
 
     // Attributes
+    private static TextUI ui = new TextUI();
+
     private String username;
     private String password;
+    private String status;
     private int ID;
     private int age;
     private String gender;
     private String banned;
-    protected ArrayList<History> history;
-    protected ArrayList<Bookmarked> bookmarked;
+    protected ArrayList <History> history;
+    protected ArrayList <Bookmarked> bookmarked;
 
-    // Constructor
-    public User(String username, int ID, int age, String gender, String banned, String password) {
+    // ________________________________________________________
+
+    public User(String username, int ID, int age, String gender, String password, String banned, String status){
+
         this.username = username;
         this.ID = ID;
         this.age = age;
         this.gender = gender;
-        this.banned = banned;
         this.password = password;
+        this.banned = banned;
+        this.status = status;
+
+    } // Constructor
+
+    // ________________________________________________________
+
+    public String toCSV(){
+
+        return this.username + ", " + this.ID + ", " + this.age + ", " + this.gender + ", " + this.password + ", " + this.banned + ", " + this.status;
+
     }
 
-    // Convert User object to CSV format
-    public String toCSV() {
-        return String.format("%s, %d, %d, %s, %s, %s", username, ID, age, gender, password, banned);
+    // ________________________________________________________
+
+    public String toCSVSuggest(String value, int ID, String added){
+
+        return value + ", " + ID + ", " + added;
+
     }
 
-    // Convert suggested User data to CSV format
-    public String toCSVSuggest(String value, int ID, String added) {
-        return String.format("%s, %d, %s", value, ID, added);
+    // ________________________________________________________
+
+    public String getName(){
+        return this.username;
     }
 
-    // Getter methods
-    public String getName() {
-        return username;
+    // ________________________________________________________
+
+    public int getID(){
+        return this.ID;
     }
 
-    public int getID() {
-        return ID;
+    // ________________________________________________________
+
+    public int getAge(){
+        return this.age;
     }
 
-    public int getAge() {
-        return age;
+    // ________________________________________________________
+
+    public String getGender(){
+        return this.gender;
     }
 
-    public String getGender() {
-        return gender;
+    // ________________________________________________________
+
+    public String getBanned(){
+        return this.banned;
     }
 
-    public String getBanned() {
-        return banned;
+    // ________________________________________________________
+
+    public String getStatus(){
+        return this.status;
     }
 
-    // Change username
-    public void changeUsername(String newUsername) {
-        this.username = newUsername;
+
+    // ________________________________________________________
+
+    public void changeUsername(){
+
+        String choice = ui.promptText("New username: ");
+        String password = ui.promptText("Enter your password: ");
+
+        if (!(password == this.password)){
+            ui.displayMsg("Wrong password!");
+            return;
+        }
+
+        this.username = choice;
+        Main.p.saveData();
     }
 
-    // Change password
-    public void changePassword(String newPassword) {
-        this.password = newPassword;
+    // ________________________________________________________
+
+    public void changePassword() {
+
+        String password = ui.promptText("Write your old password: ");
+        if (!(password == this.password)){
+            ui.displayMsg("Wrong password!");
+            return;
+        }
+
+        // Confirm that newPassword is correct by double prompting
+        String newPassword = ui.promptText("New password: ");
+        boolean confirm = ui.promptPasswordConfirmation(newPassword);
+
+        if (!confirm){
+            ui.displayMsg("Wrong password!");
+            return;
+        }
+
+        this.username = newPassword;
+        Main.p.saveData();
     }
 
-    // Generate confirmation code (7-digit random number)
-    public String generateConfirmationCode() {
-        Random rand = new Random();
-        int code = rand.nextInt(9000000) + 1000000; // Generates a random 7-digit number
-        return String.valueOf(code);
+    // ________________________________________________________
+
+    public void banUser() {
+        this.banned = "Yes";
+        Main.p.saveData();
     }
+
+    // ________________________________________________________
+
 }

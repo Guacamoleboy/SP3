@@ -10,14 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="Yea">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/FileIO.java" afterDir="false" />
     </list>
     <list id="7c87b54a-bba3-4ad9-9dd2-79c0f649f702" name="Changes by daudibragimov" comment="" />
+    <list id="d4a46b11-864b-4460-a958-70d3a4ac490d" name="Changes by jonas" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,30 +30,56 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="Jonas" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Guacamoleboy&quot;
-  }
+  &quot;lastFilter&quot;: {}
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Guacamoleboy/SP3.git",
-    "accountId": "4fa9ade4-b3a5-4958-b69e-614bae4307a1"
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
+    {
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOOPCtyc6RPEkQ&quot;,
+        &quot;number&quot;: 94
+      },
+      &quot;lastSeen&quot;: 1743677024490
+    }
+  ]
+}</component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="AndreasR" />
+        <option value="Daud" />
+        <option value="Jonas" />
+        <option value="main" />
+        <option value="Christopher" />
+        <option value="Olivia" />
+      </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Guacamoleboy/SP3.git&quot;,
+    &quot;accountId&quot;: &quot;6c40eeb2-9541-4d09-9c7e-b121432decd3&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "Guacamoleboy",
-    "repository": "SP3"
-  }
-}]]></component>
+    &quot;owner&quot;: &quot;Guacamoleboy&quot;,
+    &quot;repository&quot;: &quot;SP3&quot;
+  },
+  &quot;editorReviewEnabled&quot;: false
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -78,9 +100,9 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Christopher&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Jonas&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Janua/Desktop/Git/SP3/Project&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/45292/Desktop/SKOLE/JAVA/Første semester/SP3/Project&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -111,8 +133,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
       </set>
     </attachedChunks>
   </component>
@@ -147,7 +169,10 @@
       <workItem from="1743587286949" duration="4399000" />
       <workItem from="1743621438207" duration="8073000" />
       <workItem from="1743630151633" duration="28000" />
-      <workItem from="1743705468825" duration="2939000" />
+      <workItem from="1743686171193" duration="4024000" />
+      <workItem from="1743693151978" duration="6510000" />
+      <workItem from="1743700476539" duration="8000" />
+      <workItem from="1743701121406" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="Yea">
       <option name="closed" value="true" />
@@ -166,5 +191,43 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Yea" />
     <option name="LAST_COMMIT_MESSAGE" value="Yea" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/User.java</url>
+          <line>74</line>
+          <properties class="User" method="getBanned">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Admin.java</url>
+          <line>10</line>
+          <properties class="Admin" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/User.java</url>
+          <line>56</line>
+          <properties class="User" method="getID">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Admin.java</url>
+          <line>2</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

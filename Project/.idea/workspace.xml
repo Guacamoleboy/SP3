@@ -10,22 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="Yea">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DevMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DevMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/Constants.java" afterDir="false" />
     </list>
     <list id="7c87b54a-bba3-4ad9-9dd2-79c0f649f702" name="Changes by daudibragimov" comment="" />
-    <list id="d4a46b11-864b-4460-a958-70d3a4ac490d" name="Changes by jonas" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
-    </list>
+    <list id="d4a46b11-864b-4460-a958-70d3a4ac490d" name="Changes by jonas" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +67,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/Guacamoleboy/SP3.git",
-    "accountId": "bd666e3f-3ff7-47ad-8369-1598db308eea"
+    "accountId": "6c40eeb2-9541-4d09-9c7e-b121432decd3"
   },
   "recentNewPullRequestHead": {
     "server": {
@@ -92,26 +81,6 @@
   },
   "editorReviewEnabled": false
 }]]></component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/Menu.java">
-      <ranges>
-        <range start1="16" end1="17" start2="16" end2="17" changelist="d4a46b11-864b-4460-a958-70d3a4ac490d" />
-        <range start1="20" end1="21" start2="20" end2="21" changelist="d4a46b11-864b-4460-a958-70d3a4ac490d" />
-        <range start1="23" end1="24" start2="23" end2="24" changelist="d4a46b11-864b-4460-a958-70d3a4ac490d" />
-        <range start1="49" end1="49" start2="49" end2="50" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="53" end1="54" start2="54" end2="60" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/User.java">
-      <ranges>
-        <range start1="1" end1="1" start2="1" end2="2" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="5" end1="5" start2="6" end2="8" changelist="d4a46b11-864b-4460-a958-70d3a4ac490d" />
-        <range start1="84" end1="86" start2="87" end2="99" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="90" end1="92" start2="103" end2="122" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="95" end1="95" start2="125" end2="132" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -132,7 +101,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "AndreasR",
+    "git-widget-placeholder": "Jonas",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/45292/Desktop/SKOLE/JAVA/Første semester/SP3/Project",
     "node.js.detected.package.eslint": "true",
@@ -165,8 +134,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
       </set>
     </attachedChunks>
   </component>
@@ -203,6 +172,7 @@
       <workItem from="1743630151633" duration="28000" />
       <workItem from="1743686171193" duration="4024000" />
       <workItem from="1743693151978" duration="6510000" />
+      <workItem from="1743700476539" duration="8000" />
     </task>
     <task id="LOCAL-00001" summary="Yea">
       <option name="closed" value="true" />

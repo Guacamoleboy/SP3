@@ -14,19 +14,50 @@ public abstract class Menu { // (Superclass)
         //Display data
         ui.displayMsg("\nWelcome to the Main Menu, " + ui.promptTextColor("red") + username + ui.promptTextColor("reset") + "!");
 
-        int input = ui.promptNumeric("\nPlease choose one of the following:\n1) Movies\n2) Series\n3) History\n\n4) Account Settings");
+        String input = ui.promptText("\nPlease choose one of the following:\n1) Movies\n2) Series\n3) History\n4) Account Settings");
+        String newInput = "";
 
         switch (input){
-            case 1:
-                // Load more options. Such as "Watch Movie" "Bookmarked" "Liked" etc.
+            case "1":
+
+                newInput = ui.promptText("\nPlease choose a movie:\n1) Noget\n2) Noget\n3) Noget\n4) Noget\n5) Noget\n6) Noget\n7) Noget\n8) Noget\n9) Noget" +
+                        " \n\nType " + ui.promptTextFormat("outline")  +" BACK "+ ui.promptTextFormat("outline reset")  + " to go back.");
+
+                switch (newInput){
+                    case "1":
+                        break;
+                    case "2":
+                        break;
+                    case "3":
+                        break;
+                    case "4":
+                        break;
+                    case "5":
+                        break;
+                    case "6":
+                        break;
+                    case "7":
+                        break;
+                    case "8":
+                        break;
+                    case "9":
+                        break;
+                    case "back":
+                        startSession(username);
+                        break;
+                    default:
+                        ui.displayMsg("Invalid input. Try again.");
+                        break;
+                }
+
                 break;
-            case 2:
+            case "2":
                 // Load more options. Such as "Watch Series" "Bookmarked" "Liked" etc.
                 break;
-            case 3:
+            case "3":
                 // Something
                 break;
-            case 4:
+            case "4":
                 accountSettings(username);
                 break;
             default:
@@ -34,6 +65,8 @@ public abstract class Menu { // (Superclass)
         }
 
     }
+
+
 
     // ________________________________________________________
 

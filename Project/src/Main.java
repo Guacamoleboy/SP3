@@ -16,6 +16,7 @@ public class Main { // Client class
 
     // Attributes
     private static TextUI ui = new TextUI();
+    public static Program p;
 
     // ________________________________________________________
 
@@ -23,12 +24,17 @@ public class Main { // Client class
 
         // Toggles our program as "p"
         ui.displayMsg(ui.promptTextColor("red") + Constants.versionControl + ui.promptTextColor("reset"));
-        Program p = new Program(ui.promptTextColor("red") +"Netflix" + ui.promptTextColor("reset"));
+        p = new Program(ui.promptTextColor("red") +"Netflix" + ui.promptTextColor("reset"));
 
-        // Uses our value "p" to startSession and so on
+        // Uses our value "program" to startSession and so on
         p.startSession();
 
+
     }
+
+    // ________________________________________________________
+
+
 
 } // Main end
 

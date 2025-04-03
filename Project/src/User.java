@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import util.*;
 
 public class User {
 
@@ -78,5 +79,54 @@ public class User {
     public String getStatus(){
         return this.status;
     }
+
+
+    // ________________________________________________________
+
+    public void changeUsername(){
+
+        String choice = ui.promptText("New username: ");
+        String password = ui.promptText("Enter your password: ");
+
+        if (!(password == this.password)){
+            ui.displayMsg("Wrong password!");
+            return;
+        }
+
+        this.username = choice;
+        Main.p.saveData();
+    }
+
+    // ________________________________________________________
+
+    public void changePassword() {
+
+        String password = ui.promptText("Write your old password: ");
+        if (!(password == this.password)){
+            ui.displayMsg("Wrong password!");
+            return;
+        }
+
+        // Confirm that newPassword is correct by double prompting
+        String newPassword = ui.promptText("New password: ");
+        boolean confirm = ui.promptPasswordConfirmation(newPassword);
+
+        if (!confirm){
+            ui.displayMsg("Wrong password!");
+            return;
+        }
+
+        this.username = newPassword;
+        Main.p.saveData();
+    }
+
+    // ________________________________________________________
+
+    public void banUser() {
+        this.banned = "Yes";
+        Main.p.saveData();
+    }
+
+    // ________________________________________________________
 
 }

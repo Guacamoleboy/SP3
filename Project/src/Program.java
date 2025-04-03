@@ -8,8 +8,8 @@ public class Program {
     // Attributes
     private static TextUI ui = new TextUI();
     private static FileIO io = new FileIO();
-    private MainMenu mainmenu = new MainMenu();
-    private DevMenu devmenu = new DevMenu();
+    protected MainMenu mainmenu = new MainMenu();
+    protected DevMenu devmenu = new DevMenu();
 
     private String name;
     private String startSessionAnswer;
@@ -20,7 +20,6 @@ public class Program {
     private int userCount = 0;
     private ArrayList <User> user;
     private User currentUser;
-
     // ________________________________________________________
 
     public Program(String name){
@@ -375,5 +374,20 @@ public class Program {
         //ui.displayMsg("Suggestion Prompt has saved data."); || DEBUG
 
     }
+
+    // ________________________________________________________
+
+    public User getUserByName(String username) {
+        User u = user.stream().filter(s -> s.getName().equals(username)).findFirst().orElse(null);
+        return u;
+    }
+
+    // ________________________________________________________
+
+    public User getUserByID(int ID) {
+        User u = user.stream().filter(s -> (s.getID() == ID)).findFirst().orElse(null);
+        return u;
+    }
+
 
 } // Program end

@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b3f8056-31fe-4c8e-8772-9cb5bca132f3" name="Changes" comment="">
+    <list default="true" id="7b3f8056-31fe-4c8e-8772-9cb5bca132f3" name="Changes" comment="Had to reopen my program...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUIPrac/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUIPrac/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,18 +27,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Rovelt123"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Rovelt123&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Guacamoleboy/SP3.git",
-    "accountId": "bd666e3f-3ff7-47ad-8369-1598db308eea"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Guacamoleboy/SP3.git&quot;,
+    &quot;accountId&quot;: &quot;bd666e3f-3ff7-47ad-8369-1598db308eea&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -63,7 +58,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "AndreasR",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Janua/Desktop/Git/SP3/GUIPrac",
+    "last_opened_file_path": "C:/Users/45292/Desktop/SKOLE/JAVA/Første semester/SP3/Project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -99,12 +94,26 @@
       <updated>1743063111269</updated>
       <workItem from="1743063112490" duration="891000" />
       <workItem from="1743581198424" duration="2075000" />
-      <workItem from="1743691470365" duration="1537000" />
+      <workItem from="1743691470365" duration="1636000" />
+      <workItem from="1743693122848" duration="30000" />
     </task>
+    <task id="LOCAL-00001" summary="Had to reopen my program...">
+      <option name="closed" value="true" />
+      <created>1743693045310</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743693045310</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Had to reopen my program..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Had to reopen my program..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

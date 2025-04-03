@@ -8,8 +8,8 @@ public class Program {
     // Attributes
     private static TextUI ui = new TextUI();
     private static FileIO io = new FileIO();
-    private MainMenu mainmenu = new MainMenu();
-    private DevMenu devmenu = new DevMenu();
+    protected MainMenu mainmenu = new MainMenu();
+    protected DevMenu devmenu = new DevMenu();
 
     private String name;
     private String startSessionAnswer;
@@ -378,12 +378,15 @@ public class Program {
     // ________________________________________________________
 
     public User getUserByName(String username) {
-        for (User u : user) {
-            if (u.getName().equals(username)) {
-                return u;
-            }
-        }
-        return null;
+        User u = user.stream().filter(s -> s.getName().equals(username)).findFirst().orElse(null);
+        return u;
+    }
+
+    // ________________________________________________________
+
+    public User getUserByID(int ID) {
+        User u = user.stream().filter(s -> (s.getID() == ID)).findFirst().orElse(null);
+        return u;
     }
 
 

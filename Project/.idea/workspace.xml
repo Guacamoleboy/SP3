@@ -11,7 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="Yea">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DevMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DevMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
     </list>
     <list id="7c87b54a-bba3-4ad9-9dd2-79c0f649f702" name="Changes by daudibragimov" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,20 +40,20 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {}
-}]]></component>
-  <component name="GitHubPullRequestState"><![CDATA[{
-  "prStates": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
     {
-      "id": {
-        "id": "PR_kwDOOPCtyc6RPEkQ",
-        "number": 94
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOOPCtyc6RPEkQ&quot;,
+        &quot;number&quot;: 94
       },
-      "lastSeen": 1743677024490
+      &quot;lastSeen&quot;: 1743677024490
     }
   ]
-}]]></component>
+}</component>
   <component name="GithubProjectSettings">
     <option name="branchProtectionPatterns">
       <list>
@@ -63,23 +66,23 @@
       </list>
     </option>
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Guacamoleboy/SP3.git",
-    "accountId": "6c40eeb2-9541-4d09-9c7e-b121432decd3"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Guacamoleboy/SP3.git&quot;,
+    &quot;accountId&quot;: &quot;6c40eeb2-9541-4d09-9c7e-b121432decd3&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "Guacamoleboy",
-    "repository": "SP3"
+    &quot;owner&quot;: &quot;Guacamoleboy&quot;,
+    &quot;repository&quot;: &quot;SP3&quot;
   },
-  "editorReviewEnabled": false
-}]]></component>
+  &quot;editorReviewEnabled&quot;: false
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -100,7 +103,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "#95 on Jonas",
+    "git-widget-placeholder": "Jonas",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Janua/Desktop/Git/SP3/Project",
     "node.js.detected.package.eslint": "true",
@@ -169,6 +172,7 @@
       <workItem from="1743587286949" duration="4399000" />
       <workItem from="1743621438207" duration="8073000" />
       <workItem from="1743630151633" duration="28000" />
+      <workItem from="1743686171193" duration="1116000" />
     </task>
     <task id="LOCAL-00001" summary="Yea">
       <option name="closed" value="true" />

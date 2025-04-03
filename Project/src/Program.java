@@ -203,14 +203,65 @@ public class Program {
 
     public void login(){ // All users except devs & admins
 
-        String playerUser = ui.promptText("\nPlease log in!\nUsername:");
+        // Have to use while loop else it'll infinite loop
+        while(true) {
 
-        // Check if playerUser equals a spot in our userData.csv file
+            String playerUser = ui.promptText("\nPlease log in!\nUsername:");
 
-        String playerPass = ui.promptText("Password:");
+            // Checks if username exist
+            if (!usernameCheck(playerUser)) {
+                System.out.println("\nAccount not found..");
+                continue;
+            }
 
-        // Check if playerPass equals the password for the playerUser input in our .csv file (userData.csv)
+            String playerPass = ui.promptText("Password:");
 
+            // Checks if username and password match
+            if (!passwordCheck(playerPass, playerUser)) {
+                System.out.println("\nPassword doesn't match the username..");
+                continue;
+            }
+
+            ui.displayMsg("\nWelcome, " + playerUser + "! Loading Main Menu..");
+            //menu.mainMenu();
+            break;
+
+        } // While end
+
+    }
+
+    // ________________________________________________________
+
+    public boolean usernameCheck(String username){
+
+        String path = "data/userData.csv";
+        ArrayList <String> data = io.readData(path);
+
+        for (String s : data){
+            String[] values = s.split(", ");
+            if(values[0].equals(username)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    // ________________________________________________________
+
+    public boolean passwordCheck(String password, String username){
+
+        String path = "data/userData.csv";
+        ArrayList <String> data = io.readData(path);
+
+        for (String s : data){
+            String[] values = s.split(", ");
+            if(values[0].equals(username) && values[4].equals(password)){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     // ________________________________________________________

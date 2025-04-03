@@ -14,14 +14,14 @@ public abstract class Menu { // (Superclass)
         //Display data
         ui.displayMsg("\nWelcome to the Main Menu, " + ui.promptTextColor("red") + username + ui.promptTextColor("reset") + "!");
 
-        int input = ui.promptNumeric("\nPlease choose one of the following:\n1) Watch Movie\n2) Bookmarked Movies\n3) History\n4) Account Settings");
+        int input = ui.promptNumeric("\nPlease choose one of the following:\n1) Movies\n2) Series\n3) History\n\n4) Account Settings");
 
         switch (input){
             case 1:
-                // something
+                // Load more options. Such as "Watch Movie" "Bookmarked" "Liked" etc.
                 break;
             case 2:
-                // something
+                // Load more options. Such as "Watch Series" "Bookmarked" "Liked" etc.
                 break;
             case 3:
                 // Something

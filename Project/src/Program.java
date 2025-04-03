@@ -121,6 +121,7 @@ public class Program {
 
         // Allows us to loop over the password part
         while(!passwordTest){
+
             System.out.print(ui.promptTextColor("red"));
             passwordTest = ui.promptPasswordConfirmation(playerPassword);
             System.out.print(ui.promptTextColor("reset"));

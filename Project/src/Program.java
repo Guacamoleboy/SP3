@@ -8,6 +8,8 @@ public class Program {
     // Attributes
     private static TextUI ui = new TextUI();
     private static FileIO io = new FileIO();
+    private MainMenu mainmenu = new MainMenu();
+    private DevMenu devmenu = new DevMenu();
 
     private String name;
     private String startSessionAnswer;
@@ -187,7 +189,7 @@ public class Program {
         String devPass = "";
 
         if(devUser.equalsIgnoreCase("dev") || devUser.equalsIgnoreCase("admin")){
-            devPass = ui.promptText("\nHello, " + devUser + "\nEnter password:");
+            devPass = ui.promptText("\nHello, " + ui.promptTextColor("red") + devUser + ui.promptTextColor("reset") + "!\nEnter password:");
 
             if(devUser.equalsIgnoreCase("dev") && devPass.equalsIgnoreCase("dev")){
                 // Forward to dev menu
@@ -196,10 +198,12 @@ public class Program {
 
             if(devUser.equalsIgnoreCase("admin") && devPass.equalsIgnoreCase("admin")){
                 // Forward to dev menu
-                System.out.println("Dev access gained"); // Placeholder & Debug
+                System.out.println("\nDev access gained"); // Placeholder & Debug
             }
 
         }
+
+        devmenu.startSession(devUser);
 
         /*
         // Allows devs to try again if failed
@@ -211,10 +215,12 @@ public class Program {
 
     public void login(){ // All users except devs & admins
 
+        String playerUser = "";
+
         // Have to use while loop else it'll infinite loop
         while(true) {
 
-            String playerUser = ui.promptText("\nPlease log in!\nUsername:");
+            playerUser = ui.promptText("\nPlease log in!\nUsername:");
 
             // Checks if username exist
             if (!usernameCheck(playerUser)) {
@@ -231,10 +237,18 @@ public class Program {
             }
 
             ui.displayMsg("\nWelcome, " + playerUser + "! Loading Main Menu..");
-            //menu.mainMenu();
+
+            try{
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                ui.displayMsg("Error. Contact a dev...");
+            }
+
             break;
 
         } // While end
+
+        mainmenu.startSession(playerUser);
 
     }
 

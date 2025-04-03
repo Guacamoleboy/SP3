@@ -1,21 +1,18 @@
-public class DevMenu extends Menu{ // Menu for devs
+import util.*;
+
+public class DevMenu extends Menu { // Menu for devs (Subclass)
 
     // Attributes
-
-    // ________________________________________________________
-
-    public DevMenu(){
-
-
-
-    }
+    private static FileIO io = new FileIO();
+    private static TextUI ui = new TextUI();
 
     // ________________________________________________________
 
     @Override
-    public void startSession(){
+    public void startSession(String username){
 
-        // Christopher kommentar
+        //Display data
+        ui.displayMsg("\nWelcome to the Dev Menu, " + username);
 
     }
 

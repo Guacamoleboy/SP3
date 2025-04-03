@@ -1,22 +1,17 @@
 import util.FileIO;
 import util.TextUI;
 
-public class MainMenu extends Menu{ // Menu for everyone other than devs & admins
+public class MainMenu extends Menu { // Menu for everyone other than devs & admins (Subclass)
 
     // Attributes
-    TextUI ui = new TextUI();
-    FileIO io = new FileIO();
+    private static TextUI ui = new TextUI();
+    private static FileIO io = new FileIO();
 
     // ________________________________________________________
 
-    @Override
-    public void startSession(){
+    public void startSession(String username){
 
-        // Load / toggle data
-
-        //Display data
-        ui.displayMsg("\nWelcome to the Main Menu, NAME.\n");
-
+        super.startSession(username);
 
     }
 

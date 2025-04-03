@@ -23,6 +23,8 @@ public abstract class Menu { // (Superclass)
                 newInput = ui.promptText("\nPlease choose a movie:\n1) Noget\n2) Noget\n3) Noget\n4) Noget\n5) Noget\n6) Noget\n7) Noget\n8) Noget\n9) Noget" +
                         " \n\nType " + ui.promptTextFormat("outline")  +" BACK "+ ui.promptTextFormat("outline reset")  + " to go back.");
 
+
+                // For loop of loaded data instead of switch case
                 switch (newInput){
                     case "1":
                         break;
@@ -54,8 +56,9 @@ public abstract class Menu { // (Superclass)
             case "2":
                 // Load more options. Such as "Watch Series" "Bookmarked" "Liked" etc.
                 break;
-            case "3":
-                // Something
+            case "3": //History here :-)
+                // Something abt. History
+                //Remember to use for loop for loaded data.
                 break;
             case "4":
                 accountSettings(username);

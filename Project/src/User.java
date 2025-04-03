@@ -85,12 +85,12 @@ public class User {
 
     // ________________________________________________________
 
-    public void changeUsername(){
+    public void changeUsername(String username){
 
         String choice = ui.promptText("New username: ");
         String password = ui.promptText("Enter your password: ");
 
-        if (!(password == this.password)){
+        if (!(password.equalsIgnoreCase(this.password))){
             ui.displayMsg("Wrong password!");
             return;
         }

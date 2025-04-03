@@ -20,7 +20,6 @@ public class Program {
     private int userCount = 0;
     private ArrayList <User> user;
     private User currentUser;
-
     // ________________________________________________________
 
     public Program(String name){
@@ -375,5 +374,17 @@ public class Program {
         //ui.displayMsg("Suggestion Prompt has saved data."); || DEBUG
 
     }
+
+    // ________________________________________________________
+
+    public User getUserByName(String username) {
+        for (User u : user) {
+            if (u.getName().equals(username)) {
+                return u;
+            }
+        }
+        return null;
+    }
+
 
 } // Program end

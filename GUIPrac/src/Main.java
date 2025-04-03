@@ -13,7 +13,8 @@ import guis.ForgotPassword;
 
 // _________________________________________
 
-public class Main { // Client class
+public class Main {
+    public static Program program; // Client class
 
     // Attributes
 

@@ -48,7 +48,14 @@ public abstract class Menu { // (Superclass)
     public void accountSettings(String username){
 
         ui.displayMsg("Account settings for, " + ui.promptTextColor("red") + username + ui.promptTextColor("reset") + ":");
-        ui.displayMsg("\n1) Change Username\n2) Change Password\n3) Something\n4) Something\n5) Something\n6) Pause Membership\n7) Set as account status to inactive\n9) Exit");
+        String input = ui.promptText("\n1) Change Username\n2) Change Password\n3) Something\n4) Something\n5) Something\n6) Pause Membership\n7) Set as account status to inactive\n9) Exit");
+        switch (input.toLowerCase()){
+            case "1", "change Username", "1) change Username":
+                User u = Main.program.getUserByName(username);
+
+        }
+
+
 
     }
 

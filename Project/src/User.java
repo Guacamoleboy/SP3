@@ -79,4 +79,19 @@ public class User {
         return this.status;
     }
 
+
+    // ________________________________________________________
+
+    public void changeUsername(String username){
+        this.username = username;
+    }
+
+    // ________________________________________________________
+
+    public void changePassword(String password) {
+        this.password = password;
+    }
+
+    // ________________________________________________________
+
 }

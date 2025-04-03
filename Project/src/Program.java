@@ -200,8 +200,13 @@ public class Program {
 
     public void login(){ // All users except devs & admins
 
-        String playerUser = ui.promptText("Please log in!\nUsername:");
+        String playerUser = ui.promptText("\nPlease log in!\nUsername:");
+
+        // Check if playerUser equals a spot in our userData.csv file
+
         String playerPass = ui.promptText("Password:");
+
+        // Check if playerPass equals the password for the playerUser input in our .csv file (userData.csv)
 
     }
 

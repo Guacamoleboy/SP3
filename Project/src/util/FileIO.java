@@ -1,7 +1,7 @@
-package util;/*
+/*
 
     Featured in this util.FileIO
-    _______________________
+    ____________________________
 
     saveData
     readData (ArrayList)
@@ -15,6 +15,8 @@ package util;/*
     Updated by: Jonas
 
 */
+
+package util;
 
 import java.nio.file.Files;
 import java.nio.file.Path; // Read meta data from file

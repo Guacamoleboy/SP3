@@ -1,1 +1,11 @@
-Username, ID, Age, Gender, Password, Banned
+Username, ID, Age, Gender, Password, Banned, Status
+Shrek111, 1, 13, Male, Shrek1, No, Active
+Shrek222, 2, 14, Male, Shrek1, No, Active
+Shrek333, 3, 12, Male, Shrek1, No, Inactive
+Shrek444, 4, 10, Female, Shrek2, No, Paused
+Shrek555, 5, 121, Female, Shrek3, No, Active
+Shrek666, 6, 140, Male, Shrek2, Yes, Inactive
+Shrek777, 7, 160, Female, Shrek1, Yes, Paused
+Shrek888, 8, 40, Male, Shrek2, Yes, Inactive
+Shrek999, 9, 51, Female, ShrekErLivet, No, Active
+Shrek1010, 10, 70, Male, Drake, Yes, Paused

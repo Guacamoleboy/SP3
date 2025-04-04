@@ -6,6 +6,7 @@ public class User {
     // Attributes
     private static TextUI ui = new TextUI();
 
+    private String ipAdress;
     private String username;
     private String password;
     private String status;
@@ -18,8 +19,8 @@ public class User {
 
     // ________________________________________________________
 
-    public User(String username, int ID, int age, String gender, String password, String banned, String status){
-
+    public User(String username, int ID, int age, String gender, String password, String banned, String status, String ipAdress){
+        this.ipAdress = ipAdress;
         this.username = username;
         this.ID = ID;
         this.age = age;
@@ -34,7 +35,7 @@ public class User {
 
     public String toCSV(){
 
-        return this.username + ", " + this.ID + ", " + this.age + ", " + this.gender + ", " + this.password + ", " + this.banned + ", " + this.status;
+        return this.username + ", " + this.ID + ", " + this.age + ", " + this.gender + ", " + this.password + ", " + this.banned + ", " + this.status + ", " + this.ipAdress;
 
     }
 
@@ -50,6 +51,12 @@ public class User {
 
     public String getName(){
         return this.username;
+    }
+
+    // ________________________________________________________
+
+    public String getIpAdress(){
+        return this.ipAdress;
     }
 
     // ________________________________________________________

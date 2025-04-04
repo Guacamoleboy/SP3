@@ -1,7 +1,7 @@
 /*
 
     Authors: Andreas, Daud, Olivia, Jonas, Christopher
-    Version 0.5.0
+    Version 0.5.5
     SP3
 
     Comments:
@@ -22,9 +22,9 @@ public class Main { // Client class
 
     public static void main(String[] args) {
 
-        // Toggles our program as "p"
-        ui.displayMsg(ui.promptTextColor("red") + Constants.versionControl + ui.promptTextColor("reset"));
+        // Checks if the program is up to date
 
+        if(UpdateChecker.checkVersion()){
         // Exit prompt information
         ui.displayMsg("\nUse " + ui.promptTextFormat("outline") + " Bananflue " + ui.promptTextFormat("outline reset") +
                 " at any point to exit the program!");
@@ -34,7 +34,7 @@ public class Main { // Client class
         // Uses our value "program" to startSession and so on
         p.startSession();
 
-
+        }
 
     }
 

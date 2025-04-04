@@ -10,15 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="Yea">
+      <change afterPath="$PROJECT_DIR$/src/UpdateChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/constants/version.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DevMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DevMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/userData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/TextUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/TextUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
-    <list id="587bc8bf-801e-4672-8aaf-834ce0e919ac" name="Changes by 45292" comment="" />
+    <list id="587bc8bf-801e-4672-8aaf-834ce0e919ac" name="Changes by 45292" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/Constants.java" afterDir="false" />
+    </list>
     <list id="7c87b54a-bba3-4ad9-9dd2-79c0f649f702" name="Changes by daudibragimov" comment="" />
     <list id="d4a46b11-864b-4460-a958-70d3a4ac490d" name="Changes by jonas" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,17 +53,31 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {}
 }</component>
-  <component name="GitHubPullRequestState">{
-  &quot;prStates&quot;: [
+  <component name="GitHubPullRequestState"><![CDATA[{
+  "prStates": [
     {
-      &quot;id&quot;: {
-        &quot;id&quot;: &quot;PR_kwDOOPCtyc6RPEkQ&quot;,
-        &quot;number&quot;: 94
+      "id": {
+        "id": "PR_kwDOOPCtyc6RPEkQ",
+        "number": 94
       },
-      &quot;lastSeen&quot;: 1743677024490
+      "lastSeen": 1743677024490
+    },
+    {
+      "id": {
+        "id": "PR_kwDOOPCtyc6RX79-",
+        "number": 127
+      },
+      "lastSeen": 1743757740423
+    },
+    {
+      "id": {
+        "id": "PR_kwDOOPCtyc6RX6Qc",
+        "number": 126
+      },
+      "lastSeen": 1743757943512
     }
   ]
-}</component>
+}]]></component>
   <component name="GithubProjectSettings">
     <option name="branchProtectionPatterns">
       <list>
@@ -87,6 +107,35 @@
   },
   &quot;editorReviewEnabled&quot;: false
 }</component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/Program.java">
+      <ranges>
+        <range start1="3" end1="3" start2="3" end2="5" changelist="587bc8bf-801e-4672-8aaf-834ce0e919ac" />
+        <range start1="53" end1="55" start2="55" end2="57" changelist="587bc8bf-801e-4672-8aaf-834ce0e919ac" />
+        <range start1="163" end1="164" start2="165" end2="176" changelist="587bc8bf-801e-4672-8aaf-834ce0e919ac" />
+        <range start1="320" end1="321" start2="332" end2="333" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="322" end1="323" start2="334" end2="336" changelist="587bc8bf-801e-4672-8aaf-834ce0e919ac" />
+        <range start1="350" end1="351" start2="363" end2="364" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/Main.java">
+      <ranges>
+        <range start1="3" end1="4" start2="3" end2="4" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="24" end1="26" start2="24" end2="25" changelist="587bc8bf-801e-4672-8aaf-834ce0e919ac" />
+        <range start1="27" end1="27" start2="26" end2="27" changelist="587bc8bf-801e-4672-8aaf-834ce0e919ac" />
+        <range start1="35" end1="35" start2="35" end2="37" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="36" end1="38" start2="38" end2="38" changelist="587bc8bf-801e-4672-8aaf-834ce0e919ac" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/User.java">
+      <ranges>
+        <range start1="8" end1="8" start2="8" end2="9" changelist="587bc8bf-801e-4672-8aaf-834ce0e919ac" />
+        <range start1="20" end1="22" start2="21" end2="23" changelist="587bc8bf-801e-4672-8aaf-834ce0e919ac" />
+        <range start1="36" end1="37" start2="37" end2="38" changelist="587bc8bf-801e-4672-8aaf-834ce0e919ac" />
+        <range start1="53" end1="53" start2="54" end2="60" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -107,7 +156,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Jonas",
+    "git-widget-placeholder": "#127 on Jonas",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/45292/Desktop/SKOLE/JAVA/Første semester/SP3/Project",
     "node.js.detected.package.eslint": "true",
@@ -181,7 +230,7 @@
       <workItem from="1743700476539" duration="8000" />
       <workItem from="1743701121406" duration="7000" />
       <workItem from="1743708924774" duration="3151000" />
-      <workItem from="1743755914301" duration="1515000" />
+      <workItem from="1743755914301" duration="12380000" />
     </task>
     <task id="LOCAL-00001" summary="Yea">
       <option name="closed" value="true" />
@@ -214,7 +263,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/User.java</url>
-          <line>74</line>
+          <line>81</line>
           <properties class="User" method="getBanned">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -229,15 +278,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/User.java</url>
-          <line>56</line>
-          <properties class="User" method="getID">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Admin.java</url>

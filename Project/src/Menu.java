@@ -18,6 +18,7 @@ public abstract class Menu { // (Superclass)
         String input = ui.promptTextLine("Input: ");
         String newInput = "";
         String seriesInput = "";
+        String movieOptions = "";
 
         switch (input){
             case "1":
@@ -55,6 +56,7 @@ public abstract class Menu { // (Superclass)
                 }
 
                 break;
+
             case "2":
 
                 seriesInput = ui.promptText("\nPlease choose a series:\n1) Noget\n2) Noget\n3) Noget\n4) Noget\n5) Noget\n6) Noget\n7) Noget\n8) Noget\n9) Noget" +
@@ -89,9 +91,15 @@ public abstract class Menu { // (Superclass)
                 }
 
                 break;
+<<<<<<< HEAD
+
+            case "3":
+                // Something
+=======
             case "3": //History here :-)
                 // Something abt. History
                 //Remember to use for loop for loaded data.
+>>>>>>> 2ed548e0d48b7af7f18b646c083e81b5980fdeb4
                 break;
             case "4":
                 accountSettings(username);

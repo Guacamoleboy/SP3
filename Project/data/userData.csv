@@ -1,3 +1,23 @@
+<<<<<<< HEAD
+Username, ID, Age, Gender, Password, Banned, Status, IP
+Shrek111, 1, 13, Male, Shrek1, Yes, Active, 192.168.0.2
+Shrek222, 2, 14, Male, Shrek1, No, Active, 192.168.0.2
+Shrek333, 3, 12, Male, Shrek1, No, Inactive, 192.168.0.2
+Shrek444, 4, 10, Female, Shrek2, No, Paused, 192.168.0.2
+Shrek555, 5, 121, Female, Shrek3, No, Active, 192.168.0.2
+Shrek666, 6, 140, Male, Shrek2, Yes, Inactive, 192.168.0.2
+Shrek777, 7, 160, Female, Shrek1, Yes, Paused, 192.168.0.2
+Shrek888, 8, 40, Male, Shrek2, Yes, Inactive, 192.168.0.2
+Shrek999, 9, 51, Female, ShrekErLivet, No, Active, 192.168.0.2
+Shrek1010, 10, 70, Male, Drake, Yes, Paused, 192.168.0.2
+Ande, 11, 21, Male, Rovelt123, No, Active, 192.168.0.2
+Ande2, 12, 53, Male, Ande2, No, Active, 192.168.0.2
+Ande3, 13, 52, Male, Ande3, No, Active, 192.168.0.2
+Ande4, 14, 52, Male, Ande4, No, Active, 192.168.0.2
+yes111, 15, 55, male, yes, No, Active, 192.168.0.2
+Yes222, 16, 42, male, yes, No, Active, 192.168.0.2
+Drakelol11, 17, 44, Male, Drake, No, Active, 192.168.0.2
+=======
 Username, ID, Age, Gender, Password, Banned, Status
 Rovelt123, 1, 13, Male, Shrek1, Yes, Active
 Shrek222, 2, 14, Male, Shrek1, No, Active
@@ -9,3 +29,4 @@ Shrek777, 7, 160, Female, Shrek1, Yes, Paused
 Shrek888, 8, 40, Male, Shrek2, Yes, Inactive
 Shrek999, 9, 51, Female, ShrekErLivet, No, Active
 Shrek1010, 10, 70, Male, Drake, Yes, Paused
+>>>>>>> 2ed548e0d48b7af7f18b646c083e81b5980fdeb4

@@ -1,6 +1,8 @@
 import util.FileIO;
 import util.TextUI;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.*;
 
 public class Program {
@@ -51,8 +53,8 @@ public class Program {
                 String userPassword = values[4].trim();
                 String userBanned = values[5].trim();
                 String userStatus = values[6].trim();
-
-                createUser(username, userID, userAge, userGender, userPassword, userBanned, userStatus);
+                String userIP = values[7].trim();
+                createUser(username, userID, userAge, userGender, userPassword, userBanned, userStatus, userIP);
                 ID++;
                 userCount++;
 
@@ -161,7 +163,17 @@ public class Program {
                 break;
         }
 
-        createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned, playerStatus);
+        // Gets user IP adress and add to userData.csv
+        String ipAdress = "unknown";
+        try {
+            InetAddress inetAdress = InetAddress.getLocalHost();
+            ipAdress = inetAdress.getHostAddress();
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned, playerStatus, ipAdress);
 
         ui.displayMsg("\nThanks for making an account. Sending you to login page..\n");
 
@@ -318,9 +330,10 @@ public class Program {
 
     // ________________________________________________________
 
-    public void createUser(String username, int ID, int age, String gender, String password, String banned, String status){
+    public void createUser(String username, int ID, int age, String gender, String password, String banned, String status, String ipAdress){
 
-        User u = new User(username, ID, age, gender, password, banned, status);
+
+        User u = new User(username, ID, age, gender, password, banned, status, ipAdress);
         user.add(u);
 
     }
@@ -348,7 +361,7 @@ public class Program {
 
         }
 
-        io.saveData(playerData, "data/userData.csv", "Username, ID, Age, Gender, Password, Banned, Status");
+        io.saveData(playerData, "data/userData.csv", "Username, ID, Age, Gender, Password, Banned, Status, IP");
 
         //ui.displayMsg("Program has saved data."); || DEBUG
 

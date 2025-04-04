@@ -40,9 +40,20 @@ public class User {
         System.out.print("Enter username: ");
         String username = scanner.nextLine();
 
-        System.out.print("Enter age: ");
-        int age = scanner.nextInt();
-        scanner.nextLine(); // Fanger den newline så input ikke hopper over næste scanner.nextLine()
+        int age;
+        // Laver en løkkke der sikrer at alderen er mellem 12 og 120
+        while (true) {
+            System.out.print("Enter age: ");
+            age = scanner.nextInt();
+            scanner.nextLine();
+
+            if (age >= 12 && age <= 120) {
+                break; // Stopper loopet her, hvis alderen er gyldige
+            } else {
+                System.out.println("Invalid age. Age must be between 12 and 120. Please try again.");
+            }
+        }
+    }
 
         System.out.print("Enter gender: ");
         String gender = scanner.nextLine();
@@ -50,21 +61,21 @@ public class User {
         String password;
         String confirmPassword;
 
-        // Laver loop som sikre at brugeren indtaster det samme password to gange
         while (true) {
             System.out.print("Enter password: ");
             password = scanner.nextLine();
 
             System.out.print("Confirm password: ");
             confirmPassword = scanner.nextLine();
-
-            if (password.equals(confirmPassword)) { // Såh hvis passwords matcher bliver loopet afsluttet
+            if (password.equals(confirmPassword)) { // Hvis passwords matcher, afsluttes loopet
                 System.out.println("Account successfully created!");
                 return new User(username, generateID(), age, gender, "No", password);
             } else {
                 System.out.println("Passwords do not match. Please try again.");
             }
-        }
+          }
+       }
+
     }
      // ______________________________________________________________
 
@@ -126,6 +137,5 @@ public class User {
     }
 
 }
-// Shuuuu
 
 

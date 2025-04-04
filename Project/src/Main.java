@@ -1,7 +1,7 @@
 /*
 
-    Authors: Andreas, Daud, Olivia, Jonas
-    Version 0.4.8
+    Authors: Andreas, Daud, Olivia, Jonas, Christopher
+    Version 0.5.0
     SP3
 
     Comments:
@@ -24,10 +24,16 @@ public class Main { // Client class
 
         // Toggles our program as "p"
         ui.displayMsg(ui.promptTextColor("red") + Constants.versionControl + ui.promptTextColor("reset"));
+
+        // Exit prompt information
+        ui.displayMsg("\nUse " + ui.promptTextFormat("outline") + " Bananflue " + ui.promptTextFormat("outline reset") +
+                " at any point to exit the program!");
+
         p = new Program(ui.promptTextColor("red") +"Netflix" + ui.promptTextColor("reset"));
 
         // Uses our value "program" to startSession and so on
         p.startSession();
+
 
 
     }

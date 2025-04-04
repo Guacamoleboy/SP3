@@ -114,9 +114,28 @@ public class TextUI { // Our own custom generic util.TextUI class
 
     // ________________________________________________________
 
+    public void displayMsgLine(String msg){
+
+        System.out.print(msg);
+
+    }
+
+    // ________________________________________________________
+
     public String promptText(String msg){
 
         displayMsg(msg);
+        String input = scanner.nextLine();
+
+        return input;
+
+    }
+
+    // ________________________________________________________
+
+    public String promptTextLine(String msg){
+
+        displayMsgLine(msg);
         String input = scanner.nextLine();
 
         return input;

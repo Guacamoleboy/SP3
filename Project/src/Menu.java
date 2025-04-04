@@ -14,8 +14,10 @@ public abstract class Menu { // (Superclass)
         //Display data
         ui.displayMsg("\nWelcome to the Main Menu, " + ui.promptTextColor("red") + username + ui.promptTextColor("reset") + "!");
 
-        String input = ui.promptText("\nPlease choose one of the following:\n1) Movies\n2) Series\n3) History\n4) Account Settings");
+        ui.displayMsg("\nPlease choose one of the following:\n1) Movies\n2) Series\n3) History\n4) Account Settings\n_____________________");
+        String input = ui.promptTextLine("Input: ");
         String newInput = "";
+        String seriesInput = "";
 
         switch (input){
             case "1":
@@ -52,7 +54,38 @@ public abstract class Menu { // (Superclass)
 
                 break;
             case "2":
-                // Load more options. Such as "Watch Series" "Bookmarked" "Liked" etc.
+
+                seriesInput = ui.promptText("\nPlease choose a series:\n1) Noget\n2) Noget\n3) Noget\n4) Noget\n5) Noget\n6) Noget\n7) Noget\n8) Noget\n9) Noget" +
+                        " \n\nType " + ui.promptTextFormat("outline")  +" BACK "+ ui.promptTextFormat("outline reset")  + " to go back.");
+
+                switch (seriesInput){
+                    case "1":
+                        // Something
+                        break;
+                    case "2":
+                        break;
+                    case "3":
+                        break;
+                    case "4":
+                        break;
+                    case "5":
+                        break;
+                    case "6":
+                        break;
+                    case "7":
+                        break;
+                    case "8":
+                        break;
+                    case "9":
+                        break;
+                    case "back":
+                        startSession(username);
+                        break;
+                    default:
+                        ui.displayMsg("Invalid input. Try again.");
+                        break;
+                }
+
                 break;
             case "3":
                 // Something

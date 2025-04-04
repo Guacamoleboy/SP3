@@ -15,11 +15,16 @@ public class DevMenu extends Menu { // Menu for devs (Subclass)
         //Display data
         ui.displayMsg("\nWelcome to the Dev Menu, " + ui.promptTextColor("red") + username + ui.promptTextColor("reset"));
 
-        String input = ui.promptText("\nPlease choose one of the following:\n1) Add Movie\n2) Add Series\n3) Ban Account\n4) Remove Account\n5) Set" +
-                " Account As Inactive\n6) Set Account As Paused\n7) Change Password\n8) Change Username\n\nType " + ui.promptTextFormat("outline")+
-                " NEXT " + ui.promptTextFormat("outline reset") + " To Load More..");
+        // Visuals
+        ui.displayMsg("\nPlease choose one of the following:\n1) Add Movie\n2) Add Series\n3) Ban Account\n4) Remove Account\n5) Set" +
+        " Account As Inactive\n6) Set Account As Paused\n7) Change Password\n8) Change Username\n\nType " + ui.promptTextFormat("outline")+
+        " NEXT " + ui.promptTextFormat("outline reset") + " " + ui.promptTextFormat("outline") + " PREV " + ui.promptTextFormat("outline reset") +
+        " To Load More | " + "Use " + ui.promptTextFormat("outline") + " BACK " + ui.promptTextFormat("outline reset") +
+        " to return\n_________________________________");
 
-        switch (input){
+        String input = ui.promptTextLine("Input: ");
+
+                switch (input){
             case "1":
                 // something
                 break;
@@ -44,9 +49,17 @@ public class DevMenu extends Menu { // Menu for devs (Subclass)
             case "8":
                 // Something
                 break;
+            case "9":
+                //Something
+                break;
             case "next":
                 // Something
                 break;
+            case "prev":
+                // Something
+                break;
+            case "back":
+                startSession(username);
             default:
                 startSession(username);
         }

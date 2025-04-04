@@ -14,7 +14,7 @@ public class User {
     private int age;
     private String gender;
     private String banned;
-    protected ArrayList <History> history;
+    protected History history;
     protected ArrayList <Bookmarked> bookmarked;
 
     // ________________________________________________________
@@ -28,6 +28,7 @@ public class User {
         this.password = password;
         this.banned = banned;
         this.status = status;
+        this.history = new History();
 
     } // Constructor
 
@@ -92,12 +93,12 @@ public class User {
 
     // ________________________________________________________
 
-    public void changeUsername(){
+    public void changeUsername(String username){
 
         String choice = ui.promptText("New username: ");
         String password = ui.promptText("Enter your password: ");
 
-        if (!(password == this.password)){
+        if (!(password.equalsIgnoreCase(this.password))){
             ui.displayMsg("Wrong password!");
             return;
         }

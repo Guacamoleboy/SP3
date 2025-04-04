@@ -14,19 +14,86 @@ public abstract class Menu { // (Superclass)
         //Display data
         ui.displayMsg("\nWelcome to the Main Menu, " + ui.promptTextColor("red") + username + ui.promptTextColor("reset") + "!");
 
-        int input = ui.promptNumeric("\nPlease choose one of the following:\n1) Movies\n2) Series\n3) History\n\n4) Account Settings");
+        ui.displayMsg("\nPlease choose one of the following:\n1) Movies\n2) Series\n3) History\n4) Account Settings\n_____________________");
+        String input = ui.promptTextLine("Input: ");
+        String newInput = "";
+        String seriesInput = "";
 
         switch (input){
-            case 1:
-                // Load more options. Such as "Watch Movie" "Bookmarked" "Liked" etc.
+            case "1":
+
+                newInput = ui.promptText("\nPlease choose a movie:\n1) Noget\n2) Noget\n3) Noget\n4) Noget\n5) Noget\n6) Noget\n7) Noget\n8) Noget\n9) Noget" +
+                        " \n\nType " + ui.promptTextFormat("outline")  +" BACK "+ ui.promptTextFormat("outline reset")  + " to go back.");
+
+
+                // For loop of loaded data instead of switch case
+                switch (newInput){
+                    case "1":
+                        break;
+                    case "2":
+                        break;
+                    case "3":
+                        break;
+                    case "4":
+                        break;
+                    case "5":
+                        break;
+                    case "6":
+                        break;
+                    case "7":
+                        break;
+                    case "8":
+                        break;
+                    case "9":
+                        break;
+                    case "back":
+                        startSession(username);
+                        break;
+                    default:
+                        ui.displayMsg("Invalid input. Try again.");
+                        break;
+                }
+
                 break;
-            case 2:
-                // Load more options. Such as "Watch Series" "Bookmarked" "Liked" etc.
+            case "2":
+
+                seriesInput = ui.promptText("\nPlease choose a series:\n1) Noget\n2) Noget\n3) Noget\n4) Noget\n5) Noget\n6) Noget\n7) Noget\n8) Noget\n9) Noget" +
+                        " \n\nType " + ui.promptTextFormat("outline")  +" BACK "+ ui.promptTextFormat("outline reset")  + " to go back.");
+
+                switch (seriesInput){
+                    case "1":
+                        // Something
+                        break;
+                    case "2":
+                        break;
+                    case "3":
+                        break;
+                    case "4":
+                        break;
+                    case "5":
+                        break;
+                    case "6":
+                        break;
+                    case "7":
+                        break;
+                    case "8":
+                        break;
+                    case "9":
+                        break;
+                    case "back":
+                        startSession(username);
+                        break;
+                    default:
+                        ui.displayMsg("Invalid input. Try again.");
+                        break;
+                }
+
                 break;
-            case 3:
-                // Something
+            case "3": //History here :-)
+                // Something abt. History
+                //Remember to use for loop for loaded data.
                 break;
-            case 4:
+            case "4":
                 accountSettings(username);
                 break;
             default:
@@ -34,6 +101,8 @@ public abstract class Menu { // (Superclass)
         }
 
     }
+
+
 
     // ________________________________________________________
 
@@ -52,7 +121,7 @@ public abstract class Menu { // (Superclass)
         String input = ui.promptText("\n1) Change Username\n2) Change Password\n3) Something\n4) Something\n5) Something\n6) Pause Membership\n7) Set as account status to inactive\n9) Exit");
         switch (input.toLowerCase()){
             case "1", "change Username", "1) change Username":
-                user.changeUsername();
+                user.changeUsername(username);
                 break;
             case "2", "change Password", "2) change Password":
                 user.changePassword();
@@ -60,8 +129,7 @@ public abstract class Menu { // (Superclass)
 
 
         }
-
-
+        Main.p.mainmenu.startSession(user.getName());
 
     }
 

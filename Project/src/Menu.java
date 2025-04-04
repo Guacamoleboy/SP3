@@ -91,15 +91,10 @@ public abstract class Menu { // (Superclass)
                 }
 
                 break;
-<<<<<<< HEAD
 
-            case "3":
-                // Something
-=======
             case "3": //History here :-)
                 // Something abt. History
                 //Remember to use for loop for loaded data.
->>>>>>> 2ed548e0d48b7af7f18b646c083e81b5980fdeb4
                 break;
             case "4":
                 accountSettings(username);

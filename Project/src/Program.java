@@ -172,6 +172,12 @@ public class Program {
             throw new RuntimeException(e);
         }
 
+        User existingUser = getUserByIP(ipAdress);
+        if (existingUser != null) {
+            ui.displayMsg("\nCan't have two accounts on the same IP adress!");
+            login();
+            return;
+        }
 
         createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned, playerStatus, ipAdress);
 
@@ -375,17 +381,21 @@ public class Program {
         int suggestID = 0;
         String added = "No";
 
-        for(User u : user){
-
-            suggestID++;
-            String s = u.toCSVSuggest(startSessionAnswer, suggestID, added);
-            suggestData.add(s);
-
-        }
+        suggestID++;
+        String s = toCSVSuggest(startSessionAnswer, suggestID, added);
+        suggestData.add(s);
 
         io.saveData(suggestData, "data/suggestPrompts.csv", "Value, ID, Added");
 
         //ui.displayMsg("Suggestion Prompt has saved data."); || DEBUG
+
+    }
+
+    // ________________________________________________________
+
+    private static String toCSVSuggest(String value, int ID, String added){
+
+        return value + ", " + ID + ", " + added;
 
     }
 
@@ -400,6 +410,13 @@ public class Program {
 
     public User getUserByID(int ID) {
         User u = user.stream().filter(s -> (s.getID() == ID)).findFirst().orElse(null);
+        return u;
+    }
+
+    // ________________________________________________________
+
+    public User getUserByIP(String ipAdress) {
+        User u = user.stream().filter(s -> s.getIP().equals(ipAdress)).findFirst().orElse(null);
         return u;
     }
 

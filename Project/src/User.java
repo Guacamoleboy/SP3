@@ -82,6 +82,11 @@ public class User {
         return this.status;
     }
 
+    // ________________________________________________________
+
+    public String getIP() {
+        return this.ipAdress;
+    }
 
     // ________________________________________________________
 

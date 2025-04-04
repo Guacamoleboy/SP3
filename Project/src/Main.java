@@ -25,14 +25,14 @@ public class Main { // Client class
         // Checks if the program is up to date
 
         if(UpdateChecker.checkVersion()){
-        // Exit prompt information
-        ui.displayMsg("\nUse " + ui.promptTextFormat("outline") + " Bananflue " + ui.promptTextFormat("outline reset") +
-                " at any point to exit the program!");
+            // Exit prompt information
+            ui.displayMsg("\nUse " + ui.promptTextFormat("outline") + " Bananflue " + ui.promptTextFormat("outline reset") +
+                    " at any point to exit the program!");
 
-        p = new Program(ui.promptTextColor("red") +"Netflix" + ui.promptTextColor("reset"));
+            p = new Program(ui.promptTextColor("red") +"Netflix" + ui.promptTextColor("reset"));
 
-        // Uses our value "program" to startSession and so on
-        p.startSession();
+            // Uses our value "program" to startSession and so on
+            p.startSession();
         }
 
     }

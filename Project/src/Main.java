@@ -33,7 +33,6 @@ public class Main { // Client class
 
         // Uses our value "program" to startSession and so on
         p.startSession();
-
         }
 
     }

@@ -1,12 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Project" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="Checks if username is already taken">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/History.java" afterDir="false" />
+    </list>
+    <list id="7c87b54a-bba3-4ad9-9dd2-79c0f649f702" name="Changes by daudibragimov" comment="" />
+    <list id="d4a46b11-864b-4460-a958-70d3a4ac490d" name="Changes by jonas" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="Olivia" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;OliviaLarsen2212&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Guacamoleboy/SP3.git&quot;,
+    &quot;accountId&quot;: &quot;ac430c72-e218-4dd6-8c7c-24f74349a6a0&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;Guacamoleboy&quot;,
+    &quot;repository&quot;: &quot;SP3&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2vDNrssSdXO0kWkRtNDvH9H2w9b" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CSVFixer.executor": "Run",
+    "Application.Feet.executor": "Run",
+    "Application.Main.executor": "Run",
+    "DefaultPlantUmlFileTemplate": "UML Class",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Olivia",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/45292/Desktop/SKOLE/JAVA/Første semester/SP3/Project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="" />
+      <created>1742992454030</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742992454030</updated>
+      <workItem from="1742992455094" duration="12829000" />
+      <workItem from="1743008018092" duration="160000" />
+      <workItem from="1743064917518" duration="1262000" />
+      <workItem from="1743067218410" duration="529000" />
+      <workItem from="1743067757606" duration="9664000" />
+      <workItem from="1743090255989" duration="1662000" />
+      <workItem from="1743102955866" duration="1455000" />
+      <workItem from="1743147872169" duration="421000" />
+      <workItem from="1743166387877" duration="1963000" />
+      <workItem from="1743168456863" duration="29000" />
+      <workItem from="1743197839326" duration="2211000" />
+      <workItem from="1743200534323" duration="3340000" />
+      <workItem from="1743247156120" duration="2987000" />
+      <workItem from="1743252976083" duration="3300000" />
+      <workItem from="1743263073527" duration="359000" />
+      <workItem from="1743271153477" duration="449000" />
+      <workItem from="1743271703989" duration="41000" />
+      <workItem from="1743325968461" duration="5837000" />
+      <workItem from="1743335435690" duration="349000" />
+      <workItem from="1743426854588" duration="1024000" />
+      <workItem from="1743587286949" duration="4399000" />
+      <workItem from="1743621438207" duration="8073000" />
+      <workItem from="1743630151633" duration="28000" />
+      <workItem from="1743686171193" duration="4024000" />
+      <workItem from="1743693151978" duration="6510000" />
+      <workItem from="1743700476539" duration="8000" />
+      <workItem from="1743701121406" duration="7000" />
+    </task>
+    <task id="LOCAL-00001" summary="Yea">
+      <option name="closed" value="true" />
+      <created>1743628916929</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743628916929</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Yea" />
+    <MESSAGE value="Checks if username is already taken" />
+    <option name="LAST_COMMIT_MESSAGE" value="Checks if username is already taken" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/User.java</url>
+          <line>69</line>
+          <properties class="User" method="getBanned">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Admin.java</url>
+          <line>6</line>
+          <properties class="Admin" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/User.java</url>
+          <line>51</line>
+          <properties class="User" method="getID">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Admin.java</url>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

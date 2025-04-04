@@ -10,7 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="Yea">
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/userData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
+    </list>
+    <list id="7fff91fd-a1f4-4843-81ec-9f2897c811ad" name="Changes by 45292" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
     </list>
     <list id="7c87b54a-bba3-4ad9-9dd2-79c0f649f702" name="Changes by daudibragimov" comment="" />
     <list id="d4a46b11-864b-4460-a958-70d3a4ac490d" name="Changes by jonas" comment="" />
@@ -63,23 +70,37 @@
       </list>
     </option>
   </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Guacamoleboy/SP3.git&quot;,
-    &quot;accountId&quot;: &quot;6c40eeb2-9541-4d09-9c7e-b121432decd3&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Guacamoleboy/SP3.git",
+    "accountId": "4fa9ade4-b3a5-4958-b69e-614bae4307a1"
   },
-  &quot;recentNewPullRequestHead&quot;: {
-    &quot;server&quot;: {
-      &quot;useHttp&quot;: false,
-      &quot;host&quot;: &quot;github.com&quot;,
-      &quot;port&quot;: null,
-      &quot;suffix&quot;: null
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
     },
-    &quot;owner&quot;: &quot;Guacamoleboy&quot;,
-    &quot;repository&quot;: &quot;SP3&quot;
+    "owner": "Guacamoleboy",
+    "repository": "SP3"
   },
-  &quot;editorReviewEnabled&quot;: false
-}</component>
+  "editorReviewEnabled": false
+}]]></component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/Program.java">
+      <ranges>
+        <range start1="311" end1="312" start2="311" end2="313" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="313" end1="314" start2="314" end2="322" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="315" end1="315" start2="323" end2="329" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="316" end1="316" start2="330" end2="333" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="390" end1="390" start2="407" end2="412" changelist="7fff91fd-a1f4-4843-81ec-9f2897c811ad" />
+      </ranges>
+    </file>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -100,7 +121,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Jonas&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Christopher&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/45292/Desktop/SKOLE/JAVA/Første semester/SP3/Project&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -133,8 +154,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
       </set>
     </attachedChunks>
   </component>
@@ -173,6 +194,7 @@
       <workItem from="1743693151978" duration="6510000" />
       <workItem from="1743700476539" duration="8000" />
       <workItem from="1743701121406" duration="7000" />
+      <workItem from="1743708834598" duration="4706000" />
     </task>
     <task id="LOCAL-00001" summary="Yea">
       <option name="closed" value="true" />

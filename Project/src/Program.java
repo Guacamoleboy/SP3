@@ -309,11 +309,28 @@ public class Program {
 
     // ________________________________________________________
 
-    public void banUser(int ID){
+    public void promptRemoveAccount(){
+        String confirmation = ui.promptText("Are you sure you want to remove your account? (yes/no)");
 
-        // Allow a specific ID to be banned by dev & admin
+        if ("yes".equalsIgnoreCase(confirmation)) {
+            //removeAccount();
+            ui.displayMsg("Your account has been successfully removed.");
+        } else {
+            ui.displayMsg("Account removal cancelled.");
+        }
+        }
+    // ________________________________________________________
 
+    public void removeAccount(String userName){
+        User u = getUserByName(userName);
+        if (u !=null){
+            removeUser(u);
+            saveData();
+        }
     }
+    // ________________________________________________________
+
+
 
     // ________________________________________________________
 
@@ -387,6 +404,11 @@ public class Program {
     public User getUserByID(int ID) {
         User u = user.stream().filter(s -> (s.getID() == ID)).findFirst().orElse(null);
         return u;
+    }
+
+    // ________________________________________________________
+    public void removeUser(User u) {
+        user.remove(u);
     }
 
 

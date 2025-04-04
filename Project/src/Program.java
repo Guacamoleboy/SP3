@@ -243,7 +243,8 @@ public class Program {
                     continue;
                 }
 
-                ui.displayMsg("\nWelcome, " + playerUser + "! Loading Main Menu..");
+                ui.displayMsg("\nWelcome, " + ui.promptTextColor("red") +playerUser + ui.promptTextColor("reset") + "! Loading Main Menu..");
+                ui.displayMsg("______________________________________");
 
                 try {
                     Thread.sleep(1000);

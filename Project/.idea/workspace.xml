@@ -10,10 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="Yea">
-      <change afterPath="$PROJECT_DIR$/src/HashMapStorage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmailConfirmation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmailConfirmation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/constants/version.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/version.txt" afterDir="false" />
     </list>
     <list id="587bc8bf-801e-4672-8aaf-834ce0e919ac" name="Changes by 45292" comment="" />
@@ -198,7 +195,7 @@
       <workItem from="1743771151057" duration="57000" />
       <workItem from="1743771233404" duration="61000" />
       <workItem from="1743841747148" duration="4247000" />
-      <workItem from="1743847354987" duration="7119000" />
+      <workItem from="1743847354987" duration="7672000" />
     </task>
     <task id="LOCAL-00001" summary="Yea">
       <option name="closed" value="true" />

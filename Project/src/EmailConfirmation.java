@@ -46,8 +46,14 @@ public class EmailConfirmation {
 
         ourEmail = "sp3@consumr.dk";
         ourPassword = "Dinmorertyk123!";
+        // Makes our random code
         randomCodeGen();
         int code = randomCode;
+
+        // Stores that code in HashMap
+        HashMapStorage.saveCode(toString(code));
+
+
         String subject = "Password confirmation email from Netflix (SP3)";
         String msg = "Your password confirmation code is:\n " + code + "\n\nCode works for 5 minutes.\n"
                 + "\nThanks for using Netflix.";

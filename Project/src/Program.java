@@ -281,7 +281,26 @@ public class Program {
 
                     String confirmCode = ui.promptTextLine("Please enter confirmation code: ");
 
-                    continue;
+                    if(!HashMapStorage.validation(confirmCode)){
+                        ui.displayMsg("Incorrect confirmation code..");
+                    }
+
+                    ui.displayMsg("Confirmation code accepted..\n_____________________");
+                    String newPasswordInput = ui.promptTextLine("Please enter a new password: ");
+                    if(!ui.promptPasswordConfirmation(newPasswordInput)){
+                        ui.displayMsg("Passwords don't match.");
+                    }
+
+                    ui.displayMsg("Password changed.. Sending you back to login!");
+
+                    // Delay for visual approach
+                    try{
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e){
+                        ui.displayMsg("Error. Contact dev.." + " | Dev msg: " + e.getMessage());
+                    }
+
+                    login();
 
                 } else if (playerUser.equalsIgnoreCase("username")){
 

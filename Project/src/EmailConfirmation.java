@@ -56,7 +56,7 @@ public class EmailConfirmation {
         Properties p = new Properties();
         p.put("mail.smtp.auth", "true");
         p.put("mail.smtp.starttls.enable", "true");
-        p.put("mail.smtp.host", "smtp.simply.com");
+        p.put("mail.smtp.host", "smtp.simply.com"); // Custom
         p.put("mail.smtp.port", "587");
 
         // Starting our send session

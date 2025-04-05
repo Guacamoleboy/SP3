@@ -9,7 +9,6 @@
 */
 
 import util.TextUI;
-import constants.Constants;
 
 public class Main { // Client class
 
@@ -25,8 +24,10 @@ public class Main { // Client class
 
         if(UpdateChecker.checkVersion()){
             // Exit prompt information
+            ui.displayMsg("_____________________________________");
             ui.displayMsg("\nUse " + ui.promptTextFormat("outline") + " Bananflue " + ui.promptTextFormat("outline reset") +
                     " at any point to exit the program!");
+            ui.displayMsg("_____________________________________");
 
             p = new Program(ui.promptTextColor("red") +"Netflix" + ui.promptTextColor("reset"));
 

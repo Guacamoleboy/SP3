@@ -376,7 +376,8 @@ public class Program {
                         + ". Contact support if you think it's unjustified.\n");
                         login();
                     }
-                }
+
+                } // Ban checker end
 
                 ui.displayMsg("\nWelcome, " + ui.promptTextColor("red") +playerUser + ui.promptTextColor("reset") + "! Loading Main Menu..");
                 ui.displayMsg("______________________________________");
@@ -392,7 +393,7 @@ public class Program {
 
             }
 
-            ui.displayMsg("Too many fail attempts. Shutting down...");
+            ui.displayMsg("________________________________________\n\nToo many fail attempts. Shutting down...");
 
             try {
                 Thread.sleep(2000);

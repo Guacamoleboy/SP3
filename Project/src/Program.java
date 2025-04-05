@@ -144,7 +144,21 @@ public class Program {
         }
 
         String playerGender = ui.promptGender("Please enter your gender..");
-        int playerAge = ui.promptNumeric("Please enter your age..");
+        int playerAge;
+
+        while(true) {
+
+            playerAge = ui.promptNumeric("Please enter your age..");
+
+            if (playerAge < 12 || playerAge > 120) {
+                ui.displayMsg("Invalid age. Please try again");
+                continue;
+            }
+
+            break;
+
+        } // While end
+
         String playerBanned = "No";
         String playerStatus = "Active";
 

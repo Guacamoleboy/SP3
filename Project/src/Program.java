@@ -48,7 +48,7 @@ public class Program {
                 String userPassword = values[4].trim();
                 String userBanned = values[5].trim();
 
-                createUser(username, userID, userAge, userGender, userBanned, userPassword);
+                createUser(username, userID, userAge, userGender, userPassword, userBanned);
                 ID++;
                 userCount++;
 

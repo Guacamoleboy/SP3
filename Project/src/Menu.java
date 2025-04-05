@@ -129,8 +129,12 @@ public abstract class Menu { // (Superclass)
             case "2", "change Password", "2) change Password":
                 user.changePassword();
                 break;
+            case "3", "remove account", "1) remove account":
 
-
+                break;
+            default:
+                ui.displayMsg("Invalid input");
+                break;
         }
         Main.p.mainmenu.startSession(user.getName());
 

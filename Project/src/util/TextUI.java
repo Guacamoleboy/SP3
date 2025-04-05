@@ -66,25 +66,10 @@ public class TextUI { // Our own custom generic util.TextUI class
 
     // ________________________________________________________
 
-    public String promptRandomLetterAZ(){
-
-        String input = promptText("Please enter a random letter from A-Z..");
-
-        try {
-
-            if(input.matches("\\d+")){ // Invalid characters handle
-                displayMsg("Please only use valid inputs.");
-            }
+    public String randomLetterAZ(){
 
             char singleLetter = (char) ('A' + random.nextInt(26)); // A-Z (26)
             return String.valueOf(singleLetter);
-
-        } catch (IllegalArgumentException e) {
-
-            displayMsg("Invalid input. Try again.");
-            return promptRandomLetterAZ();
-
-        }
 
     }
 

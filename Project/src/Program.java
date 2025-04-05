@@ -54,7 +54,8 @@ public class Program {
                 String userBanned = values[5].trim();
                 String userStatus = values[6].trim();
                 String userIP = values[7].trim();
-                createUser(username, userID, userAge, userGender, userPassword, userBanned, userStatus, userIP);
+                String userEmail = values[8].trim();
+                createUser(username, userID, userAge, userGender, userPassword, userBanned, userStatus, userIP, userEmail);
                 ID++;
                 userCount++;
 
@@ -143,7 +144,10 @@ public class Program {
 
         }
 
+        String playerEmail = ui.promptEmail("Please enter your email..");
+
         String playerGender = ui.promptGender("Please enter your gender..");
+
         int playerAge;
 
         while(true) {
@@ -162,27 +166,6 @@ public class Program {
         String playerBanned = "No";
         String playerStatus = "Active";
 
-        /*
-
-        Not needed for now as we consider changing ID to something else
-
-        switch (ID){
-            case 1:
-                ui.displayMsg("\nWow! First user ever.. Thank you so much.\n");
-                break;
-            case 100:
-                ui.displayMsg("You're our customer number 100! Thank you so much.");
-                break;
-            case 1000:
-                ui.displayMsg("There were 999 accounts before you signed up. On behalf of COMPANY - Thank you for being number 1000!");
-                break;
-            case 10000:
-                ui.displayMsg("You are account number 10.0000! Amazing. Thank you so much for being part of our journey.");
-                break;
-        }
-        */
-
-
         // Gets user IP adress and add to userData.csv
         String ipAdress = "unknown";
         try {
@@ -199,7 +182,7 @@ public class Program {
             return;
         }
 
-        createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned, playerStatus, ipAdress);
+        createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned, playerStatus, ipAdress, playerEmail);
 
         ui.displayMsg("\nThanks for making an account. Sending you to login page..\n");
 
@@ -210,7 +193,7 @@ public class Program {
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
-            System.out.println("Error. Contact a developer..");
+            ui.displayMsg("Error contact a developer" + " | Dev msg: " + e.getMessage());
         }
 
         // Sending user to login method
@@ -266,16 +249,74 @@ public class Program {
 
             if(counter <= 3) {
 
-                playerUser = ui.promptText("\nPlease log in!\nUsername:");
+                // Visuals
+                ui.displayMsg("\nPlease log in!\n\nForgot something? " + ui.promptTextFormat("outline") + " PASSWORD " + ui.promptTextFormat("outline reset")
+                        + " " + ui.promptTextFormat("outline") + " USERNAME " + ui.promptTextFormat("outline reset") + " " + ui.promptTextFormat("outline")
+                        + " EMAIL " + ui.promptTextFormat("outline reset") + "\n___________________________");
 
-                // Checks if username exist
-                if (!usernameCheck(playerUser)) {
-                    System.out.println("\nAccount not found..");
-                    counter++;
+                playerUser = ui.promptTextLine("Enter Username: ");
+
+                if(playerUser.equalsIgnoreCase("password")){
+
+                    String userEmail = "";
+
+                    while(true) {
+
+                        userEmail = ui.promptTextLine("Please enter your email: ");
+
+                        if (!emailCheck(userEmail)) {
+                            ui.displayMsg("Email not found..");
+                            continue;
+                        }
+
+                        break;
+
+                    }
+
+                    EmailConfirmation.sendPassword(userEmail);
+
+                    // Visuals
+                    ui.displayMsg("\nPassword has been sent to " + ui.promptTextFormat("outline") + " " + userEmail + " "
+                            + ui.promptTextFormat("outline reset"));
+
+                    String confirmCode = ui.promptTextLine("Please enter confirmation code: ");
+
                     continue;
+
+                } else if (playerUser.equalsIgnoreCase("username")){
+
+                    String userEmail = ui.promptTextLine("Please enter your email: ");
+
+                    if(!emailCheck(userEmail)){
+                        ui.displayMsg("Email not found..");
+                    }
+
+                    EmailConfirmation.sendPassword(userEmail);
+
+                    // Visuals
+                    ui.displayMsg("Username has been sent to " + ui.promptTextFormat("outline") + " " + userEmail + " "
+                    + ui.promptTextFormat("outline reset"));
+
+                } else if (playerUser.equalsIgnoreCase("email")){
+
+                    ui.displayMsg("In order to reset your email you must contact support..");
+                    String userInput = ui.promptTextLine("Please enter your username: ");
+                    String passInput = ui.promptTextLine("Please enter your password: ");
+                    if(!passwordCheck(userInput, passInput)){
+                        ui.displayMsg("Wrong username/password. They don't match an existing account.");
+                    }
+                    ui.displayMsg("We have received your email. We will contact you within 48 hours. Thank you for your patience!");
+
+                } else {
+                    // Checks if username exist
+                    if (!usernameCheck(playerUser)) {
+                        System.out.println("\nAccount not found..");
+                        counter++;
+                        continue;
+                    }
                 }
 
-                String playerPass = ui.promptText("Password:");
+                String playerPass = ui.promptTextLine("Enter Password: ");
 
                 // sets to 0 if passed username prompt
                 counter = 0;
@@ -301,18 +342,15 @@ public class Program {
 
             }
 
-            if(counter > 3) {
+            ui.displayMsg("Too many fail attempts. Shutting down...");
 
-                ui.displayMsg("Too many fail attempts. Shutting down...");
-
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    ui.displayMsg("Error. Contact a developer");
-                }
-
-                System.exit(0);
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                ui.displayMsg("Error. Contact a developer");
             }
+
+            System.exit(0);
 
         } // While end
 
@@ -333,6 +371,24 @@ public class Program {
         }
 
         return false;
+    }
+
+    // ________________________________________________________
+
+    public boolean emailCheck(String email){
+
+        String path = "data/userData.csv";
+        ArrayList <String> data = io.readData(path);
+
+        for (String s : data){
+            String[] values = s.split(", ");
+            if(values[8].equals(email)){
+                return true;
+            }
+        }
+
+        return false;
+
     }
 
     // ________________________________________________________
@@ -362,10 +418,10 @@ public class Program {
 
     // ________________________________________________________
 
-    public void createUser(String username, int ID, int age, String gender, String password, String banned, String status, String ipAdress){
+    public void createUser(String username, int ID, int age, String gender, String password, String banned, String status, String ipAdress, String email){
 
 
-        User u = new User(username, ID, age, gender, password, banned, status, ipAdress);
+        User u = new User(username, ID, age, gender, password, banned, status, ipAdress, email);
         user.add(u);
 
     }

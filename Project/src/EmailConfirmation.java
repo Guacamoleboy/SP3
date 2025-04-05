@@ -85,7 +85,7 @@ public class EmailConfirmation {
             Transport.send(message);
 
             // User display (Console for now). If GUI then change this to DEBUG only (dev)
-            ui.displayMsg("Password sent. Check your mail...");
+            //ui.displayMsg("Password sent! DEV");
 
         } catch (MessagingException e){
             ui.displayMsg("Error. Try again.." + " | Dev debug msg: " +e.getMessage());

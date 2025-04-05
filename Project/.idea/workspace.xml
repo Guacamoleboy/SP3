@@ -11,8 +11,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="Yea">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/userData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmailConfirmation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmailConfirmation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/version.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/version.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/TextUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/TextUI.java" afterDir="false" />
     </list>
     <list id="587bc8bf-801e-4672-8aaf-834ce0e919ac" name="Changes by 45292" comment="" />
     <list id="7c87b54a-bba3-4ad9-9dd2-79c0f649f702" name="Changes by daudibragimov" comment="" />
@@ -196,7 +199,7 @@
       <workItem from="1743771151057" duration="57000" />
       <workItem from="1743771233404" duration="61000" />
       <workItem from="1743841747148" duration="4247000" />
-      <workItem from="1743847354987" duration="420000" />
+      <workItem from="1743847354987" duration="4689000" />
     </task>
     <task id="LOCAL-00001" summary="Yea">
       <option name="closed" value="true" />
@@ -235,15 +238,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/User.java</url>
-          <line>73</line>
-          <properties class="User">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Admin.java</url>
           <line>10</line>

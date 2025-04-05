@@ -166,7 +166,7 @@ public class TextUI { // Our own custom generic util.TextUI class
 
         } // While end
 
-        return input;
+        return input.toLowerCase();
     }
 
     // ________________________________________________________

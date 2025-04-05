@@ -14,12 +14,13 @@ public class User {
     private int age;
     private String gender;
     private String banned;
+    private String email;
     protected History history;
     protected ArrayList <Bookmarked> bookmarked;
 
     // ________________________________________________________
 
-    public User(String username, int ID, int age, String gender, String password, String banned, String status, String ipAdress){
+    public User(String username, int ID, int age, String gender, String password, String banned, String status, String ipAdress, String email){
         this.ipAdress = ipAdress;
         this.username = username;
         this.ID = ID;
@@ -28,6 +29,7 @@ public class User {
         this.password = password;
         this.banned = banned;
         this.status = status;
+        this.email = email;
         this.history = new History();
 
     } // Constructor
@@ -36,7 +38,8 @@ public class User {
 
     public String toCSV(){
 
-        return this.username + ", " + this.ID + ", " + this.age + ", " + this.gender + ", " + this.password + ", " + this.banned + ", " + this.status + ", " + this.ipAdress;
+        return this.username + ", " + this.ID + ", " + this.age + ", " + this.gender + ", " + this.password + ", " + this.banned + ", " + this.status + ", "
+                + this.ipAdress + ", " + this.email;
 
     }
 
@@ -56,6 +59,12 @@ public class User {
 
     public int getID(){
         return this.ID;
+    }
+
+    // ________________________________________________________
+
+    public String getEmail(){
+        return this.email;
     }
 
     // ________________________________________________________

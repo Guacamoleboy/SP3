@@ -105,6 +105,7 @@ public class EmailConfirmation {
         This allows for more unique codes to make sure more people don't get the same code.
 
     */
+
     public static int randomCodeGen(){
 
         randomCode = random.nextInt(100000);

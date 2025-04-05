@@ -45,7 +45,7 @@ public class UpdateChecker {
                 }
 
             } catch(Exception e) {
-                System.out.println("Error while checking for updates:" +e.getMessage());
+                ui.displayMsg("Error while checking for updates:" +e.getMessage());
             } // Try-catch end
 
             // Default return
@@ -92,7 +92,7 @@ public class UpdateChecker {
 
             } catch (Exception e) {
 
-                System.out.println("Error fetching version from url: " + tmpurl);
+                ui.displayMsg("Error fetching version from url: " + tmpurl);
                 throw new Exception("Error fetching version: " + " | Dev msg: " +e.getMessage());
 
             } finally {
@@ -128,7 +128,7 @@ public class UpdateChecker {
                 }
 
             } catch (FileNotFoundException e) {
-                System.out.println("No file path found" + " | Dev msg: " + e.getMessage());
+                ui.displayMsg("No file path found" + " | Dev msg: " + e.getMessage());
             } // Try-catch end
 
             // Default return

@@ -146,6 +146,25 @@ public class Program {
 
         String playerEmail = ui.promptEmail("Please enter your email..");
 
+        //Checks if email is already being used
+        for(User u : user) {
+            if (playerEmail.equalsIgnoreCase(u.getEmail())) {
+                ui.displayMsg("\nEmail already exist.. Forgot username?..\n_________________________________________");
+                boolean value = ui.promptBinaryLine("Input: ");
+                if(value){
+                    String userEmail = ui.promptTextLine("Please enter your email: ");
+                    if(!emailCheck(userEmail)){
+                        ui.displayMsg("Email not found..");
+                    }
+                    EmailConfirmation.sendPassword(userEmail);
+                    // Visuals
+                    ui.displayMsg("Username has been sent to " + ui.promptTextFormat("outline") + " " + userEmail + " "
+                    + ui.promptTextFormat("outline reset"));
+                }
+                registerUser();
+            }
+        } // Email checker end
+
         String playerGender = ui.promptGender("Please enter your gender..");
 
         int playerAge;
@@ -347,6 +366,18 @@ public class Program {
                     continue;
                 }
 
+                // Checks if user is banned
+                for(User u : user) {
+
+                    String bannedStatus = u.getBanned();
+
+                    if (playerUser.equalsIgnoreCase(u.getName()) && bannedStatus.equalsIgnoreCase("Yes")) {
+                        ui.displayMsg("\nAccount is "+ ui.promptTextColor("red") + "banned" + ui.promptTextColor("reset")
+                        + ". Contact support if you think it's unjustified.\n");
+                        login();
+                    }
+                }
+
                 ui.displayMsg("\nWelcome, " + ui.promptTextColor("red") +playerUser + ui.promptTextColor("reset") + "! Loading Main Menu..");
                 ui.displayMsg("______________________________________");
 
@@ -468,7 +499,7 @@ public class Program {
 
         }
 
-        io.saveData(playerData, "data/userData.csv", "Username, ID, Age, Gender, Password, Banned, Status, IP");
+        io.saveData(playerData, "data/userData.csv", "Username, ID, Age, Gender, Password, Banned, Status, IP, Email");
 
         //ui.displayMsg("Program has saved data."); || DEBUG
 

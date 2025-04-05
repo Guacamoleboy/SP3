@@ -6,7 +6,9 @@ package util;/*
     Prompts:                        Displays:                   Random:
     Numeric                         Msg                         Single (min - max)
     Binary                          List
+    BinaryLine
     Text
+    TextLine
     Double
     Char
     CharAZ
@@ -196,6 +198,26 @@ public class TextUI { // Our own custom generic util.TextUI class
         I think it would be a cool little feature.
 
         */
+
+    }
+
+    // ________________________________________________________
+
+    public boolean promptBinaryLine(String msg){
+
+        String choice = this.promptTextLine(msg).toLowerCase();
+
+        // Added most common user replies so we don't have to rely on y/n only.
+
+        switch (choice){
+            case "y", "yes", "yea", "yup", "yeah", "ya", "yessir", "yur":
+                return true;
+            case "n", "no", "na", "nah", "nope":
+                return false;
+            default:
+                promptText("Invalid input.. Try again\n");
+                return promptBinary(msg);
+        }
 
     }
 

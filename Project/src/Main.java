@@ -1,7 +1,6 @@
 /*
 
     Authors: Andreas, Daud, Olivia, Jonas, Christopher
-    Version 0.5.5
     SP3
 
     Comments:

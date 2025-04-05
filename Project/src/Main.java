@@ -1,6 +1,6 @@
 /*
 
-    Authors: Andreas, Daud, Olivia, Jonas, Christopher
+    Authors: Andreas, Daud, Olivia, Christopher & Jonas.
     SP3
 
     Comments:
@@ -38,8 +38,6 @@ public class Main { // Client class
     }
 
     // ________________________________________________________
-
-
 
 } // Main end
 

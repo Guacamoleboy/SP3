@@ -4,7 +4,7 @@
     This is done through my webhost on a 3rd party website
     using javax.mail.jar from libs as a module.
 
-    Updated by: Jonas
+    Made by: Jonas
     Date: 5-4-2025
 
 */
@@ -27,6 +27,20 @@ public class EmailConfirmation {
     private static Random random = new Random();
 
     // ________________________________________________________
+
+    /*
+
+        How to use:
+        ___________
+
+        EmailConfirmation.sendPassword(mailFromCSV);
+
+        Current issues:
+        _______________
+
+        Mail goes to Spam folder. Might not be able to fix that for now.
+
+    */
 
     public static void sendPassword(String email){
 

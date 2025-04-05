@@ -23,9 +23,6 @@ public class Main { // Client class
 
         // Checks if the program is up to date
 
-        EmailConfirmation.sendPassword("jonas68@live.dk");
-
-
         if(UpdateChecker.checkVersion()){
             // Exit prompt information
             ui.displayMsg("\nUse " + ui.promptTextFormat("outline") + " Bananflue " + ui.promptTextFormat("outline reset") +

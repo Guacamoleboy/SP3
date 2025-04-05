@@ -1,7 +1,6 @@
 /*
 
-    Authors: Andreas Rovelt, Jonas Meinert Larsen & Ebou
-    Version 0.2.0
+    Authors: Andreas, Daud, Olivia, Jonas, Christopher
     SP3
 
     Comments:
@@ -9,22 +8,38 @@
 
 */
 
+import util.TextUI;
+
 public class Main { // Client class
 
     // Attributes
     private static TextUI ui = new TextUI();
+    public static Program p;
 
     // ________________________________________________________
 
     public static void main(String[] args) {
 
-        // Toggles our program as "p"
-        Program p = new Program(ui.promptTextColor("red") +"Netflix" + ui.promptTextColor("reset"));
+        // Checks if the program is up to date
 
-        // Uses our value "p" to startSession and so on
-        p.startSession();
+        if(UpdateChecker.checkVersion()){
+            // Exit prompt information
+            ui.displayMsg("_____________________________________");
+            ui.displayMsg("\nUse " + ui.promptTextFormat("outline") + " Bananflue " + ui.promptTextFormat("outline reset") +
+                    " at any point to exit the program!");
+            ui.displayMsg("_____________________________________");
+
+            p = new Program(ui.promptTextColor("red") +"Netflix" + ui.promptTextColor("reset"));
+
+            // Uses our value "program" to startSession and so on
+            p.startSession();
+        }
 
     }
+
+    // ________________________________________________________
+
+
 
 } // Main end
 

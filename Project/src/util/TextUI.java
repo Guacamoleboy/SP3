@@ -1,6 +1,6 @@
-/*
+package util;/*
 
-    Featured in this TextUI
+    Featured in this util.TextUI
     _______________________
 
     Prompts:                        Displays:                   Random:
@@ -22,7 +22,7 @@
     BackgroundColor (console)
     TextFormat (console)
 
-    Last updated: 30-03-2025
+    Last updated: 05-04-2025
     Updated by: Jonas
 
 */
@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class TextUI { // Our own custom generic TextUI class
+public class TextUI { // Our own custom generic util.TextUI class
 
     // Attributes
     Scanner scanner = new Scanner(System.in);
@@ -114,9 +114,28 @@ public class TextUI { // Our own custom generic TextUI class
 
     // ________________________________________________________
 
+    public void displayMsgLine(String msg){
+
+        System.out.print(msg);
+
+    }
+
+    // ________________________________________________________
+
     public String promptText(String msg){
 
         displayMsg(msg);
+        String input = scanner.nextLine();
+
+        return input;
+
+    }
+
+    // ________________________________________________________
+
+    public String promptTextLine(String msg){
+
+        displayMsgLine(msg);
         String input = scanner.nextLine();
 
         return input;
@@ -147,7 +166,7 @@ public class TextUI { // Our own custom generic TextUI class
 
         } // While end
 
-        return input;
+        return input.toLowerCase();
     }
 
     // ________________________________________________________
@@ -165,7 +184,7 @@ public class TextUI { // Our own custom generic TextUI class
                 return false;
             default:
                 promptText("Invalid input.. Try again\n");
-                promptBinary(msg);
+                return promptBinary(msg);
         }
 
         /*
@@ -177,9 +196,6 @@ public class TextUI { // Our own custom generic TextUI class
         I think it would be a cool little feature.
 
         */
-
-
-        return promptBinary(msg); // Default return value
 
     }
 
@@ -588,4 +604,5 @@ public class TextUI { // Our own custom generic TextUI class
 
     }
 
-} // TextUI end
+
+} // util.TextUI end

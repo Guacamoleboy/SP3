@@ -148,6 +148,10 @@ public class Program {
         String playerBanned = "No";
         String playerStatus = "Active";
 
+        /*
+
+        Not needed for now as we consider changing ID to something else
+
         switch (ID){
             case 1:
                 ui.displayMsg("\nWow! First user ever.. Thank you so much.\n");
@@ -162,6 +166,8 @@ public class Program {
                 ui.displayMsg("You are account number 10.0000! Amazing. Thank you so much for being part of our journey.");
                 break;
         }
+        */
+
 
         // Gets user IP adress and add to userData.csv
         String ipAdress = "unknown";
@@ -201,6 +207,12 @@ public class Program {
     // ________________________________________________________
 
     public void devLogin(){ // Hidden login for devs & admins
+
+        /*
+
+            Values are pretty much final hence not going in userData.csv
+
+        */
 
         String devUser = ui.promptText("\nDeveloper login page\nEnter username:");
         String devPass = "";

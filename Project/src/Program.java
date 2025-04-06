@@ -12,8 +12,12 @@ public class Program {
     private static FileIO io = new FileIO();
     protected MainMenu mainmenu = new MainMenu();
     protected DevMenu devmenu = new DevMenu();
+    protected SupportMenu supMenu = new SupportMenu();
+    protected static Random random = new Random();
 
-    private String name;
+    private String programName;
+    private String playerUser;
+    private String userName;
     private String startSessionAnswer;
     private String gender;
     private String banned;
@@ -24,9 +28,9 @@ public class Program {
     private User currentUser;
     // ________________________________________________________
 
-    public Program(String name){
+    public Program(String programName){
 
-        this.name = name;
+        this.programName = programName;
         this.user = new ArrayList<>();
 
     } // Constructor
@@ -36,7 +40,7 @@ public class Program {
     public void startSession(){
 
         ArrayList <String> data = io.readData("data/userData.csv");
-        ui.displayMsg("\nWelcome to " + this.name + ".\n");
+        ui.displayMsg("\nWelcome to " + this.programName + ".\n");
 
         if (!data.isEmpty()){
 
@@ -78,6 +82,9 @@ public class Program {
                 break;
             case "dev", "admin", "administrator", "developer":
                 devLogin();
+                break;
+            case "support":
+                supportLogin();
                 break;
             default:
 
@@ -214,6 +221,34 @@ public class Program {
 
     // ________________________________________________________
 
+    public void supportLogin(){
+
+        ui.displayMsg("\n____________________\nSupport login page.");
+        String supUser = ui.promptTextLine("Username: ");
+        String supPass = "";
+
+        if(supUser.equalsIgnoreCase("support")){
+
+            ui.displayMsg("\nHello, " + ui.promptTextColor("red") + supUser + ui.promptTextColor("reset") + "!");
+            supPass = ui.promptTextLine("Password: ");
+
+            if(supUser.equalsIgnoreCase("support") && supPass.equals("SupportPassword123")){
+
+                supMenu.startSession(supUser);
+
+            } else {
+
+                ui.displayMsg("Wrong input. Try again.");
+                supportLogin();
+
+            } // If-end (INNER)
+
+        } // If-end (OUTTER)
+
+    }
+
+    // ________________________________________________________
+
     public void devLogin(){ // Hidden login for devs & admins
 
         /*
@@ -252,7 +287,7 @@ public class Program {
 
     public void login(){ // All users except devs & admins
 
-        String playerUser = "";
+        playerUser = "";
         int counter = 0;
 
         // Have to use while loop else it'll infinite loop
@@ -366,7 +401,43 @@ public class Program {
                     if (playerUser.equalsIgnoreCase(u.getName()) && bannedStatus.equalsIgnoreCase("Yes")) {
                         ui.displayMsg("\nAccount is "+ ui.promptTextColor("red") + "banned" + ui.promptTextColor("reset")
                         + ". Contact support if you think it's unjustified.\n");
-                        login();
+                        ui.displayMsg("_____________________________\n1) Write a Ticket\n2) Close Program\n");
+                        String banInput = ui.promptTextLine("Input: ");
+
+                        switch (banInput){
+
+                            case "1":
+                                ui.displayMsg("Please enter your message under here\n____________________________ ");
+                                String bannedMsg = ui.promptTextLine("Message: ");
+                                int ticketID = (int) random.nextInt(10000);
+                                String ticketStatus = "Open";
+
+                                // Check if user already has a ticket
+
+                                if(!ticketIDCheck(u.getID())){
+                                    ui.displayMsg("You already have an open ticket. Ending program.");
+                                    System.exit(0);
+                                }
+
+                                ui.displayMsg("Ticket sent..");
+
+                                // Saves data if code passed all tests
+                                saveDataTicket(ticketID, u.getID(), bannedMsg, ticketStatus);
+
+                                login();
+
+                            case "2":
+                                ui.displayMsg("Thanks for your understanding. Have a great day!");
+                                break;
+                            case "bananflue":
+                                System.exit(0);
+                            default:
+                                ui.displayMsg("Invalid input.");
+
+                        }
+
+                        break;
+
                     }
 
                 } // Ban checker end
@@ -414,6 +485,49 @@ public class Program {
         }
 
         return false;
+    }
+
+    // ________________________________________________________
+
+    public boolean ticketIDCheck(String ID){
+
+        String path = "data/supportTickets.csv";
+        ArrayList <String> data = io.readData(path);
+
+        for (String s : data){
+            String[] values = s.split(", ");
+
+            if(values[1] == ID){
+                ui.displayMsg("You already have a ticket open.. Please wait for a response!");
+                return true;
+            }
+
+        } // For-loop end
+
+        return true;
+
+    }
+
+    // ________________________________________________________
+
+    public int ticketID(int ID){
+
+        String path = "data/supportTickets.csv";
+        ArrayList <String> data = io.readData(path);
+        int finalID;
+
+        for (String s : data){
+            String[] values = s.split(", ");
+
+            int checkID = Integer.parseInt(values[0].trim());
+
+            if(checkID == ID){
+                return (int) random.nextInt(10000);
+            }
+
+        }
+
+        return ID;
     }
 
     // ________________________________________________________
@@ -539,9 +653,29 @@ public class Program {
 
     // ________________________________________________________
 
+    public void saveDataTicket(int ticketID, String userID, String msg, String status){
+
+        ArrayList <String> ticketData = new ArrayList<>();
+
+        String s = toCSVTicket(ticketID, userID, msg, status);
+        ticketData.add(s);
+        io.saveData(ticketData, "data/supportTickets.csv", "Ticket ID, User ID, Message, Status");
+
+    }
+
+    // ________________________________________________________
+
     private static String toCSVSuggest(String value, int ID, String added){
 
         return value + ", " + ID + ", " + added;
+
+    }
+
+    // ________________________________________________________
+
+    private static String toCSVTicket(int ticketID, String ID, String status, String msg){
+
+        return ticketID + ", " + ID + ", " + status + ", " + msg;
 
     }
 

@@ -17,7 +17,7 @@ public class Program {
     private String startSessionAnswer;
     private String gender;
     private String banned;
-    private int ID;
+    private String ID;
     private int age;
     private int userCount = 0;
     private ArrayList <User> user;
@@ -38,16 +38,13 @@ public class Program {
         ArrayList <String> data = io.readData("data/userData.csv");
         ui.displayMsg("\nWelcome to " + this.name + ".\n");
 
-        // Allows us to keep adding accounts. Increases ID by 1 each time.
-        int maxID = 0;
-
         if (!data.isEmpty()){
 
             for (String s : data){
 
                 String[] values = s.split(",");
                 String username = values[0].trim();
-                int userID = Integer.parseInt(values[1].trim());
+                String userID = values[1].trim();
                 int userAge = Integer.parseInt(values[2].trim());
                 String userGender = values[3].trim();
                 String userPassword = values[4].trim();
@@ -56,20 +53,11 @@ public class Program {
                 String userIP = values[7].trim();
                 String userEmail = values[8].trim();
                 createUser(username, userID, userAge, userGender, userPassword, userBanned, userStatus, userIP, userEmail);
-                ID++;
                 userCount++;
-
-                // Latest ID = maxID. This allows us to keep going from the last one saved.
-                if (userID > maxID) {
-                    maxID = userID;
-                }
 
             } // For-loop
 
         } // If-statement
-
-        userCount = user.size();
-        ID = maxID + 1;
 
         checkForAccount();
 
@@ -200,6 +188,10 @@ public class Program {
             login();
             return;
         }
+
+        // IP Add
+        ID = randomID();
+        idCheck(ID);
 
         createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned, playerStatus, ipAdress, playerEmail);
 
@@ -461,6 +453,27 @@ public class Program {
 
     // ________________________________________________________
 
+    public String idCheck(String ID){
+
+        String path = "data/userData.csv";
+        ArrayList <String> data = io.readData(path);
+        ID = randomID();
+
+        for (String s : data){
+
+            String[] values = s.split(", ".trim());
+            if(values[1].equals(ID)){
+                randomID();
+            }
+
+        } // For-loop end
+
+        return ID;
+
+    }
+
+    // ________________________________________________________
+
     public void banUser(int ID){
 
         // Allow a specific ID to be banned by dev & admin
@@ -469,7 +482,7 @@ public class Program {
 
     // ________________________________________________________
 
-    public void createUser(String username, int ID, int age, String gender, String password, String banned, String status, String ipAdress, String email){
+    public void createUser(String username, String ID, int age, String gender, String password, String banned, String status, String ipAdress, String email){
 
 
         User u = new User(username, ID, age, gender, password, banned, status, ipAdress, email);
@@ -541,8 +554,8 @@ public class Program {
 
     // ________________________________________________________
 
-    public User getUserByID(int ID) {
-        User u = user.stream().filter(s -> (s.getID() == ID)).findFirst().orElse(null);
+    public User getUserByID(String ID) {
+        User u = user.stream().filter(s -> (s.getID().equals(ID))).findFirst().orElse(null);
         return u;
     }
 
@@ -551,6 +564,25 @@ public class Program {
     public User getUserByIP(String ipAdress) {
         User u = user.stream().filter(s -> s.getIP().equals(ipAdress)).findFirst().orElse(null);
         return u;
+    }
+
+    // ________________________________________________________
+
+    public String randomID(){
+
+        String output = "";
+        int randomNum = ui.randomNumber(100000);
+        String lastDigit = ui.randomLetterAZ();
+
+        for(int i = 0; i <= 3; i++){
+
+            String randomAZ = ui.randomLetterAZ();
+            output += randomAZ;
+
+        }
+
+        return output + randomNum + lastDigit;
+
     }
 
 

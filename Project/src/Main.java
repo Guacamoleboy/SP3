@@ -31,6 +31,8 @@ public class Main { // Client class
 
             p = new Program(ui.promptTextColor("red") +"Netflix" + ui.promptTextColor("reset"));
 
+            // System.out.println(p.randomID()); ID CHECK DEBUG
+
             // Uses our value "program" to startSession and so on
             p.startSession();
         }

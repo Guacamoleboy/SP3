@@ -38,7 +38,7 @@ public class Admin {
         User u = null;
         switch(choice){
             case "ID":
-                int userID = ui.promptNumeric("Enter the username of the user you want to ban..");
+                String userID = ui.promptText("Enter the username of the user you want to ban..");
                 u = Main.p.getUserByID(userID);
                 break;
             case "Username":

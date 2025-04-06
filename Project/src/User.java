@@ -10,7 +10,7 @@ public class User {
     private String username;
     private String password;
     private String status;
-    private int ID;
+    private String ID;
     private int age;
     private String gender;
     private String banned;
@@ -20,7 +20,7 @@ public class User {
 
     // ________________________________________________________
 
-    public User(String username, int ID, int age, String gender, String password, String banned, String status, String ipAdress, String email){
+    public User(String username, String ID, int age, String gender, String password, String banned, String status, String ipAdress, String email){
         this.ipAdress = ipAdress;
         this.username = username;
         this.ID = ID;
@@ -57,7 +57,7 @@ public class User {
 
     // ________________________________________________________
 
-    public int getID(){
+    public String getID(){
         return this.ID;
     }
 

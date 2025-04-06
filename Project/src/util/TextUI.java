@@ -75,6 +75,14 @@ public class TextUI { // Our own custom generic util.TextUI class
 
     // ________________________________________________________
 
+    public int randomNumber(int total){
+
+        return (int) random.nextInt(total);
+
+    }
+
+    // ________________________________________________________
+
     public int rollDice(){
 
         int amountOfDice = promptNumeric("Please enter how many dices you wish to use");

@@ -14,6 +14,7 @@ public class Program {
     protected DevMenu devmenu = new DevMenu();
     protected SupportMenu supMenu = new SupportMenu();
     protected static Random random = new Random();
+    private static ArrayList <String> bannedWords = new ArrayList<>();
 
     private String programName;
     private String playerUser;
@@ -104,13 +105,15 @@ public class Program {
     // ________________________________________________________
 
     public void registerUser(){
-
         // Currently only supports normal characters. Maybe make it so numbers and symbols are included?
         String playerName = ui.promptText("Please enter a username..");
 
         // Don't allow blank or invalid usernames
         if(playerName.isBlank() || !playerName.matches("[a-zA-Z0-9]+")){
-            ui.displayMsg("Invalid username.. Please only use alphabetic characters!\n");
+            registerUser(); // Recursion
+        }
+        if (bannedWords(playerName)) {
+            ui.displayMsg("Please don't use offensive words!!\n");
             registerUser(); // Recursion
         }
 
@@ -124,6 +127,9 @@ public class Program {
 
         // Put this into the while loop over passwordTest if you want it to ask user to redo entire password
         String playerPassword = ui.promptText("Please enter a password..");
+        if (bannedWords(playerPassword)) {
+            registerUser(); // Recursion
+        }
         boolean passwordTest = false;
 
         // Allows us to loop over the password part
@@ -717,6 +723,30 @@ public class Program {
 
         return output + randomNum + lastDigit;
 
+    }
+
+    // ________________________________________________________
+
+    public static boolean bannedWords(String word) {
+        if (bannedWords.stream().anyMatch(w -> w.equals(word.toLowerCase()))) {
+            ui.displayMsg("Please don't use offensive words!\n");
+            return true;
+        }
+        return false;
+    }
+
+    // ________________________________________________________
+
+    public void banWord(String word){
+        ui.displayMsg("You banned the word: "+ word +"!\n");
+        bannedWords.add(word.toLowerCase());
+    }
+
+    // ________________________________________________________
+
+    public void unbanWord(String word){
+        ui.displayMsg("You unbanned the word: "+ word +"!\n");
+        bannedWords.remove(word.toLowerCase());
     }
 
 

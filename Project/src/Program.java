@@ -117,6 +117,12 @@ public class Program {
             registerUser(); // Recursion
         }
 
+        if (isReservedUsername(playerName)) {
+            ui.displayMsg("That username is not allowed. Please choose somthing else.");
+            registerUser();
+            return;
+        }
+
         //Checks if username is already taken
         for(User u : user) {
             if (playerName.equalsIgnoreCase(u.getName())) {
@@ -223,6 +229,16 @@ public class Program {
         // Sending user to login method
         login();
 
+    }
+
+    private boolean isReservedUsername(String name) {
+        String[] reserved = {"password", "username", "email"};
+        for (String r : reserved) {
+            if (name.equalsIgnoreCase(r)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // ________________________________________________________

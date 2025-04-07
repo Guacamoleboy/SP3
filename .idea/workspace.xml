@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b3f8056-31fe-4c8e-8772-9cb5bca132f3" name="Changes" comment="Had to reopen my program...">
+    <list default="true" id="7b3f8056-31fe-4c8e-8772-9cb5bca132f3" name="Changes" comment="Hello">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/constants/version.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/constants/version.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="AndreasR" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,9 +38,12 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Guacamoleboy/SP3.git&quot;,
-    &quot;accountId&quot;: &quot;bd666e3f-3ff7-47ad-8369-1598db308eea&quot;
+    &quot;accountId&quot;: &quot;c7a534f4-f588-4f3c-a91d-aeae4a71f63d&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -56,7 +61,7 @@
     "DefaultPlantUmlFileTemplate": "UML Class",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "AndreasR",
+    "git-widget-placeholder": "Daud-",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/45292/Desktop/SKOLE/JAVA/Første semester/SP3/Project",
     "node.js.detected.package.eslint": "true",
@@ -79,8 +84,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
       </set>
     </attachedChunks>
   </component>
@@ -96,6 +101,8 @@
       <workItem from="1743581198424" duration="2075000" />
       <workItem from="1743691470365" duration="1636000" />
       <workItem from="1743693122848" duration="30000" />
+      <workItem from="1743964659563" duration="515000" />
+      <workItem from="1744011539147" duration="4939000" />
     </task>
     <task id="LOCAL-00001" summary="Had to reopen my program...">
       <option name="closed" value="true" />
@@ -114,20 +121,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Had to reopen my program..." />
     <option name="LAST_COMMIT_MESSAGE" value="Had to reopen my program..." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Project/src/Program.java</url>
-          <line>184</line>
-          <properties class="Program" method="devLogin">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

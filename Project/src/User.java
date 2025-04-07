@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import util.*;
 
+import static java.awt.SystemColor.menu;
+
 public class User {
 
     // Attributes
@@ -17,6 +19,8 @@ public class User {
     private String email;
     protected History history;
     protected ArrayList <Bookmarked> bookmarked;
+    protected MainMenu mainmenu = new MainMenu();
+
 
     // ________________________________________________________
 
@@ -113,6 +117,22 @@ public class User {
         Main.p.saveData();
     }
 
+    public void changeStatus(String username) {
+        if (this.status.equalsIgnoreCase("Active")){
+            boolean choice = ui.promptBinary("Are you sure you want to take a break?");
+            if (choice){
+                this.status = "Inactive";
+            }
+        } else if (this.status.equalsIgnoreCase("Inactive")) {
+            boolean choice = ui.promptBinary("Are you sure you want to activate your account?");
+            if (choice) {
+                this.status = "Active";
+            }
+        }
+        Main.p.saveData();
+        mainmenu.accountSettings(username);
+    }
+
     // ________________________________________________________
 
     public void changePassword() {
@@ -138,8 +158,36 @@ public class User {
 
     // ________________________________________________________
 
+    public void setUsername(String username){
+        this.username = username;
+        Main.p.saveData();
+    }
+
+    // ________________________________________________________
+
+    public void setPassword(String password){
+        this.password = password;
+        Main.p.saveData();
+    }
+
+    // ________________________________________________________
+
+    public void setStatus(String status){
+        this.status = status;
+        Main.p.saveData();
+    }
+
+    // ________________________________________________________
+
     public void banUser() {
         this.banned = "Yes";
+        Main.p.saveData();
+    }
+
+    // ________________________________________________________
+
+    public void unbanUser() {
+        this.banned = "No";
         Main.p.saveData();
     }
 

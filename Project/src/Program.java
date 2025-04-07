@@ -5,8 +5,6 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.*;
 
-import static util.TextUI.loadBannedWords;
-
 public class Program {
 
     // Attributes
@@ -26,7 +24,7 @@ public class Program {
     private String ID;
     private int age;
     private int userCount = 0;
-    private ArrayList <User> user;
+    public static ArrayList <User> user;
     private User currentUser;
     // ________________________________________________________
 
@@ -42,7 +40,7 @@ public class Program {
     public void startSession(){
 
         ArrayList <String> data = io.readData("data/userData.csv");
-        loadBannedWords();
+        Admin.loadBannedWords("data/bannedWords.csv");
         ui.displayMsg("\nWelcome to " + this.programName + ".\n");
 
         if (!data.isEmpty()){
@@ -728,6 +726,18 @@ public class Program {
     public User getUserByIP(String ipAdress) {
         User u = user.stream().filter(s -> s.getIP().equals(ipAdress)).findFirst().orElse(null);
         return u;
+    }
+
+    // ________________________________________________________
+
+    public static ArrayList<String> getBannedUsers(){
+        ArrayList<String> bannedUsers = new ArrayList<>();
+        for (User u : user) {
+            if (u.getBanned().equals("Yes")) {
+                bannedUsers.add("ID: "+u.getID()+" Username: "+u.getName());
+            }
+        }
+        return bannedUsers;
     }
 
     // ________________________________________________________

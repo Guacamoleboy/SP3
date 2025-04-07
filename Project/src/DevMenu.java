@@ -16,7 +16,7 @@ public class DevMenu extends Menu { // Menu for devs (Subclass)
         ui.displayMsg("\nWelcome to the Dev Menu, " + ui.promptTextColor("red") + username + ui.promptTextColor("reset"));
 
         // Visuals
-        ui.displayMsg("\nPlease choose one of the following:\n1) Add Movie\n2) Add Series\n3) Ban Account\n4) Remove Account\n5) Set" +
+        ui.displayMsg("\nPlease choose one of the following:\n1) Add Movie\n2) Add Series\n3) Ban menu\n4) Manage users\n5) Set" +
         " Account As Inactive\n6) Set Account As Paused\n7) Change Password\n8) Change Username\n9) ban/unban\n\nType " + ui.promptTextFormat("outline")+
         " NEXT " + ui.promptTextFormat("outline reset") + " " + ui.promptTextFormat("outline") + " PREV " + ui.promptTextFormat("outline reset") +
         " To Load More | " + "Use " + ui.promptTextFormat("outline") + " BACK " + ui.promptTextFormat("outline reset") +
@@ -32,10 +32,11 @@ public class DevMenu extends Menu { // Menu for devs (Subclass)
                 // something
                 break;
             case "3": //Ban user
-                admin.banUser(username);
+                admin.banMenu(username);
                 break;
             case "4":
-                accountSettings(username);
+                admin.manageUsers(username);
+                //accountSettings(username);
                 break;
             case "5":
                 // Something

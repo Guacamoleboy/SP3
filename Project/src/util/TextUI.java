@@ -390,7 +390,7 @@ public class TextUI { // Our own custom generic util.TextUI class
 
         */
 
-        String passwordConfirmation = promptText("Please confirm your password:");
+        String passwordConfirmation = promptTextLine("Please confirm your password: ");
         return msg.equals(passwordConfirmation);
 
     }

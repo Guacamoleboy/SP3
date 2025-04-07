@@ -97,7 +97,6 @@ public class EmailConfirmation {
             ui.displayMsg("Error. Try again.." + " | Dev debug msg: " +e.getMessage());
         }
 
-
     } // Method end
 
     // ________________________________________________________

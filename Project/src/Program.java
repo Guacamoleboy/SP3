@@ -416,8 +416,21 @@ public class Program {
                                 // Check if user already has a ticket
 
                                 if(!ticketIDCheck(u.getID())){
-                                    ui.displayMsg("You already have an open ticket. Ending program.");
-                                    System.exit(0);
+                                    ui.displayMsg("You already have an open ticket.\n1) Show Ticket\n2) Back");
+                                    String idReviewInput = ui.promptTextLine("Input: ");
+                                    switch (idReviewInput){
+
+                                        case "1":
+                                            // Something
+                                            break;
+                                        case "2":
+                                            login();
+                                            break;
+                                        default:
+                                            ui.displayMsg("Invalid input");
+                                    }
+
+
                                 }
 
                                 ui.displayMsg("Ticket sent..");

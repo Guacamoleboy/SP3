@@ -75,12 +75,4 @@ public class SupportMenu extends Menu{
 
     }
 
-    // ________________________________________________________
-
-    public void saveTicket(){
-
-
-
-    }
-
 }

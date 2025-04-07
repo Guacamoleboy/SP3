@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="Yea">
+      <change afterPath="$PROJECT_DIR$/assets/images/guacflix2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GUIPrac/assets/logo/icon16.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/logo/icon16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GUIPrac/assets/logo/icon32.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/logo/icon32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GUIPrac/assets/logo/icon64.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/logo/icon64.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GUIPrac/assets/logo/logo_ORIGINAL.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/logo/logo_ORIGINAL.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/userData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HashMapStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HashMapStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/TextUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/TextUI.java" afterDir="false" />
     </list>
     <list id="587bc8bf-801e-4672-8aaf-834ce0e919ac" name="Changes by 45292" comment="" />
     <list id="7c87b54a-bba3-4ad9-9dd2-79c0f649f702" name="Changes by daudibragimov" comment="" />
@@ -16,9 +25,34 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Guacamoleboy"
+  }
+}]]></component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Guacamoleboy/SP3.git",
+    "accountId": "6c40eeb2-9541-4d09-9c7e-b121432decd3"
+  },
   "editorReviewEnabled": false
 }]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2vPlLDA9WhB5TZJ0Kq2UqY25tP3" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -35,7 +69,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "#188 on Jonas",
+    "git-widget-placeholder": "Jonas",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/jonas/Desktop/Git/SP3/Project/libs/javax.mail.jar",
     "node.js.detected.package.eslint": "true",
@@ -50,6 +84,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jonas\Desktop\Git\SP3\Project\assets\images" />
+      <recent name="C:\Users\jonas\Desktop\Git\SP3\Project\assets\logo" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -116,6 +156,7 @@
       <workItem from="1743974799342" duration="34000" />
       <workItem from="1743975055293" duration="430000" />
       <workItem from="1744017291332" duration="3206000" />
+      <workItem from="1744054535209" duration="3379000" />
     </task>
     <task id="LOCAL-00001" summary="Yea">
       <option name="closed" value="true" />
@@ -144,28 +185,11 @@
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Yea" />
     <option name="LAST_COMMIT_MESSAGE" value="Yea" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Admin.java</url>
-          <line>14</line>
-          <properties class="Admin" method="&lt;init&gt;">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Admin.java</url>
-          <line>6</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -338,6 +338,7 @@ public class Program {
                     ui.displayMsg("\nPassword has been sent to " + ui.promptTextFormat("outline") + " " + userEmail + " "
                             + ui.promptTextFormat("outline reset"));
 
+                    // Confirmation code for password
                     String confirmCode = ui.promptTextLine("Please enter confirmation code: ");
 
                     if(!HashMapStorage.validation(confirmCode)){
@@ -350,7 +351,17 @@ public class Program {
                         ui.displayMsg("Passwords don't match.");
                     }
 
-                    ui.displayMsg("Password changed.. Sending you back to login!");
+                    // SET PASSWORD HERE
+
+                    for(User u : user){
+
+                        if(u.getEmail().equalsIgnoreCase(userEmail)){
+                            u.setPassword(newPasswordInput);
+                            ui.displayMsg(ui.promptTextColor("green") + "\nPassword changed.. Sending you back to login!" + ui.promptTextColor("reset"));
+                            login();
+                        }
+
+                    }
 
                     // Delay for visual approach
                     try{
@@ -378,12 +389,13 @@ public class Program {
                 } else if (playerUser.equalsIgnoreCase("email")){
 
                     ui.displayMsg("In order to reset your email you must contact support..");
+
                     String userInput = ui.promptTextLine("Please enter your username: ");
                     String passInput = ui.promptTextLine("Please enter your password: ");
                     if(!passwordCheck(userInput, passInput)){
                         ui.displayMsg("Wrong username/password. They don't match an existing account.");
                     }
-                    ui.displayMsg("We have received your email. We will contact you within 48 hours. Thank you for your patience!");
+                    ui.displayMsg("We have received your ticket. We will contact you within 48 hours. Thank you for your patience!");
 
                 } else {
                     // Checks if username exist

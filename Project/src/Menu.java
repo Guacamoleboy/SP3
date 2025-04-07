@@ -109,8 +109,11 @@ public abstract class Menu { // (Superclass)
     public void accountSettings(String username){
 
         User user = Main.p.getUserByName(username);
-        ui.displayMsg("Account settings for, " + ui.promptTextColor("red") + username + ui.promptTextColor("reset") + ":");
-        String input = ui.promptText("\n1) Change Username\n2) Change Password\n3) Pause Membership\n4) Change status\n5) Exit");
+        ui.displayMsg("\nAccount settings for, " + ui.promptTextColor("red") + username + ui.promptTextColor("reset") + ":");
+        ui.displayMsg("\n1) Change Username\n2) Change Password\n3) Pause Membership\n4) Take a Break\n5) Exit");
+        ui.displayMsg("_________________________\n");
+        String input = ui.promptTextLine("Input: ");
+
         switch (input.toLowerCase()){
             case "1", "change Username", "1) change Username":
                 user.changeUsername(username);
@@ -121,7 +124,8 @@ public abstract class Menu { // (Superclass)
             case "3", "Pause", "3) Pause Membership":
                 //user.pauseMembership();
                 break;
-            case "4", "status", "4) Change status":
+            case "4", "break", "4) Take a Break":
+                ui.displayMsg("Status changed to 'inactive'!");
                 user.changeStatus(username);
                 break;
             case "5", "back", "5) back":

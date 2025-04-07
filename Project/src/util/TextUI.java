@@ -117,14 +117,6 @@ public class TextUI { // Our own custom generic util.TextUI class
 
     // ________________________________________________________
 
-    public String promptText(String msg){
-
-        displayMsg(msg);
-        String input = scanner.nextLine();
-
-        return input;
-
-    }
 
     // ________________________________________________________
 
@@ -619,14 +611,23 @@ public class TextUI { // Our own custom generic util.TextUI class
 
     }
 
-    private final String msg = "BANANFLUE";
-    public boolean bannedWord(String input) {
-        if (msg.equalsIgnoreCase(input)) {
-            return true;
-        } else {
-            return false;
-        }
+    public String promptText(String prompt) {
+        displayMsg(prompt);
+        String input = scanner.nextLine();
+        promptExit("bananflue", input);
+        return input;
     }
+
+    public boolean promptExit(String exitWord, String input) {
+        if (input.equalsIgnoreCase(exitWord)) {
+            displayMsg("Shutting down...");
+            System.exit(0);
+            return true;
+        }
+        return false;
+    }
+
+
 
 
 

@@ -619,5 +619,15 @@ public class TextUI { // Our own custom generic util.TextUI class
 
     }
 
+    private final String msg = "BANANFLUE";
+    public boolean bannedWord(String input) {
+        if (msg.equalsIgnoreCase(input)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 
 } // util.TextUI end

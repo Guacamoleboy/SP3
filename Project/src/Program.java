@@ -433,10 +433,12 @@ public class Program {
 
                                 }
 
-                                ui.displayMsg("Ticket sent..");
+                                ui.displayMsg("\nTicket sent..");
+                                String s1 = "No response yet";
+                                String s2 = "N/A";
 
                                 // Saves data if code passed all tests
-                                saveDataTicket(ticketID, u.getID(), bannedMsg, ticketStatus);
+                                saveDataTicket(ticketID, u.getID(), bannedMsg, ticketStatus, s1, s2);
 
                                 login();
 
@@ -667,13 +669,13 @@ public class Program {
 
     // ________________________________________________________
 
-    public void saveDataTicket(int ticketID, String userID, String msg, String status){
+    public static void saveDataTicket(int ticketID, String userID, String msg, String status, String response, String responseBy){
 
         ArrayList <String> ticketData = new ArrayList<>();
 
-        String s = toCSVTicket(ticketID, userID, msg, status);
+        String s = toCSVTicket(ticketID, userID, msg, status, response, responseBy);
         ticketData.add(s);
-        io.saveData(ticketData, "data/supportTickets.csv", "Ticket ID, User ID, Message, Status");
+        io.saveData(ticketData, "data/supportTickets.csv", "Ticket ID, User ID, Message, Status, Response, Response by");
 
     }
 
@@ -687,9 +689,9 @@ public class Program {
 
     // ________________________________________________________
 
-    private static String toCSVTicket(int ticketID, String ID, String status, String msg){
+    private static String toCSVTicket(int ticketID, String ID, String status, String msg, String response, String responseBy){
 
-        return ticketID + ", " + ID + ", " + status + ", " + msg;
+        return ticketID + ", " + ID + ", " + status + ", " + msg + ", " + response + ", " + responseBy;
 
     }
 

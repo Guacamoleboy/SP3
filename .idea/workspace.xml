@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b3f8056-31fe-4c8e-8772-9cb5bca132f3" name="Changes" comment="Had to reopen my program...">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7b3f8056-31fe-4c8e-8772-9cb5bca132f3" name="Changes" comment="Had to reopen my program..." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,12 +31,12 @@
     &quot;assignee&quot;: &quot;Rovelt123&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Guacamoleboy/SP3.git&quot;,
-    &quot;accountId&quot;: &quot;bd666e3f-3ff7-47ad-8369-1598db308eea&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Guacamoleboy/SP3.git",
+    "accountId": "c1ce2101-2bdf-4c18-96bb-f1533a5e73c0"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -56,7 +54,7 @@
     "DefaultPlantUmlFileTemplate": "UML Class",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "AndreasR",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/45292/Desktop/SKOLE/JAVA/Første semester/SP3/Project",
     "node.js.detected.package.eslint": "true",
@@ -96,6 +94,7 @@
       <workItem from="1743581198424" duration="2075000" />
       <workItem from="1743691470365" duration="1636000" />
       <workItem from="1743693122848" duration="30000" />
+      <workItem from="1744016331362" duration="36000" />
     </task>
     <task id="LOCAL-00001" summary="Had to reopen my program...">
       <option name="closed" value="true" />

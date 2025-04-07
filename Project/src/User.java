@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import util.*;
 
+import static java.awt.SystemColor.menu;
+
 public class User {
 
     // Attributes
@@ -17,6 +19,8 @@ public class User {
     private String email;
     protected History history;
     protected ArrayList <Bookmarked> bookmarked;
+    protected MainMenu mainmenu = new MainMenu();
+
 
     // ________________________________________________________
 
@@ -111,6 +115,22 @@ public class User {
 
         this.username = choice;
         Main.p.saveData();
+    }
+
+    public void changeStatus(String username) {
+        if (this.status.equalsIgnoreCase("Active")){
+            boolean choice = ui.promptBinary("Are you sure you want to take a break?");
+            if (choice){
+                this.status = "Inactive";
+            }
+        } else if (this.status.equalsIgnoreCase("Inactive")) {
+            boolean choice = ui.promptBinary("Are you sure you want to activate your account?");
+            if (choice) {
+                this.status = "Active";
+            }
+        }
+        Main.p.saveData();
+        mainmenu.accountSettings(username);
     }
 
     // ________________________________________________________

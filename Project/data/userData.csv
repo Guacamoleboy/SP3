@@ -1,5 +1,5 @@
 Username, ID, Age, Gender, Password, Banned, Status, IP, Email
-Rovelt, 1, 42, male, Rovelt123, Yes, Active, 192.164.0.2, l@l.dk
+Rovelt, 1, 42, male, Rovelt123, No, Active, 192.164.0.2, l@l.dk
 Shrek111, 2, 55, male, Shrek1, No, Active, 192.162.0.2, d@d.dk
 Shrek3, 3, 69, female, Shrek2, No, Active, 192.167.0.2, k@k.dk
 Ostehøvl, 4, 44, male, Shrek3, No, Active, 192.169.0.2, y@y.dk

@@ -62,8 +62,9 @@ public class SupportMenu extends Menu{
 
                     if(supportInput.equals(values[0]) && values[3].equalsIgnoreCase("Open")){
 
-                        ui.displayMsg("\n_____________________________________\nReplying to ticket ID: " + values[0] + "\n\nMessage by user: \n" + values[2] + "\n");
-                        ui.displayMsg("Enter your message\n_________________________________");
+                        ui.displayMsg("\n_____________________________________\nReplying to ticket ID: " + values[0] +
+                        ui.promptTextColor("red") + "\n\nMessage by user:" + ui.promptTextColor("reset") + "\n" + values[2] + "\n");
+                        ui.displayMsg(ui.promptTextColor("green") + "Enter your message" + ui.promptTextColor("reset") + "\n_________________________________");
                         String supportMsg = ui.promptTextLine("Response: ");
                         String status = ui.promptTextLine("Status on ticket: ");
 
@@ -73,15 +74,12 @@ public class SupportMenu extends Menu{
                             status = "Solved";
                         } else if (status.equalsIgnoreCase("Pending")){
                             status = "Pending";
-                        } else {
-                            ui.displayMsg("Invalid status. Please only use (OPEN, SOLVED, PENDING)!");
-                            startSession(username);
                         }
 
                         Program.saveDataTicket(Integer.parseInt(values[0]), values[1], values[2], status, supportMsg, username);
 
                         ui.displayMsg(ui.promptTextColor("green") + "\nMessage sent to " + values[0]
-                                + ui.promptTextColor("reset") + "\n____________________________");
+                        + ui.promptTextColor("reset") + "\n____________________________");
 
                         startSession(username);
 

@@ -1,4 +1,5 @@
-package util;/*
+package util;
+/*
 
     Featured in this util.TextUI
     _______________________
@@ -33,6 +34,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -41,11 +43,14 @@ public class TextUI { // Our own custom generic util.TextUI class
     // Attributes
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
+    private static FileIO io = new FileIO();
+    private static ArrayList<String> bannedWords = new ArrayList<>(List.of(
+            "dumt", "grimt", "forbudt"
+    ));
 
     // ________________________________________________________
 
     public void displayList(ArrayList <String> list, String msg){
-
         for(int i = 0; i < list.size(); i++){
             System.out.println(i+1 + ". " + list.get(i));
         }
@@ -121,6 +126,9 @@ public class TextUI { // Our own custom generic util.TextUI class
 
         displayMsg(msg);
         String input = scanner.nextLine();
+        if (bannedWords(input)) {
+            return "";
+        }
 
         return input;
 
@@ -129,9 +137,11 @@ public class TextUI { // Our own custom generic util.TextUI class
     // ________________________________________________________
 
     public String promptTextLine(String msg){
-
         displayMsgLine(msg);
         String input = scanner.nextLine();
+        if (bannedWords(input)) {
+            return "";
+        }
 
         return input;
 
@@ -148,6 +158,9 @@ public class TextUI { // Our own custom generic util.TextUI class
 
             displayMsg(msg);
             input = scanner.nextLine();
+            if (bannedWords(input)) {
+                return "";
+            }
 
             if(input.equalsIgnoreCase("Male") || input.equalsIgnoreCase("Female")){
 
@@ -283,6 +296,9 @@ public class TextUI { // Our own custom generic util.TextUI class
         while(!valid){
 
             emailInput = scanner.nextLine().trim();
+            if (bannedWords(emailInput)) {
+                return null;
+            }
 
             if(emailInput.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")){
 
@@ -492,6 +508,9 @@ public class TextUI { // Our own custom generic util.TextUI class
     */
 
     public String promptTextColor(String msg){
+        if (bannedWords(msg)) {
+            return null;
+        }
 
         switch(msg.toLowerCase()){
 
@@ -548,6 +567,9 @@ public class TextUI { // Our own custom generic util.TextUI class
     */
 
     public String promptBackgroundColor(String msg){
+        if (bannedWords(msg)) {
+            return null;
+        }
 
         switch(msg.toLowerCase()){
 
@@ -595,6 +617,9 @@ public class TextUI { // Our own custom generic util.TextUI class
     // ________________________________________________________
 
     public String promptTextFormat(String msg){
+        if (bannedWords(msg)) {
+            return null;
+        }
 
         switch(msg.toLowerCase()){
 
@@ -619,5 +644,45 @@ public class TextUI { // Our own custom generic util.TextUI class
 
     }
 
+    // ________________________________________________________
+
+    public boolean bannedWords(String word) {
+        if (bannedWords.stream().anyMatch(w -> w.equals(word.toLowerCase()))) {
+            displayMsg("Please don't use offensive words!\n");
+            return true;
+        }
+        return false;
+    }
+
+    // ________________________________________________________
+
+    public static String banWord(String word){
+        bannedWords.add(word.toLowerCase());
+        saveData();
+        return "You banned the word: "+ word +"!\n";
+    }
+
+    // ________________________________________________________
+
+    public static String unbanWord(String word){
+        bannedWords.remove(word.toLowerCase());
+        saveData();
+        return "You unbanned the word: "+ word +"!\n";
+    }
+
+    // ________________________________________________________
+
+    public static void saveData(){
+
+        ArrayList<String> tmpbannedWords = new ArrayList<>(bannedWords);
+        io.saveData(tmpbannedWords, "data/bannedWords.csv", "word");
+
+    }
+
+    public static void loadBannedWords(){
+
+        bannedWords = io.readData("data/bannedWords.csv");
+
+    }
 
 } // util.TextUI end

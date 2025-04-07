@@ -1,5 +1,10 @@
 import util.*;
 
+import java.util.ArrayList;
+
+import static util.TextUI.banWord;
+import static util.TextUI.unbanWord;
+
 public class Admin {
 
     // Attributes
@@ -65,6 +70,23 @@ public class Admin {
             u.banUser();
         } else {
             Main.p.devmenu.startSession(adminUsername);
+        }
+    }
+
+
+    public static void forbiddenWords() {
+        String choice = ui.promptText("Do you want to ban or unban a harsh word? (ban/unban)");
+        if (choice.equals("ban")) {
+            String word = ui.promptText("What's the word you want to ban?");
+            if (word != null) {
+                banWord(word);
+            }
+        }else if(choice.equals("unban")) {
+            String word = ui.promptText("What's the word you want to unban?");
+            if (word != null) {
+                unbanWord(word);
+            }
+
         }
     }
 

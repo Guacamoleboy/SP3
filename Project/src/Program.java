@@ -112,6 +112,7 @@ public class Program {
 
         // Don't allow blank or invalid usernames
         if(playerName.isBlank() || !playerName.matches("[a-zA-Z0-9]+")){
+            ui.displayMsg("Invalid input. Please only use A-Z and Numbers!");
             registerUser(); // Recursion
         }
 
@@ -124,7 +125,20 @@ public class Program {
         }
 
         // Put this into the while loop over passwordTest if you want it to ask user to redo entire password
-        String playerPassword = ui.promptText("Please enter a password..");
+        String playerPassword = "";
+
+        while(true) {
+
+            playerPassword = ui.promptText("Please enter a password..");
+
+            if (playerPassword.isBlank() || !playerPassword.matches("[a-zA-Z0-9]+")) {
+                ui.displayMsg(ui.promptTextColor("red") + "Invalid Password input." + ui.promptTextColor("reset") + "\nPlease try again!");
+                continue;
+            }
+
+            break;
+        }
+
         boolean passwordTest = false;
 
         // Allows us to loop over the password part

@@ -1,6 +1,5 @@
 import util.*;
 
-import java.util.ArrayList;
 
 import static util.TextUI.banWord;
 import static util.TextUI.unbanWord;
@@ -8,8 +7,8 @@ import static util.TextUI.unbanWord;
 public class Admin {
 
     // Attributes
-    private static FileIO io = new FileIO();
-    private static TextUI ui = new TextUI();
+    private static final FileIO io = new FileIO();
+    private static final TextUI ui = new TextUI();
 
     // ________________________________________________________
 

@@ -36,16 +36,7 @@ public abstract class Menu { // (Superclass)
                     case "3":
                         break;
                     case "4":
-                        break;
-                    case "5":
-                        break;
-                    case "6":
-                        break;
-                    case "7":
-                        break;
-                    case "8":
-                        break;
-                    case "9":
+                        accountSettings(username);
                         break;
                     case "back":
                         startSession(username);
@@ -105,8 +96,6 @@ public abstract class Menu { // (Superclass)
 
     }
 
-
-
     // ________________________________________________________
 
     public abstract void endSession();
@@ -121,7 +110,7 @@ public abstract class Menu { // (Superclass)
 
         User user = Main.p.getUserByName(username);
         ui.displayMsg("Account settings for, " + ui.promptTextColor("red") + username + ui.promptTextColor("reset") + ":");
-        String input = ui.promptText("\n1) Change Username\n2) Change Password\n3) Something\n4) Something\n5) Something\n6) Pause Membership\n7) Set as account status to inactive\n9) Exit");
+        String input = ui.promptText("\n1) Change Username\n2) Change Password\n3) Pause Membership\n4) Change status\n5) Exit");
         switch (input.toLowerCase()){
             case "1", "change Username", "1) change Username":
                 user.changeUsername(username);
@@ -129,8 +118,14 @@ public abstract class Menu { // (Superclass)
             case "2", "change Password", "2) change Password":
                 user.changePassword();
                 break;
-            case "3", "remove account", "1) remove account":
-
+            case "3", "Pause", "3) Pause Membership":
+                //user.pauseMembership();
+                break;
+            case "4", "status", "4) Change status":
+                user.changeStatus(username);
+                break;
+            case "5", "back", "5) back":
+                startSession(username);
                 break;
             default:
                 ui.displayMsg("Invalid input");

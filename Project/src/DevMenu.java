@@ -17,7 +17,7 @@ public class DevMenu extends Menu { // Menu for devs (Subclass)
 
         // Visuals
         ui.displayMsg("\nPlease choose one of the following:\n1) Add Movie\n2) Add Series\n3) Ban Account\n4) Remove Account\n5) Set" +
-        " Account As Inactive\n6) Set Account As Paused\n7) Change Password\n8) Change Username\n\nType " + ui.promptTextFormat("outline")+
+        " Account As Inactive\n6) Set Account As Paused\n7) Change Password\n8) Change Username\n9) ban/unban\n\nType " + ui.promptTextFormat("outline")+
         " NEXT " + ui.promptTextFormat("outline reset") + " " + ui.promptTextFormat("outline") + " PREV " + ui.promptTextFormat("outline reset") +
         " To Load More | " + "Use " + ui.promptTextFormat("outline") + " BACK " + ui.promptTextFormat("outline reset") +
         " to return\n_________________________________");
@@ -50,7 +50,7 @@ public class DevMenu extends Menu { // Menu for devs (Subclass)
                 // Something
                 break;
             case "9":
-                //Something
+                Admin.forbiddenWords();
                 break;
             case "next":
                 // Something

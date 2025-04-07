@@ -1,10 +1,14 @@
 import util.*;
 
+
+import static util.TextUI.banWord;
+import static util.TextUI.unbanWord;
+
 public class Admin {
 
     // Attributes
-    private static FileIO io = new FileIO();
-    private static TextUI ui = new TextUI();
+    private static final FileIO io = new FileIO();
+    private static final TextUI ui = new TextUI();
 
     // ________________________________________________________
 
@@ -65,6 +69,23 @@ public class Admin {
             u.banUser();
         } else {
             Main.p.devmenu.startSession(adminUsername);
+        }
+    }
+
+
+    public static void forbiddenWords() {
+        String choice = ui.promptText("Do you want to ban or unban a harsh word? (ban/unban)");
+        if (choice.equals("ban")) {
+            String word = ui.promptText("What's the word you want to ban?");
+            if (word != null) {
+                banWord(word);
+            }
+        }else if(choice.equals("unban")) {
+            String word = ui.promptText("What's the word you want to unban?");
+            if (word != null) {
+                unbanWord(word);
+            }
+
         }
     }
 

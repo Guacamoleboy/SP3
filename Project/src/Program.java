@@ -5,6 +5,8 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.*;
 
+import static util.TextUI.loadBannedWords;
+
 public class Program {
 
     // Attributes
@@ -40,6 +42,7 @@ public class Program {
     public void startSession(){
 
         ArrayList <String> data = io.readData("data/userData.csv");
+        loadBannedWords();
         ui.displayMsg("\nWelcome to " + this.programName + ".\n");
 
         if (!data.isEmpty()){
@@ -104,13 +107,11 @@ public class Program {
     // ________________________________________________________
 
     public void registerUser(){
-
         // Currently only supports normal characters. Maybe make it so numbers and symbols are included?
         String playerName = ui.promptText("Please enter a username..");
 
         // Don't allow blank or invalid usernames
         if(playerName.isBlank() || !playerName.matches("[a-zA-Z0-9]+")){
-            ui.displayMsg("Invalid username.. Please only use alphabetic characters!\n");
             registerUser(); // Recursion
         }
 

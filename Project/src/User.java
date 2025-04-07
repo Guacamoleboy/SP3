@@ -138,8 +138,36 @@ public class User {
 
     // ________________________________________________________
 
+    public void setUsername(String username){
+        this.username = username;
+        Main.p.saveData();
+    }
+
+    // ________________________________________________________
+
+    public void setPassword(String password){
+        this.password = password;
+        Main.p.saveData();
+    }
+
+    // ________________________________________________________
+
+    public void setStatus(String status){
+        this.status = status;
+        Main.p.saveData();
+    }
+
+    // ________________________________________________________
+
     public void banUser() {
         this.banned = "Yes";
+        Main.p.saveData();
+    }
+
+    // ________________________________________________________
+
+    public void unbanUser() {
+        this.banned = "No";
         Main.p.saveData();
     }
 

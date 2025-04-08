@@ -11,7 +11,6 @@ public class Admin {
     // Attributes
     private static final FileIO io = new FileIO();
     private static final TextUI ui = new TextUI();
-    public static ArrayList <String> bannedWords = new ArrayList<>();
 
     // ________________________________________________________
 
@@ -330,7 +329,7 @@ public class Admin {
 
     // ________________________________________________________
 
-    public static void forbiddenWords() {
+    public static void forbiddenWords(String path, String header) {
 
         String choice = ui.promptText("Do you want to ban or unban a harsh word? (ban/unban)");
 
@@ -338,15 +337,21 @@ public class Admin {
 
             String word = ui.promptText("What's the word you want to ban?");
             if (word != null) {
-                banWord(word);
+                ui.banWord(word, path, header);
             }
 
         } else if(choice.equals("unban")) {
 
             String word = ui.promptText("What's the word you want to unban?");
             if (word != null) {
-                unbanWord(word);
+                ui.unbanWord(word,path, header);
             }
+
+        } else {
+            ui.displayMsg("You must use ban/unban!");
+        }
+        //saveData("data/bannedWords.csv", "word");
+
 
         } else {
             ui.displayMsg("Invalid input. Please try again using ban / unban only.");
@@ -381,23 +386,5 @@ public class Admin {
         bannedWords.remove(word.toLowerCase());
         return "You unbanned the word: "+ word +"!\n";
     }
-
-    // ________________________________________________________
-
-    public static void saveData(String path, String header){
-
-        ArrayList<String> tmpbannedWords = new ArrayList<>(bannedWords);
-        io.saveData(tmpbannedWords, path, header);
-
-    }
-
-    // ________________________________________________________
-
-    public static void loadBannedWords(String path){
-
-        bannedWords = io.readData(path);
-
-    }
-
 
 } // Admin end

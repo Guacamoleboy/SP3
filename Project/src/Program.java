@@ -40,7 +40,7 @@ public class Program {
     public void startSession(){
 
         ArrayList <String> data = io.readData("data/userData.csv");
-        Admin.loadBannedWords("data/bannedWords.csv");
+        ui.loadBannedWords("data/bannedWords.csv");
         ui.displayMsg("\nWelcome to " + this.programName + ".\n");
 
         if (!data.isEmpty()){

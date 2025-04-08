@@ -275,7 +275,7 @@ public class TextUI { // Our own custom generic util.TextUI class
         while(!valid){
 
             emailInput = scanner.nextLine().trim();
-            promptExit(input);
+
             if(emailInput.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")){
 
                 valid = true;
@@ -316,7 +316,7 @@ public class TextUI { // Our own custom generic util.TextUI class
         while(true){
 
             dateInput = scanner.nextLine().trim();
-            promptExit(input);
+
             try{
 
                 return LocalDate.parse(dateInput, dtf);
@@ -341,7 +341,7 @@ public class TextUI { // Our own custom generic util.TextUI class
         while(true){
 
             numberInput = scanner.nextLine().trim();
-            promptExit(input);
+
             if(numberInput.matches("^\\+?[0-9]{8,8}$")){ // 8,8 allows danish only phone numbers
 
                 return numberInput;
@@ -622,7 +622,7 @@ public String promptText(String prompt) {
 
 public boolean promptExit(String input) {
     if (input.equalsIgnoreCase(exitWord)) {
-        displayMsg("Shutting down...");
+        displayMsg("Exit word typed. Shutting down...");
         System.exit(0);
         return true;
     }

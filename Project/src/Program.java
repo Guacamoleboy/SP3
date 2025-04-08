@@ -57,7 +57,8 @@ public class Program {
                 String userStatus = values[6].trim();
                 String userIP = values[7].trim();
                 String userEmail = values[8].trim();
-                createUser(username, userID, userAge, userGender, userPassword, userBanned, userStatus, userIP, userEmail);
+                String userMembership = values[9].trim();
+                createUser(username, userID, userAge, userGender, userPassword, userBanned, userStatus, userIP, userEmail, userMembership);
                 userCount++;
 
             } // For-loop
@@ -107,6 +108,10 @@ public class Program {
     public void registerUser(){
         // Currently only supports normal characters. Maybe make it so numbers and symbols are included?
         String playerName = ui.promptText("Please enter a username..");
+
+        if(!usernameNotAllowed(playerName)){
+            registerUser();
+        }
 
         // Don't allow blank or invalid usernames
         if(playerName.isBlank() || !playerName.matches("[a-zA-Z0-9]+")){
@@ -213,7 +218,10 @@ public class Program {
         ID = randomID();
         idCheck(ID);
 
-        createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned, playerStatus, ipAdress, playerEmail);
+        // All members have Normal as membership
+        String playerMembership = "Normal";
+
+        createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned, playerStatus, ipAdress, playerEmail, playerMembership);
 
         ui.displayMsg("\nThanks for making an account. Sending you to login page..\n");
 
@@ -315,6 +323,8 @@ public class Program {
 
                 playerUser = ui.promptTextLine("Enter Username: ");
 
+                // __________________________ PASSWORD ________________________________
+
                 if(playerUser.equalsIgnoreCase("password")){
 
                     String userEmail = "";
@@ -372,6 +382,8 @@ public class Program {
 
                     login();
 
+                    // __________________________ USERNAME ________________________________
+
                 } else if (playerUser.equalsIgnoreCase("username")){
 
                     String userEmail = ui.promptTextLine("Please enter your email: ");
@@ -380,22 +392,74 @@ public class Program {
                         ui.displayMsg("Email not found..");
                     }
 
-                    EmailConfirmation.sendPassword(userEmail);
+                    String userPassword = ui.promptTextLine("Please enter password: ");
 
-                    // Visuals
-                    ui.displayMsg("Username has been sent to " + ui.promptTextFormat("outline") + " " + userEmail + " "
-                    + ui.promptTextFormat("outline reset"));
+                    for(User u : user){
+
+                        if(userEmail.equalsIgnoreCase(u.getEmail()) && userPassword.equalsIgnoreCase(u.getPassword())){
+                            ui.displayMsg("\nYour username is: " + ui.promptTextColor("green") + u.getName() + ui.promptTextColor("reset"));
+                        }
+
+                    }
+
+                    try{
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e){
+                        ui.displayMsg("Error. Contact dev. Dev msg: " + e.getMessage());
+                    }
+
+                    login();
+
+                    // __________________________ EMAIL ________________________________
 
                 } else if (playerUser.equalsIgnoreCase("email")){
 
-                    ui.displayMsg("In order to reset your email you must contact support..");
+                    ui.displayMsg("\nIn order to reset your email you must contact support..\n1) Contact Support\n2) Exit");
+                    String emailPromptInput = ui.promptTextLine("Input: ");
+                    switch (emailPromptInput){
 
-                    String userInput = ui.promptTextLine("Please enter your username: ");
-                    String passInput = ui.promptTextLine("Please enter your password: ");
-                    if(!passwordCheck(userInput, passInput)){
-                        ui.displayMsg("Wrong username/password. They don't match an existing account.");
+                        case "1":
+
+                            String userInput = "";
+                            String passInput = "";
+
+                            while(true){
+
+                                userInput = ui.promptTextLine("Please enter your username: ");
+                                passInput = ui.promptTextLine("Please enter your password: ");
+
+                                    if(!passwordCheck(userInput, passInput)){
+                                        ui.displayMsg("Doesn't match an existing user. Try again.");
+                                        continue;
+                                    }
+
+                                break;
+
+                            }
+
+                            String emailResetMsg = ui.promptTextLine("Message: ");
+                            int rndID = (int) random.nextInt(10000);
+
+                            for(User u : user){
+
+                                if(u.getName().equalsIgnoreCase(userInput) && u.getPassword().equalsIgnoreCase(passInput)){
+                                    saveDataTicket(ticketID(rndID), u.getID(), emailResetMsg, "Open", "No response yet", "N/A");
+                                    ui.displayMsg("\nWe have received your ticket. We will contact you within 48 hours. Thank you for your patience!");
+                                    ui.displayMsg("You can see your open tickets under your Account Settings in your Menu when logged in!");
+                                }
+
+                            }
+
+                            login();
+
+
+                        case "2":
+                            ui.displayMsg("Shutting down.");
+                            System.exit(0);
+                        default:
+                            ui.displayMsg("Invalid input.");
+
                     }
-                    ui.displayMsg("We have received your ticket. We will contact you within 48 hours. Thank you for your patience!");
 
                 } else {
                     // Checks if username exist
@@ -598,11 +662,11 @@ public class Program {
         for (String s : data){
             String[] values = s.split(", ");
             if(values[0].equals(username) && values[4].equals(password)){
-                return true;
+                return false;
             }
         }
 
-        return false;
+        return true;
     }
 
     // ________________________________________________________
@@ -636,10 +700,10 @@ public class Program {
 
     // ________________________________________________________
 
-    public void createUser(String username, String ID, int age, String gender, String password, String banned, String status, String ipAdress, String email){
+    public void createUser(String username, String ID, int age, String gender, String password, String banned, String status, String ipAdress, String email, String membership){
 
 
-        User u = new User(username, ID, age, gender, password, banned, status, ipAdress, email);
+        User u = new User(username, ID, age, gender, password, banned, status, ipAdress, email, membership);
         user.add(u);
 
     }
@@ -768,6 +832,22 @@ public class Program {
         }
 
         return output + randomNum + lastDigit;
+
+    }
+
+    // ________________________________________________________
+
+    public boolean usernameNotAllowed(String input){
+
+        if(input.contains("password") || input.contains("admin")
+        || input.contains("dev") || input.contains("email")){
+
+            ui.displayMsg(ui.promptTextColor("red") + "\nNot allowed as username!\n" + ui.promptTextColor("reset"));
+            return false;
+
+        }
+
+        return true;
 
     }
 

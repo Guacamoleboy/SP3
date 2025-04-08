@@ -857,5 +857,29 @@ public class Program {
 
     }
 
+    // ________________________________________________________
+
+    public void removeAccount(String name){
+
+        ArrayList <String> data = io.readData("data/userData.csv");
+        ArrayList <String> fixedData = new ArrayList<>();
+
+        for (String s : data){
+
+            String[] values = s.split(", ");
+            String removeName = values[0].trim();
+
+            // Re-writes the .csv file but skips the line where it matches the username
+            if(!removeName.equalsIgnoreCase(name)){
+                fixedData.add(s);
+            }
+
+        }
+
+        // Re-write the original userData.csv
+        io.saveData(fixedData, "data/userData.csv", "Username, ID, Age, Gender, Password, Banned, Status, IP, Email, LastLogin");
+
+    }
+
 
 } // Program end

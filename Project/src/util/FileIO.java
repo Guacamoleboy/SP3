@@ -42,8 +42,13 @@ public class FileIO { // Custom generic util.FileIO
 
             writer.write(header+"\n");
 
-            for(String s : list){
-                writer.write(s+"\n");
+            for(int i = 0; i < list.size(); i++){
+                writer.write(list.get(i));
+
+                // Checks for last character basically. Fixes our empty line creation issue.
+                if(i < list.size() - 1){
+                    writer.write("\n");
+                }
             }
 
             writer.close(); // Closes our writer
@@ -337,14 +342,14 @@ public class FileIO { // Custom generic util.FileIO
         File originalFile = new File(path);
         String originalFileName = new File(path).getName().replace(fileFormat, "");
         String backupDir = dirPath;
-        String backupBaseName = backupDir + originalFileName + fileEnding;
-        String backupFilePath = backupBaseName + fileFormat;
+        String backupBaseName = backupDir + originalFileName + fileEnding + "_";
+        String backupFilePath = backupBaseName + "1" + fileFormat;
 
         // Ensure unique filename by appending a number if needed
         int count = 1;
         while (new File(backupFilePath).exists()) {
-            backupFilePath = backupBaseName + "_" + count + fileFormat;
             count++;
+            backupFilePath = backupBaseName + count + fileFormat;
         }
 
         try {

@@ -1,8 +1,6 @@
 import util.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 import static util.TextUI.*;
 
@@ -14,33 +12,9 @@ public class Admin {
 
     // ________________________________________________________
 
-    public Admin(){
-
-    } // Constructor
-
-    // ________________________________________________________
-
-    public void changePassword(){
-
-    }
-
-    // ________________________________________________________
-
-    public void changeUsername(){
-
-    }
-
-    // ________________________________________________________
-
-    public void clearByID(){
-
-    }
-
-    // ________________________________________________________
-
     public static void manageUsers(String adminUsername){
         ui.displayMsg("\n1) Ban menu \n2) Change username \n3) Change password \n4) Change status \n5) Change membership \n6) User list\n\nType " + ui.promptTextFormat("outline") + " back " + ui.promptTextFormat("outline reset") +
-        " to go back to Dev Menu..");
+                " to go back to Dev Menu..");
         String choice = ui.promptTextLine("Input: ");
         switch(choice){
             case "1", "1)", "1) Ban menu", "ban":
@@ -65,10 +39,10 @@ public class Admin {
                     ui.displayMsg("This is the list of users: ");
                     for (User user : Program.user) {
                         String msg =
-                        "ID: "+ user.getID() +
-                        " Username: " + user.getName()+
-                        " User is banned: " + user.getBanned()+
-                        " User is: " + user.getStatus();
+                                "ID: "+ user.getID() +
+                                        " Username: " + user.getName()+
+                                        " User is banned: " + user.getBanned()+
+                                        " User is: " + user.getStatus();
 
                         ui.displayMsg(msg);
                     }
@@ -90,10 +64,10 @@ public class Admin {
     public static void listUsers(){
         for (User user : Program.user) {
             String msg =
-            "ID: "+ user.getID() +
-            " Username: " + user.getName()+
-            " User is banned: " + user.getBanned()+
-            " User is: " + user.getStatus();
+                    "ID: "+ user.getID() +
+                            " Username: " + user.getName()+
+                            " User is banned: " + user.getBanned()+
+                            " User is: " + user.getStatus();
 
             ui.displayMsg(msg);
         }
@@ -185,7 +159,7 @@ public class Admin {
 
     public static void changeUsername(String adminUsername){
         ui.displayMsg("\n1) Change username by ID\n2) Change username by username?\n3) list users\n\nType " + ui.promptTextFormat("outline") + " back " + ui.promptTextFormat("outline reset") +
-        " to go back to Dev Menu..");
+                " to go back to Dev Menu..");
         String choice = ui.promptTextLine("Input: ");
         User u = null;
         String userID;
@@ -215,7 +189,7 @@ public class Admin {
             changeUsername(adminUsername);
             return;
         }
-        
+
         newusername = ui.promptText("Enter the new username for "+u.getName()+":");
         if (newusername.isEmpty()) {
             ui.displayMsg("You must enter a username!");
@@ -343,7 +317,7 @@ public class Admin {
 
         String userMembership = u.getMembership();
         ui.displayMsg("Users current membership: " + userMembership + "\n\nUse " + ui.promptTextFormat("outline")
-        + " BACK " + ui.promptTextFormat("outline reset") + " to go back to Manage users!\n");
+                + " BACK " + ui.promptTextFormat("outline reset") + " to go back to Manage users!\n");
         String membershipType = ui.promptTextLine("Membership: ");
 
         if(userMembership.equalsIgnoreCase("normal") && membershipType.equalsIgnoreCase("normal")){
@@ -373,67 +347,64 @@ public class Admin {
         if (choice.equals("ban")) {
 
             String word = ui.promptText("What's the word you want to ban?");
+
             if (word != null) {
                 ui.banWord(word, path, header);
-            }
 
-        } else if(choice.equals("unban")) {
+            } else if(choice.equals("unban")) {
 
-            String word = ui.promptText("What's the word you want to unban?");
+                word = ui.promptText("What's the word you want to unban?");
+
+            } // If end (2)
+
             if (word != null) {
                 ui.unbanWord(word,path, header);
-            }
-
-        } else {
-            ui.displayMsg("You must use ban/unban!");
-        }
-        //saveData("data/bannedWords.csv", "word");
-
+            } else {
+                ui.displayMsg("You must use ban/unban!");
+            } // If end (3)
 
         } else {
             ui.displayMsg("Invalid input. Please try again using ban / unban only.");
-            forbiddenWords();
-            return;
-        }
+            forbiddenWords(path, header);
+        } // If end (1)
 
-        saveData("data/bannedWords.csv", "word");
     }
 
-    // ________________________________________________________
+// ________________________________________________________
 
-    public static boolean bannedWords(String word) {
-        
-        if (bannedWords.stream().anyMatch(w -> w.equals(word.toLowerCase()))) {
-            ui.displayMsg("Please don't use offensive words!\n");
-            return true;
-        }
-        return false;
+public static boolean bannedWords(String word) {
+
+    if (bannedWords.stream().anyMatch(w -> w.equals(word.toLowerCase()))) {
+        ui.displayMsg("Please don't use offensive words!\n");
+        return true;
     }
+    return false;
+}
 
-    // ________________________________________________________
+// ________________________________________________________
 
-    public static String banWord(String word){
-        bannedWords.add(word.toLowerCase());
-        return "You banned the word: "+ word +"!\n";
-    }
+public static String banWord(String word){
+    bannedWords.add(word.toLowerCase());
+    return "You banned the word: "+ word +"!\n";
+}
 
-    // ________________________________________________________
+// ________________________________________________________
 
-    public static String unbanWord(String word){
-        bannedWords.remove(word.toLowerCase());
-        return "You unbanned the word: "+ word +"!\n";
-    }
+public static String unbanWord(String word){
+    bannedWords.remove(word.toLowerCase());
+    return "You unbanned the word: "+ word +"!\n";
+}
 
-    // ________________________________________________________
+// ________________________________________________________
 
-    public static void addMovie() {
-        ui.displayMsg(ui.promptTextColor("RED") + "This has to be made!"+ ui.promptTextColor("RESET"));
-    }
+public static void addMovie() {
+    ui.displayMsg(ui.promptTextColor("RED") + "This has to be made!"+ ui.promptTextColor("RESET"));
+}
 
-    // ________________________________________________________
+// ________________________________________________________
 
-    public static void addSeries() {
-        ui.displayMsg(ui.promptTextColor("RED") + "This has to be made!"+ ui.promptTextColor("RESET"));
-    }
+public static void addSeries() {
+    ui.displayMsg(ui.promptTextColor("RED") + "This has to be made!"+ ui.promptTextColor("RESET"));
+}
 
 } // Admin end

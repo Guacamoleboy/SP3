@@ -207,7 +207,7 @@ public class User {
     // ________________________________________________________
 
     public void updateLastLogin(){
-        System.out.println("Updates?");
+        //System.out.println("Updates?"); DEBUG
         this.lastLogin = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
         Main.p.saveData();
     }
@@ -232,7 +232,5 @@ public class User {
         this.banned = "No";
         Main.p.saveData();
     }
-
-    // ________________________________________________________
 
 }

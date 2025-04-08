@@ -54,10 +54,59 @@ public class DevMenu extends Menu { // Menu for devs (Subclass)
                 Admin.forbiddenWords();
                 break;
             case "next":
+
+                ui.displayMsg("1) Change Membership");
+                ui.displayMsg("\n\nType " + ui.promptTextFormat("outline")+
+                " NEXT " + ui.promptTextFormat("outline reset") + " " + ui.promptTextFormat("outline") + " PREV " + ui.promptTextFormat("outline reset") +
+                " To Load More | " + "Use " + ui.promptTextFormat("outline") + " BACK " + ui.promptTextFormat("outline reset") +
+                " to return\n_________________________________");
+                String in3 = ui.promptTextLine("Input: ");
+
+                switch (in3){
+
+                    case "1":
+                        //
+                        String in4 = ui.promptTextLine("Username: ");
+
+                        for (User u : Program.user){
+
+                            if(u.getName().equalsIgnoreCase(in4)){
+                                ui.displayMsg("Users current membership: " + u.getMembership());
+                                String membershipType = ui.promptTextLine("Membership: ");
+
+                                if(u.getMembership().equalsIgnoreCase("normal") && membershipType.equalsIgnoreCase("normal")){
+                                    ui.displayMsg("Can't set a normal membership to normal.");
+                                } else if (u.getMembership().equalsIgnoreCase("premium") && membershipType.equalsIgnoreCase("premium")){
+                                    ui.displayMsg("Can't set premium membership to premium");
+                                } else if(u.getMembership().equalsIgnoreCase("normal") && membershipType.equalsIgnoreCase("Premium")){
+                                    u.setMembership(membershipType);
+                                } else if(u.getMembership().equalsIgnoreCase("premium") && membershipType.equalsIgnoreCase("normal")){
+                                    u.setMembership(membershipType);
+                                } else {
+                                    ui.displayMsg("Invalid membership!");
+                                }
+
+                            } // If-end
+
+                        } // For-each loop end
+
+                        break;
+
+                    case "next":
+                        ui.displayMsg("\nYou're as far as you can get.");
+                        break;
+                    case "prev", "back":
+                        startSession(username);
+                        break;
+                    default:
+                        ui.displayMsg("Invalid input.");
+
+                } // Switch end
+
                 // Something
                 break;
             case "prev":
-                // Something
+                ui.displayMsg("Nothing to go back to. You're on page 1.");
                 break;
             case "back":
                 startSession(username);

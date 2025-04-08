@@ -330,21 +330,61 @@ public class Admin {
     // ________________________________________________________
 
     public static void forbiddenWords(String path, String header) {
+
         String choice = ui.promptText("Do you want to ban or unban a harsh word? (ban/unban)");
+
         if (choice.equals("ban")) {
+
             String word = ui.promptText("What's the word you want to ban?");
             if (word != null) {
                 ui.banWord(word, path, header);
             }
-        }else if(choice.equals("unban")) {
+
+        } else if(choice.equals("unban")) {
+
             String word = ui.promptText("What's the word you want to unban?");
             if (word != null) {
                 ui.unbanWord(word,path, header);
             }
+
         } else {
             ui.displayMsg("You must use ban/unban!");
         }
         //saveData("data/bannedWords.csv", "word");
+
+
+        } else {
+            ui.displayMsg("Invalid input. Please try again using ban / unban only.");
+            forbiddenWords();
+            return;
+        }
+
+        saveData("data/bannedWords.csv", "word");
+    }
+
+    // ________________________________________________________
+
+    public static boolean bannedWords(String word) {
+        
+        if (bannedWords.stream().anyMatch(w -> w.equals(word.toLowerCase()))) {
+            ui.displayMsg("Please don't use offensive words!\n");
+            return true;
+        }
+        return false;
+    }
+
+    // ________________________________________________________
+
+    public static String banWord(String word){
+        bannedWords.add(word.toLowerCase());
+        return "You banned the word: "+ word +"!\n";
+    }
+
+    // ________________________________________________________
+
+    public static String unbanWord(String word){
+        bannedWords.remove(word.toLowerCase());
+        return "You unbanned the word: "+ word +"!\n";
     }
 
 } // Admin end

@@ -3,7 +3,7 @@ package util;
 /*
 
     Featured in this util.TextUI
-    _______________________
+    ____________________________
 
     Prompts:                        Displays:                   Random:
     Numeric                         Msg                         Single (min - max)
@@ -49,6 +49,7 @@ public class TextUI { // Our own custom generic util.TextUI class
     // ________________________________________________________
 
     public void displayList(ArrayList <String> list, String msg){
+
         for(int i = 0; i < list.size(); i++){
             System.out.println(i+1 + ". " + list.get(i));
         }

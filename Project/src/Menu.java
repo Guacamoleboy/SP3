@@ -4,7 +4,7 @@ public abstract class Menu { // (Superclass)
 
     // Attributes
     private static FileIO io = new FileIO();
-    private static TextUI ui = new TextUI();
+    private static TextUI ui = new TextUI(Main.exitWord);
 
     // ________________________________________________________
 
@@ -12,14 +12,15 @@ public abstract class Menu { // (Superclass)
         // Load / toggle data
 
         //Display data
-        ui.displayMsg("\nWelcome to the Main Menu, " + ui.promptTextColor("red") + username + ui.promptTextColor("reset") + "!");
+        ui.displayMsg("\nWelcome to the Main Menu, " + ui.promptTextColor("red") + username + ui.promptTextColor("reset") + "!\nYou were last seen "+ Main.p.currentUser.getLastSeen());
+
+        Main.p.currentUser.updateLastLogin();
 
         ui.displayMsg("\nPlease choose one of the following:\n1) Movies\n2) Series\n3) History\n4) Account Settings\n_____________________");
         String input = ui.promptTextLine("Input: ");
         String newInput = "";
         String seriesInput = "";
         String movieOptions = "";
-
         switch (input){
             case "1":
 

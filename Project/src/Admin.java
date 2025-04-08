@@ -10,7 +10,7 @@ public class Admin {
 
     // Attributes
     private static final FileIO io = new FileIO();
-    private static final TextUI ui = new TextUI();
+    private static final TextUI ui = new TextUI(Main.exitWord);
 
     // ________________________________________________________
 
@@ -39,8 +39,9 @@ public class Admin {
     // ________________________________________________________
 
     public static void manageUsers(String adminUsername){
-        String choice = ui.promptText("\n1) Ban menu\n2) Change username\n3) Change password\n4) Change status\n5) User list\n\nType " + ui.promptTextFormat("outline") + " back " + ui.promptTextFormat("outline reset") +
-                " to go back to Dev Menu..");
+        ui.displayMsg("\n1) Ban menu \n2) Change username \n3) Change password \n4) Change status \n5) Change membership \n6) User list\n\nType " + ui.promptTextFormat("outline") + " back " + ui.promptTextFormat("outline reset") +
+        " to go back to Dev Menu..");
+        String choice = ui.promptTextLine("Input: ");
         switch(choice){
             case "1", "1)", "1) Ban menu", "ban":
                 banMenu(adminUsername);
@@ -54,7 +55,10 @@ public class Admin {
             case "4", "4)", "4) Change status":
                 changeStatus(adminUsername);
                 break;
-            case "list", "5", "5)", "5) User list":
+            case "5", "5)", "5) change membership", "membership":
+                changeMembership(adminUsername);
+                break;
+            case "list", "6", "6)", "6) User list":
                 if (Program.user.isEmpty()){
                     ui.displayMsg("There are no users!");
                 } else {
@@ -180,22 +184,23 @@ public class Admin {
     // ________________________________________________________
 
     public static void changeUsername(String adminUsername){
-        String choice = ui.promptText("\n1) Change username by ID\n2) Change username by username?\n3) list users\n\nType " + ui.promptTextFormat("outline") + " back " + ui.promptTextFormat("outline reset") +
-                " to go back to Dev Menu..");
+        ui.displayMsg("\n1) Change username by ID\n2) Change username by username?\n3) list users\n\nType " + ui.promptTextFormat("outline") + " back " + ui.promptTextFormat("outline reset") +
+        " to go back to Dev Menu..");
+        String choice = ui.promptTextLine("Input: ");
         User u = null;
         String userID;
         String username;
         String newusername;
-        switch(choice){
-            case "1", "1)", "1) Change username by ID":
+        switch(choice.toLowerCase()){
+            case "1", "1)", "1) change username by id":
                 userID = ui.promptText("Enter the ID of the user you want to change.");
                 u = Main.p.getUserByID(userID);
                 break;
-            case "username", "2", "2)", "2) Change username by username":
+            case "username", "2", "2)", "2) change username by username":
                 username = ui.promptText("Enter the username of the user you want to change.");
                 u = Main.p.getUserByName(username);
                 break;
-            case "list", "3", "3)", "3) List users":
+            case "list", "3", "3)", "3) list users":
                 listUsers();
                 changeUsername(adminUsername);
                 return;
@@ -327,6 +332,38 @@ public class Admin {
         changeStatus(adminUsername);
     }
 
+    public static void changeMembership(String adminUsername){
+        String in4 = ui.promptTextLine("\nUsername: ");
+        User u = Main.p.getUserByName(in4);
+
+        if (u == null) {
+            ui.displayMsg("User does not exist");
+            return;
+        }
+
+        String userMembership = u.getMembership();
+        ui.displayMsg("Users current membership: " + userMembership + "\n\nUse " + ui.promptTextFormat("outline")
+        + " BACK " + ui.promptTextFormat("outline reset") + " to go back to Manage users!\n");
+        String membershipType = ui.promptTextLine("Membership: ");
+
+        if(userMembership.equalsIgnoreCase("normal") && membershipType.equalsIgnoreCase("normal")){
+            ui.displayMsg("Can't set a normal membership to normal.");
+        } else if (userMembership.equalsIgnoreCase("premium") && membershipType.equalsIgnoreCase("premium")){
+            ui.displayMsg("Can't set premium membership to premium");
+        } else if(userMembership.equalsIgnoreCase("normal") && membershipType.equalsIgnoreCase("Premium")){
+            u.setMembership(membershipType);
+        } else if(userMembership.equalsIgnoreCase("premium") && membershipType.equalsIgnoreCase("normal")){
+            u.setMembership(membershipType);
+        } else if(membershipType.equalsIgnoreCase("back")){
+            manageUsers(adminUsername);
+        } else {
+            ui.displayMsg("Invalid membership!");
+        }
+
+        //Return back to menu!
+        manageUsers(adminUsername);
+    }
+
     // ________________________________________________________
 
     public static void forbiddenWords(String path, String header) {
@@ -345,6 +382,18 @@ public class Admin {
             ui.displayMsg("You must use ban/unban!");
         }
         //saveData("data/bannedWords.csv", "word");
+    }
+
+    // ________________________________________________________
+
+    public static void addMovie() {
+        ui.displayMsg(ui.promptTextColor("RED") + "This has to be made!"+ ui.promptTextColor("RESET"));
+    }
+
+    // ________________________________________________________
+
+    public static void addSeries() {
+        ui.displayMsg(ui.promptTextColor("RED") + "This has to be made!"+ ui.promptTextColor("RESET"));
     }
 
 } // Admin end

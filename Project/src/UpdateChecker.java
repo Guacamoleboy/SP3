@@ -19,7 +19,7 @@
 public class UpdateChecker {
 
         // Attributes
-        private static TextUI ui = new TextUI();
+        private static TextUI ui = new TextUI(Main.exitWord);
 
         // ________________________________________________________
 

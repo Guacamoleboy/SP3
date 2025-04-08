@@ -12,8 +12,11 @@ import util.TextUI;
 
 public class Main { // Client class
 
+    // Very important exit mode!!!!!!
+    public static String exitWord = "bananflue";
+
     // Attributes
-    private static TextUI ui = new TextUI();
+    private static TextUI ui = new TextUI(Main.exitWord);
     public static Program p;
 
     // ________________________________________________________

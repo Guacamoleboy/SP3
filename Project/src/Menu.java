@@ -111,7 +111,7 @@ public abstract class Menu { // (Superclass)
 
         User user = Main.p.getUserByName(username);
         ui.displayMsg("\nAccount settings for, " + ui.promptTextColor("red") + username + ui.promptTextColor("reset") + ":");
-        ui.displayMsg("\n1) Change Username\n2) Change Password\n3) Pause Membership\n4) Take a Break\n5) Change Membership\n6) Back");
+        ui.displayMsg("\n1) Change Username\n2) Change Password\n3) Pause Membership\n4) Take a Break\n5) Change Membership\n6) Remove Account\n7) back");
         ui.displayMsg("_________________________\n");
         String input = ui.promptTextLine("Input: ");
 
@@ -134,77 +134,82 @@ public abstract class Menu { // (Superclass)
                 ui.displayMsg("\n1) Upgrade Membership\n2) Downgrade Membership\n3) Back");
                 String input2 = ui.promptTextLine("Input: ");
 
-                switch (input2){
-                    case "1":
+                    switch (input2){
+                        case "1":
 
-                        for(User u : Program.user){
+                            for(User u : Program.user){
 
-                            if(u.getName().equalsIgnoreCase(username)){
+                                if(u.getName().equalsIgnoreCase(username)){
 
-                                ui.displayMsg("Your current membership: " + u.getMembership());
+                                    ui.displayMsg("Your current membership: " + u.getMembership());
 
-                                if(u.getMembership().equalsIgnoreCase("Normal")){
-                                    ui.displayMsg("\n1) Premium");
-                                    String in = ui.promptTextLine("Input: ");
+                                    if(u.getMembership().equalsIgnoreCase("Normal")){
+                                        ui.displayMsg("\n1) Premium");
+                                        String in = ui.promptTextLine("Input: ");
 
-                                    if(in.equalsIgnoreCase("1") || in.equalsIgnoreCase("premium")){
-                                        u.setMembership("Premium");
-                                    }
-                                }
-
-                                if(u.getMembership().equalsIgnoreCase("Premium")){
-                                    ui.displayMsg("Can't upgrade any further! You're maxed out.");
-                                    accountSettings(username);
-                                }
-
-                                accountSettings(username);
-
-                            }
-
-                        } // For-each end
-
-                        break;
-
-                    case "2":
-
-                        for (User u : Program.user){
-
-                            if(u.getName().equalsIgnoreCase(username)){
-
-                                ui.displayMsg("Your current membership: " + u.getMembership());
-
-                                if(u.getMembership().equalsIgnoreCase("Premium")){
-
-                                    ui.displayMsg("1) Normal");
-                                    String in2 = ui.promptTextLine("Input: ");
-
-                                    if(in2.equalsIgnoreCase("1") || in2.equalsIgnoreCase("normal")){
-                                        u.setMembership("Normal");
+                                        if(in.equalsIgnoreCase("1") || in.equalsIgnoreCase("premium")){
+                                            u.setMembership("Premium");
+                                        }
                                     }
 
-                                    accountSettings(username);
+                                    if(u.getMembership().equalsIgnoreCase("Premium")){
+                                        ui.displayMsg("Can't upgrade any further! You're maxed out.");
+
+                                    }
+
+
 
                                 }
 
-                            }
+                            } // For-each end
 
-                        } // For-each loop end
+                            break;
 
+                        case "2":
 
-                        break;
-                    default:
-                        ui.displayMsg("Invalid input.");
-                        accountSettings(username);
-                }
+                            for (User u : Program.user){
 
+                                if(u.getName().equalsIgnoreCase(username)){
+
+                                    ui.displayMsg("Your current membership: " + u.getMembership());
+
+                                    if(u.getMembership().equalsIgnoreCase("Premium")){
+
+                                        ui.displayMsg("1) Normal");
+                                        String in2 = ui.promptTextLine("Input: ");
+
+                                        if(in2.equalsIgnoreCase("1") || in2.equalsIgnoreCase("normal")){
+                                            u.setMembership("Normal");
+                                        }
+
+                                    }
+
+                                }
+
+                            } // For-each loop end
+                            break;
+
+                        default:
+                            ui.displayMsg("Invalid input.");
+
+                    }
+
+                    break;
+
+            case "6", "remove", "6) remove account":
+                ui.displayMsg("Account removed");
+                String confirmName = ui.promptTextLine("Please confirm by typing username once more: ");
+                Main.p.removeAccount(confirmName);
+                Main.p.login();
                 break;
-            case "6", "back", "6) back":
+            case "7", "back", "7) back":
                 startSession(username);
                 break;
             default:
                 ui.displayMsg("Invalid input");
                 break;
         }
+
         Main.p.mainmenu.startSession(user.getName());
 
     }

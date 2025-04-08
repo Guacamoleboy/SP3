@@ -124,7 +124,7 @@ public class TextUI { // Our own custom generic util.TextUI class
 
         displayMsgLine(msg);
         String input = scanner.nextLine();
-
+        promptExit(input);
         return input;
 
     }
@@ -135,12 +135,12 @@ public class TextUI { // Our own custom generic util.TextUI class
 
         boolean valid = false;
         String input = "";
-
+        promptExit(input);
         while(!valid){
 
             displayMsg(msg);
             input = scanner.nextLine();
-
+            promptExit(input);
             if(input.equalsIgnoreCase("Male") || input.equalsIgnoreCase("Female")){
 
                 valid = true;
@@ -217,7 +217,7 @@ public class TextUI { // Our own custom generic util.TextUI class
 
             displayMsg(msg);
             String input = scanner.nextLine();
-
+            promptExit(input);
             try {
 
                 numInput = Integer.parseInt(input);
@@ -246,7 +246,7 @@ public class TextUI { // Our own custom generic util.TextUI class
 
             displayMsg(msg);
             String input = scanner.nextLine();
-
+            promptExit(input);
             try{
 
                 numInput = Double.parseDouble(input);
@@ -275,7 +275,7 @@ public class TextUI { // Our own custom generic util.TextUI class
         while(!valid){
 
             emailInput = scanner.nextLine().trim();
-
+            promptExit(input);
             if(emailInput.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")){
 
                 valid = true;
@@ -316,7 +316,7 @@ public class TextUI { // Our own custom generic util.TextUI class
         while(true){
 
             dateInput = scanner.nextLine().trim();
-
+            promptExit(input);
             try{
 
                 return LocalDate.parse(dateInput, dtf);
@@ -341,7 +341,7 @@ public class TextUI { // Our own custom generic util.TextUI class
         while(true){
 
             numberInput = scanner.nextLine().trim();
-
+            promptExit(input);
             if(numberInput.matches("^\\+?[0-9]{8,8}$")){ // 8,8 allows danish only phone numbers
 
                 return numberInput;
@@ -399,7 +399,7 @@ public class TextUI { // Our own custom generic util.TextUI class
 
             displayMsg(msg);
             String input = scanner.nextLine();
-
+            promptExit(input);
             if(input.length() > 0){
 
                 charInput = input.charAt(0);
@@ -429,7 +429,7 @@ public class TextUI { // Our own custom generic util.TextUI class
 
             displayMsg(msg);
             String input = scanner.nextLine();
-
+            promptExit(input);
             if(input.length() == 1){
 
                 charInput = Character.toUpperCase(input.charAt(0));
@@ -611,21 +611,23 @@ public class TextUI { // Our own custom generic util.TextUI class
 
     }
 
-    public String promptText(String prompt) {
-        displayMsg(prompt);
-        String input = scanner.nextLine();
-        promptExit("bananflue", input);
-        return input;
-    }
+    private String exitWord = "bananflue";
 
-    public boolean promptExit(String exitWord, String input) {
-        if (input.equalsIgnoreCase(exitWord)) {
-            displayMsg("Shutting down...");
-            System.exit(0);
-            return true;
-        }
-        return false;
+public String promptText(String prompt) {
+    displayMsg(prompt);
+    String input = scanner.nextLine();
+    promptExit(input);
+    return input;
+}
+
+public boolean promptExit(String input) {
+    if (input.equalsIgnoreCase(exitWord)) {
+        displayMsg("Shutting down...");
+        System.exit(0);
+        return true;
     }
+    return false;
+}
 
 
 

@@ -331,25 +331,36 @@ public class Admin {
     // ________________________________________________________
 
     public static void forbiddenWords() {
+
         String choice = ui.promptText("Do you want to ban or unban a harsh word? (ban/unban)");
+
         if (choice.equals("ban")) {
+
             String word = ui.promptText("What's the word you want to ban?");
             if (word != null) {
                 banWord(word);
             }
-        }else if(choice.equals("unban")) {
+
+        } else if(choice.equals("unban")) {
+
             String word = ui.promptText("What's the word you want to unban?");
             if (word != null) {
                 unbanWord(word);
             }
 
+        } else {
+            ui.displayMsg("Invalid input. Please try again using ban / unban only.");
+            forbiddenWords();
+            return;
         }
+
         saveData("data/bannedWords.csv", "word");
     }
 
     // ________________________________________________________
 
     public static boolean bannedWords(String word) {
+        
         if (bannedWords.stream().anyMatch(w -> w.equals(word.toLowerCase()))) {
             ui.displayMsg("Please don't use offensive words!\n");
             return true;

@@ -16,7 +16,7 @@ import util.*;
 public class HashMapStorage {
 
     // Attributes
-    private static final TextUI ui = new TextUI();
+    private static final TextUI ui = new TextUI(Main.exitWord);
     private static final long currentTime = System.currentTimeMillis();
     private static final HashMap<String, Long> storage = new HashMap<>();
     private static final long exp_time = TimeUnit.MINUTES.toMillis(5); // 5min

@@ -4,7 +4,7 @@ import util.TextUI;
 public class MainMenu extends Menu { // Menu for everyone other than devs & admins (Subclass)
 
     // Attributes
-    private static TextUI ui = new TextUI();
+    private static TextUI ui = new TextUI(Main.exitWord);
     private static FileIO io = new FileIO();
 
     // ________________________________________________________

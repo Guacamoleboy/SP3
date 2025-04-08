@@ -23,7 +23,7 @@ public class EmailConfirmation {
     private static String ourEmail;
     private static String ourPassword;
     private static int randomCode;
-    private static TextUI ui = new TextUI();
+    private static TextUI ui = new TextUI(Main.exitWord);
     private static Random random = new Random();
 
     // ________________________________________________________

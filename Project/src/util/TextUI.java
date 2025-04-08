@@ -25,8 +25,9 @@ package util;
     TextColor (console)
     BackgroundColor (console)
     TextFormat (console)
+    Exit (Uses the parameter in constructor)
 
-    Last updated: 05-04-2025
+    Last updated: 08-04-2025
     Updated by: Jonas
 
 */
@@ -45,6 +46,23 @@ public class TextUI { // Our own custom generic util.TextUI class
     Random random = new Random();
     private static FileIO io = new FileIO();
     public static ArrayList <String> bannedWords = new ArrayList<>();
+    private static String exitWord;
+
+    // ________________________________________________________
+
+    /*
+
+        As this is a TextUI and not a UI.. This means it'll be console based and prompt heavy.
+        That means we will always need an exit word. That's why it's as a parameter.
+        This will then be used in promptExit where all inputs go through to check if the
+        safeword is hit.
+
+    */
+    public TextUI(String exitWord){
+
+        this.exitWord = exitWord;
+
+    }
 
     // ________________________________________________________
 
@@ -125,6 +143,7 @@ public class TextUI { // Our own custom generic util.TextUI class
 
         displayMsg(msg);
         String input = scanner.nextLine();
+        promptExit(input);
         if (bannedWords(input)) {
             return promptText(msg);
         }
@@ -138,6 +157,7 @@ public class TextUI { // Our own custom generic util.TextUI class
     public String promptTextLine(String msg){
         displayMsgLine(msg);
         String input = scanner.nextLine();
+        promptExit(input);
         if (bannedWords(input)) {
             return promptTextLine(msg);
         }
@@ -157,6 +177,7 @@ public class TextUI { // Our own custom generic util.TextUI class
 
             displayMsg(msg);
             input = scanner.nextLine();
+            promptExit(input);
 
             if (bannedWords(input)) {
                 return promptGender(msg);
@@ -182,7 +203,7 @@ public class TextUI { // Our own custom generic util.TextUI class
     public boolean promptBinary(String msg){
 
         String choice = this.promptText(msg).toLowerCase();
-
+        promptExit(choice);
         // Added most common user replies so we don't have to rely on y/n only.
 
         switch (choice){
@@ -212,8 +233,8 @@ public class TextUI { // Our own custom generic util.TextUI class
     public boolean promptBinaryLine(String msg){
 
         String choice = this.promptTextLine(msg).toLowerCase();
-
         // Added most common user replies so we don't have to rely on y/n only.
+        promptExit(choice);
 
         switch (choice){
             case "y", "yes", "yea", "yup", "yeah", "ya", "yessir", "yur":
@@ -238,6 +259,7 @@ public class TextUI { // Our own custom generic util.TextUI class
 
             displayMsg(msg);
             String input = scanner.nextLine();
+            promptExit(input);
 
             try {
 
@@ -251,7 +273,6 @@ public class TextUI { // Our own custom generic util.TextUI class
             } // Try-catch end
 
         } // While loop end
-
         return numInput;
 
     }
@@ -296,6 +317,7 @@ public class TextUI { // Our own custom generic util.TextUI class
         while(!valid){
 
             emailInput = scanner.nextLine().trim();
+            promptExit(emailInput);
 
             if(emailInput.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")){
 
@@ -365,6 +387,7 @@ public class TextUI { // Our own custom generic util.TextUI class
 
             if(numberInput.matches("^\\+?[0-9]{8,8}$")){ // 8,8 allows danish only phone numbers
 
+                promptExit(numberInput);
                 return numberInput;
 
             } else {
@@ -403,6 +426,7 @@ public class TextUI { // Our own custom generic util.TextUI class
         */
 
         String passwordConfirmation = promptTextLine("Please confirm your password: ");
+        promptExit(passwordConfirmation);
         return msg.equals(passwordConfirmation);
 
     }
@@ -635,7 +659,7 @@ public class TextUI { // Our own custom generic util.TextUI class
 
     public boolean bannedWords(String word) {
         if (bannedWords.stream().anyMatch(w -> w.equals(word.toLowerCase()))) {
-            displayMsg("Please don't use offensive words!\n");
+            displayMsg(promptTextColor("red") + "Please don't use offensive words!\n" + promptTextColor("reset"));
             return true;
         }
         return false;
@@ -671,6 +695,20 @@ public class TextUI { // Our own custom generic util.TextUI class
     public void loadBannedWords(String path){
 
         bannedWords = io.readData(path);
+
+    }
+
+    // ________________________________________________________
+
+    public boolean promptExit(String input){
+
+        if(input.equalsIgnoreCase(exitWord)){
+            displayMsg(promptTextColor("red") + "\nExit word has been typed. Shutting down." + promptTextColor("reset"));
+            System.exit(0);
+            return true;
+        }
+
+        return false;
 
     }
 

@@ -1,3 +1,6 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import util.*;
 
@@ -6,7 +9,7 @@ import static java.awt.SystemColor.menu;
 public class User {
 
     // Attributes
-    private static TextUI ui = new TextUI();
+    private static TextUI ui = new TextUI(Main.exitWord);
 
     private String ipAdress;
     private String username;
@@ -18,6 +21,7 @@ public class User {
     private String banned;
     private String email;
     private String membership;
+    private String lastLogin;
     protected History history;
     protected ArrayList <Bookmarked> bookmarked;
     protected MainMenu mainmenu = new MainMenu();
@@ -25,7 +29,7 @@ public class User {
 
     // ________________________________________________________
 
-    public User(String username, String ID, int age, String gender, String password, String banned, String status, String ipAdress, String email, String membership){
+    public User(String username, String ID, int age, String gender, String password, String banned, String status, String ipAdress, String email, String membership, String lastLogin){
         this.ipAdress = ipAdress;
         this.username = username;
         this.ID = ID;
@@ -37,6 +41,7 @@ public class User {
         this.email = email;
         this.membership = membership;
         this.history = new History();
+        this.lastLogin = lastLogin;
 
     } // Constructor
 
@@ -45,7 +50,7 @@ public class User {
     public String toCSV(){
 
         return this.username + ", " + this.ID + ", " + this.age + ", " + this.gender + ", " + this.password + ", " + this.banned + ", " + this.status + ", "
-        + this.ipAdress + ", " + this.email + ", " + this.membership;
+        + this.ipAdress + ", " + this.email + ", " + this.membership + ", " + this.lastLogin;
 
     }
 
@@ -131,6 +136,8 @@ public class User {
         Main.p.saveData();
     }
 
+    // ________________________________________________________
+
     public void changeStatus(String username) {
         if (this.status.equalsIgnoreCase("Active")){
             boolean choice = ui.promptBinary("Are you sure you want to take a break?");
@@ -188,6 +195,20 @@ public class User {
 
     public void setStatus(String status){
         this.status = status;
+        Main.p.saveData();
+    }
+
+    // ________________________________________________________
+
+    public String getLastSeen() {
+        return this.lastLogin;
+    }
+
+    // ________________________________________________________
+
+    public void updateLastLogin(){
+        System.out.println("Updates?");
+        this.lastLogin = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
         Main.p.saveData();
     }
 

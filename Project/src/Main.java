@@ -23,6 +23,7 @@ public class Main { // Client class
         // Checks if the program is up to date
 
         if(UpdateChecker.checkVersion()){
+
             // Exit prompt information
             ui.displayMsg("_____________________________________");
             ui.displayMsg("\nUse " + ui.promptTextFormat("outline") + " Bananflue " + ui.promptTextFormat("outline reset") +
@@ -38,8 +39,6 @@ public class Main { // Client class
         }
 
     }
-
-    // ________________________________________________________
 
 } // Main end
 

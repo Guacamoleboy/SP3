@@ -1,19 +1,19 @@
+import java.io.File;
 import java.util.ArrayList;
 
-public class Series {
+public class Series extends Media{
 
     // Attributes
     private int ID;
     private String name;
-    private ArrayList <Media> files;
+    private ArrayList <Media> series;
     private Media media;
 
     // ________________________________________________________
 
-    public Series(int ID, String name){
-        this.ID = ID;
-        this.name = name;
-        files = new ArrayList<>();
+    public Series(){
+        series = new ArrayList<>();
+
     }
 
     // ________________________________________________________
@@ -42,10 +42,9 @@ public class Series {
 
     // ________________________________________________________
 
-    public ArrayList <Media> getFiles(){
+    public ArrayList <Media> getSeries(){
 
-        // Placeholder
-        return files;
+        return series;
     }
 
     // ________________________________________________________

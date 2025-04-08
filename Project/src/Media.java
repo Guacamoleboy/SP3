@@ -25,6 +25,9 @@ public class Media {
         this.duration = duration;
     }
 
+    public Media() {
+    }
+
     // ________________________________________________________
 
     public void getMedia(int ID){
@@ -55,4 +58,7 @@ public class Media {
         return this.duration;
     }
 
+    public String getTitle() {
+        return this.title;
+    }
 } // Class end

@@ -361,6 +361,8 @@ public class Program {
         ArrayList <String> suggestData = new ArrayList<>();
         int suggestID = 0;
         String added = "No";
+        ArrayList<String> historyLines = new ArrayList<>();
+        ArrayList<String> bookmarkedLines = new ArrayList<>();
 
         for(User u : user){
 
@@ -368,9 +370,22 @@ public class Program {
             String s = u.toCSVSuggest(startSessionAnswer, suggestID, added);
             suggestData.add(s);
 
+            for (String h : u.history.toCSVHistory(u.getID())) {
+                historyLines.add(h);
+            }
+
+            for (String b : u.bookmarked.toCSVBookmarked(u.getID())) {
+                bookmarkedLines.add(b);
+            }
+
         }
 
+
+
         io.saveData(suggestData, "data/suggestPrompts.csv", "Value, ID, Added");
+        io.saveData(historyLines, "data/historyPrompts.csv", "Value, ID, Added");
+        io.saveData(bookmarkedLines, "data/bookmarkedPrompts.csv", "Value, ID, Added");
+        
 
         //ui.displayMsg("Suggestion Prompt has saved data."); || DEBUG
 

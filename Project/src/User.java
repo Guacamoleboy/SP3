@@ -14,7 +14,7 @@ public class User {
     private String gender;
     private String banned;
     protected History history;
-    protected ArrayList <Bookmarked> bookmarked;
+    protected Bookmarked bookmarked;
 
     // ________________________________________________________
 
@@ -28,6 +28,7 @@ public class User {
         this.banned = banned;
         this.status = status;
         this.history = new History();
+        this.bookmarked = new Bookmarked();
 
     } // Constructor
 

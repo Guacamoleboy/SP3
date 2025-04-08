@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="Yea">
+      <change afterPath="$PROJECT_DIR$/data/bookmarkedData.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/historyData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/suggestPrompts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/suggestPrompts.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bookmarked.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bookmarked.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/History.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Media.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Movies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Movies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Series.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Series.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+    </list>
+    <list id="293686f5-caf5-4e26-8329-64e8989b4f7e" name="Changes by 45292" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
+    </list>
+    <list id="d4a46b11-864b-4460-a958-70d3a4ac490d" name="Changes by jonas" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="Olivia" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;OliviaLarsen2212&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Guacamoleboy/SP3.git&quot;,
+    &quot;accountId&quot;: &quot;ac430c72-e218-4dd6-8c7c-24f74349a6a0&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;Guacamoleboy&quot;,
+    &quot;repository&quot;: &quot;SP3&quot;
+  }
+}</component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/Menu.java">
+      <ranges>
+        <range start1="1" end1="1" start2="1" end2="2" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="7" end1="7" start2="8" end2="10" changelist="d4a46b11-864b-4460-a958-70d3a4ac490d" />
+        <range start1="10" end1="11" start2="13" end2="15" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="13" end1="14" start2="17" end2="20" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="20" end1="20" start2="26" end2="29" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="21" end1="22" start2="30" end2="31" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="24" end1="26" start2="33" end2="43" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="27" end1="27" start2="44" end2="49" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="28" end1="55" start2="50" end2="140" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="57" end1="57" start2="142" end2="143" changelist="d4a46b11-864b-4460-a958-70d3a4ac490d" />
+        <range start1="59" end1="61" start2="145" end2="160" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="62" end1="89" start2="161" end2="198" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="90" end1="95" start2="199" end2="223" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="98" end1="98" start2="226" end2="227" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="99" end1="100" start2="228" end2="231" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="101" end1="102" start2="232" end2="232" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="103" end1="105" start2="233" end2="233" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="116" end1="118" start2="244" end2="245" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="121" end1="123" start2="248" end2="252" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="125" end1="126" start2="254" end2="257" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="129" end1="130" start2="260" end2="265" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="132" end1="132" start2="267" end2="279" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="135" end1="136" start2="282" end2="283" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/Program.java">
+      <ranges>
+        <range start1="363" end1="363" start2="363" end2="365" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="369" end1="369" start2="371" end2="379" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="371" end1="371" start2="381" end2="383" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="373" end1="373" start2="385" end2="388" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
+        <range start1="392" end1="392" start2="407" end2="416" changelist="293686f5-caf5-4e26-8329-64e8989b4f7e" />
+      </ranges>
+    </file>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2vDNrssSdXO0kWkRtNDvH9H2w9b" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CSVFixer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Feet.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Class&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Olivia&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/45292/Desktop/SKOLE/JAVA/Første semester/SP3/Project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Project" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="" />
+      <created>1742992454030</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742992454030</updated>
+      <workItem from="1742992455094" duration="12829000" />
+      <workItem from="1743008018092" duration="160000" />
+      <workItem from="1743064917518" duration="1262000" />
+      <workItem from="1743067218410" duration="529000" />
+      <workItem from="1743067757606" duration="9664000" />
+      <workItem from="1743090255989" duration="1662000" />
+      <workItem from="1743102955866" duration="1455000" />
+      <workItem from="1743147872169" duration="421000" />
+      <workItem from="1743166387877" duration="1963000" />
+      <workItem from="1743168456863" duration="29000" />
+      <workItem from="1743197839326" duration="2211000" />
+      <workItem from="1743200534323" duration="3340000" />
+      <workItem from="1743247156120" duration="2987000" />
+      <workItem from="1743252976083" duration="3300000" />
+      <workItem from="1743263073527" duration="359000" />
+      <workItem from="1743271153477" duration="449000" />
+      <workItem from="1743271703989" duration="41000" />
+      <workItem from="1743325968461" duration="5837000" />
+      <workItem from="1743335435690" duration="349000" />
+      <workItem from="1743426854588" duration="1024000" />
+      <workItem from="1743587286949" duration="4399000" />
+      <workItem from="1743621438207" duration="8073000" />
+      <workItem from="1743630151633" duration="28000" />
+      <workItem from="1743686171193" duration="4024000" />
+      <workItem from="1743693151978" duration="6510000" />
+      <workItem from="1743700476539" duration="8000" />
+      <workItem from="1743701121406" duration="7000" />
+    </task>
+    <task id="LOCAL-00001" summary="Yea">
+      <option name="closed" value="true" />
+      <created>1743628916929</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743628916929</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Checks if username is already taken" />
+    <MESSAGE value="Yea" />
+    <option name="LAST_COMMIT_MESSAGE" value="Yea" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/User.java</url>
+          <line>70</line>
+          <properties class="User" method="getGender">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Admin.java</url>
+          <line>6</line>
+          <properties class="Admin">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Admin.java</url>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

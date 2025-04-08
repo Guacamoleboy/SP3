@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class SupportMenu extends Menu{
 
     // Attributes
-    private static TextUI ui = new TextUI();
+    private static TextUI ui = new TextUI(Main.exitWord);
     private static FileIO io = new FileIO();
 
     // ________________________________________________________

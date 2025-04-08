@@ -3,12 +3,14 @@ import util.TextUI;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Program {
 
     // Attributes
-    private static TextUI ui = new TextUI();
+    private static TextUI ui = new TextUI(Main.exitWord);
     private static FileIO io = new FileIO();
     protected MainMenu mainmenu = new MainMenu();
     protected DevMenu devmenu = new DevMenu();
@@ -25,7 +27,7 @@ public class Program {
     private int age;
     private int userCount = 0;
     public static ArrayList <User> user;
-    private User currentUser;
+    public User currentUser;
     // ________________________________________________________
 
     public Program(String programName){
@@ -40,7 +42,7 @@ public class Program {
     public void startSession(){
 
         ArrayList <String> data = io.readData("data/userData.csv");
-        Admin.loadBannedWords("data/bannedWords.csv");
+        ui.loadBannedWords("data/bannedWords.csv");
         ui.displayMsg("\nWelcome to " + this.programName + ".\n");
 
         if (!data.isEmpty()){
@@ -58,7 +60,8 @@ public class Program {
                 String userIP = values[7].trim();
                 String userEmail = values[8].trim();
                 String userMembership = values[9].trim();
-                createUser(username, userID, userAge, userGender, userPassword, userBanned, userStatus, userIP, userEmail, userMembership);
+                String lastLogin = values[10].trim();
+                createUser(username, userID, userAge, userGender, userPassword, userBanned, userStatus, userIP, userEmail, userMembership, lastLogin);
                 userCount++;
 
             } // For-loop
@@ -73,7 +76,8 @@ public class Program {
 
     public void checkForAccount(){
 
-        startSessionAnswer = ui.promptText("Do you have an account?").toLowerCase();
+        ui.displayMsg("Do you have an account?");
+        startSessionAnswer = ui.promptTextLine("Input: ").toLowerCase();
 
         switch (startSessionAnswer){
             case "y", "yes", "yea", "yup", "yeah", "ya", "yessir", "yur":
@@ -107,7 +111,8 @@ public class Program {
 
     public void registerUser(){
         // Currently only supports normal characters. Maybe make it so numbers and symbols are included?
-        String playerName = ui.promptText("Please enter a username..");
+        ui.displayMsg("Please enter a username..");
+        String playerName = ui.promptTextLine("Input: ");
 
         if(!usernameNotAllowed(playerName)){
             registerUser();
@@ -132,7 +137,8 @@ public class Program {
 
         while(true) {
 
-            playerPassword = ui.promptText("Please enter a password..");
+            ui.displayMsg("Please enter a password..");
+            playerPassword = ui.promptTextLine("Input: ");
 
             if (playerPassword.isBlank() || !playerPassword.matches("[a-zA-Z0-9]+")) {
                 ui.displayMsg(ui.promptTextColor("red") + "Invalid Password input." + ui.promptTextColor("reset") + "\nPlease try again!");
@@ -147,9 +153,9 @@ public class Program {
         // Allows us to loop over the password part
         while(!passwordTest){
 
-            System.out.print(ui.promptTextColor("red"));
+            ui.displayMsg(ui.promptTextColor("red"));
             passwordTest = ui.promptPasswordConfirmation(playerPassword);
-            System.out.print(ui.promptTextColor("reset"));
+            ui.displayMsg(ui.promptTextColor("reset"));
 
             if(!passwordTest){
                 ui.displayMsg("\nPasswords don't match.. Try again.\n");
@@ -220,8 +226,8 @@ public class Program {
 
         // All members have Normal as membership
         String playerMembership = "Normal";
-
-        createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned, playerStatus, ipAdress, playerEmail, playerMembership);
+        String lastLogin = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
+        createUser(playerName, ID, playerAge, playerGender, playerPassword, playerBanned, playerStatus, ipAdress, playerEmail, playerMembership, lastLogin);
 
         ui.displayMsg("\nThanks for making an account. Sending you to login page..\n");
 
@@ -554,7 +560,7 @@ public class Program {
                 } catch (InterruptedException e) {
                     ui.displayMsg("Error. Contact a dev...");
                 }
-
+                currentUser = Main.p.getUserByName(playerUser);
                 mainmenu.startSession(playerUser);
                 break;
 
@@ -662,11 +668,11 @@ public class Program {
         for (String s : data){
             String[] values = s.split(", ");
             if(values[0].equals(username) && values[4].equals(password)){
-                return false;
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 
     // ________________________________________________________
@@ -700,10 +706,10 @@ public class Program {
 
     // ________________________________________________________
 
-    public void createUser(String username, String ID, int age, String gender, String password, String banned, String status, String ipAdress, String email, String membership){
+    public void createUser(String username, String ID, int age, String gender, String password, String banned, String status, String ipAdress, String email, String membership, String lastLogin){
 
 
-        User u = new User(username, ID, age, gender, password, banned, status, ipAdress, email, membership);
+        User u = new User(username, ID, age, gender, password, banned, status, ipAdress, email, membership, lastLogin);
         user.add(u);
 
     }
@@ -731,7 +737,7 @@ public class Program {
 
         }
 
-        io.saveData(playerData, "data/userData.csv", "Username, ID, Age, Gender, Password, Banned, Status, IP, Email");
+        io.saveData(playerData, "data/userData.csv", "Username, ID, Age, Gender, Password, Banned, Status, IP, Email, LastLogin");
 
         //ui.displayMsg("Program has saved data."); || DEBUG
 

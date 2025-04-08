@@ -405,5 +405,14 @@ public class Program {
         return u;
     }
 
+    // ________________________________________________________
+
+    public static void sleep(int amount) {
+        try {
+            Thread.sleep(amount);
+        } catch (InterruptedException e) {
+            ui.displayMsg("Somewthing went wrong" + e);
+        }
+    }
 
 } // Program end

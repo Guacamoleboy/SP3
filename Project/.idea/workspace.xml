@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="Yea">
-      <change afterPath="$PROJECT_DIR$/data/bookmarkedData.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/historyData.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/suggestPrompts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/suggestPrompts.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bookmarked.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bookmarked.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/History.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Media.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Movies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Movies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Series.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Series.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
-    </list>
+    <list default="true" id="a00e5ed4-9470-487e-919d-4863893c4154" name="Changes" comment="-overordnet menu mangler stadig en 'se bookmarks'-option.&#10;-movie menu.&#10;-serie menu(mangler playing serie og episodevisning).&#10;-bookmarked under filmvisning fucker.&#10;-historyData.csv &amp; bookmarkedData.csv fucker" />
     <list id="293686f5-caf5-4e26-8329-64e8989b4f7e" name="Changes by 45292" comment="">
       <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
     </list>
@@ -60,44 +46,6 @@
     &quot;repository&quot;: &quot;SP3&quot;
   }
 }</component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/Menu.java">
-      <ranges>
-        <range start1="1" end1="1" start2="1" end2="2" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="7" end1="7" start2="8" end2="10" changelist="d4a46b11-864b-4460-a958-70d3a4ac490d" />
-        <range start1="10" end1="11" start2="13" end2="15" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="13" end1="14" start2="17" end2="20" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="20" end1="20" start2="26" end2="29" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="21" end1="22" start2="30" end2="31" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="24" end1="26" start2="33" end2="43" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="27" end1="27" start2="44" end2="49" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="28" end1="55" start2="50" end2="140" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="57" end1="57" start2="142" end2="143" changelist="d4a46b11-864b-4460-a958-70d3a4ac490d" />
-        <range start1="59" end1="61" start2="145" end2="160" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="62" end1="89" start2="161" end2="198" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="90" end1="95" start2="199" end2="223" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="98" end1="98" start2="226" end2="227" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="99" end1="100" start2="228" end2="231" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="101" end1="102" start2="232" end2="232" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="103" end1="105" start2="233" end2="233" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="116" end1="118" start2="244" end2="245" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="121" end1="123" start2="248" end2="252" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="125" end1="126" start2="254" end2="257" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="129" end1="130" start2="260" end2="265" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="132" end1="132" start2="267" end2="279" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="135" end1="136" start2="282" end2="283" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/Program.java">
-      <ranges>
-        <range start1="363" end1="363" start2="363" end2="365" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="369" end1="369" start2="371" end2="379" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="371" end1="371" start2="381" end2="383" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="373" end1="373" start2="385" end2="388" changelist="a00e5ed4-9470-487e-919d-4863893c4154" />
-        <range start1="392" end1="392" start2="407" end2="416" changelist="293686f5-caf5-4e26-8329-64e8989b4f7e" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -199,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743628916929</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="-overordnet menu mangler stadig en 'se bookmarks'-option.&#10;-movie menu.&#10;-serie menu(mangler playing serie og episodevisning).&#10;-bookmarked under filmvisning fucker.&#10;-historyData.csv &amp; bookmarkedData.csv fucker">
+      <option name="closed" value="true" />
+      <created>1744146172128</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744146172128</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,7 +164,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Checks if username is already taken" />
     <MESSAGE value="Yea" />
-    <option name="LAST_COMMIT_MESSAGE" value="Yea" />
+    <MESSAGE value="-overordnet menu mangler stadig en 'se bookmarks'-option.&#10;-movie menu.&#10;-serie menu(mangler playing serie og episodevisning).&#10;-bookmarked under filmvisning fucker.&#10;-historyData.csv &amp; bookmarkedData.csv fucker" />
+    <option name="LAST_COMMIT_MESSAGE" value="-overordnet menu mangler stadig en 'se bookmarks'-option.&#10;-movie menu.&#10;-serie menu(mangler playing serie og episodevisning).&#10;-bookmarked under filmvisning fucker.&#10;-historyData.csv &amp; bookmarkedData.csv fucker" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

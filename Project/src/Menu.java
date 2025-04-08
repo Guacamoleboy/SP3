@@ -6,6 +6,8 @@ public abstract class Menu { // (Superclass)
     // Attributes
     private static FileIO io = new FileIO();
     private static TextUI ui = new TextUI();
+    private static Movies movies = new Movies();
+    private static Series series = new Series();
 
     // ________________________________________________________
 
@@ -138,6 +140,7 @@ public abstract class Menu { // (Superclass)
                 } // While end
 
                 break;
+
             case "2":
 
                 ui.displayMsg("Please choose a serie:\n");

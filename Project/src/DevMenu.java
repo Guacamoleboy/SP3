@@ -51,7 +51,7 @@ public class DevMenu extends Menu { // Menu for devs (Subclass)
                 // Something
                 break;
             case "9":
-                Admin.forbiddenWords();
+                Admin.forbiddenWords("data/bannedWords.csv", "word");
                 break;
             case "next":
 

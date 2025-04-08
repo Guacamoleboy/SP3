@@ -44,6 +44,7 @@ public class TextUI { // Our own custom generic util.TextUI class
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
     private static FileIO io = new FileIO();
+    public static ArrayList <String> bannedWords = new ArrayList<>();
 
     // ________________________________________________________
 
@@ -123,6 +124,9 @@ public class TextUI { // Our own custom generic util.TextUI class
 
         displayMsg(msg);
         String input = scanner.nextLine();
+        if (bannedWords(input)) {
+            return promptText(msg);
+        }
 
         return input;
 
@@ -133,6 +137,9 @@ public class TextUI { // Our own custom generic util.TextUI class
     public String promptTextLine(String msg){
         displayMsgLine(msg);
         String input = scanner.nextLine();
+        if (bannedWords(input)) {
+            return promptTextLine(msg);
+        }
 
         return input;
 
@@ -149,6 +156,10 @@ public class TextUI { // Our own custom generic util.TextUI class
 
             displayMsg(msg);
             input = scanner.nextLine();
+
+            if (bannedWords(input)) {
+                return promptGender(msg);
+            }
 
             if(input.equalsIgnoreCase("Male") || input.equalsIgnoreCase("Female")){
 
@@ -619,5 +630,49 @@ public class TextUI { // Our own custom generic util.TextUI class
         } // Switch-case end
 
     }
+    // ________________________________________________________
+
+    public boolean bannedWords(String word) {
+        if (bannedWords.stream().anyMatch(w -> w.equals(word.toLowerCase()))) {
+            displayMsg("Please don't use offensive words!\n");
+            return true;
+        }
+        return false;
+    }
+
+    // ________________________________________________________
+
+    public void banWord(String word, String path, String header){
+        bannedWords.add(word.toLowerCase());
+        saveData(path, header);
+        displayMsg("You banned the word: "+ word +"!\n");
+    }
+
+    // ________________________________________________________
+
+    public void unbanWord(String word, String path, String header){
+        bannedWords.remove(word.toLowerCase());
+        saveData(path, header);
+        displayMsg("You unbanned the word: "+ word +"!\n");
+    }
+
+    // ________________________________________________________
+
+    public void saveData(String path, String header){
+
+        ArrayList<String> tmpbannedWords = new ArrayList<>(bannedWords);
+        io.saveData(tmpbannedWords, path, header);
+
+    }
+
+    // ________________________________________________________
+
+    public void loadBannedWords(String path){
+
+        bannedWords = io.readData(path);
+
+    }
+
+
 
 } // util.TextUI end

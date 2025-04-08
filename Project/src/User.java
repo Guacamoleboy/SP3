@@ -193,6 +193,13 @@ public class User {
 
     // ________________________________________________________
 
+    public void setMembership(String membership){
+        this.membership = membership;
+        Main.p.saveData();
+    }
+
+    // ________________________________________________________
+
     public void banUser() {
         this.banned = "Yes";
         Main.p.saveData();

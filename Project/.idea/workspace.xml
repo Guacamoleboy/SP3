@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2cf9a88a-0e40-4445-b56b-f27e859c5e9e" name="Changes" comment="Yea">
+      <change afterPath="$PROJECT_DIR$/data/userBookmark.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/userHistory.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/filmData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/filmData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/seriesData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/seriesData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/suggestPrompts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/suggestPrompts.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/userData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Media.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Movies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Movies.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Series.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Series.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/constants/version.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/version.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/FileIO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,20 +58,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Jonas",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Jonas&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -92,6 +98,10 @@
       <option name="presentableId" value="Default" />
       <updated>1744140169985</updated>
       <workItem from="1744140172629" duration="3914000" />
+      <workItem from="1744144520483" duration="1332000" />
+      <workItem from="1744186142503" duration="607000" />
+      <workItem from="1744187585597" duration="7496000" />
+      <workItem from="1744195140544" duration="3518000" />
     </task>
     <servers />
   </component>

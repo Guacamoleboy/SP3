@@ -303,11 +303,6 @@ public class Program {
         }
 
         devmenu.startSession(devUser);
-
-        /*
-        // Allows devs to try again if failed
-        ui.promptBinary("Access denied. Try again?");
-        */
     }
 
     // ________________________________________________________
@@ -881,5 +876,16 @@ public class Program {
 
     }
 
+    // ________________________________________________________
+
+    public static void sleep(int amount) {
+
+        try {
+            Thread.sleep(amount);
+        } catch (InterruptedException e) {
+            ui.displayMsg("Somewthing went wrong" + e);
+        } // Try-catch end
+
+    }
 
 } // Program end

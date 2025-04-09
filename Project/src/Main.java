@@ -1,6 +1,6 @@
 /*
 
-    Authors: Andreas, Daud, Olivia, Christopher & Jonas.
+    Authors: Andreas, Daud, Olivia, Nestor & Jonas.
     SP3
 
     Comments:

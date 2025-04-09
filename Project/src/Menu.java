@@ -270,11 +270,10 @@ public abstract class Menu { // (Superclass)
         if (!choice.equals("1") && !choice.equals("2")) {
             ui.displayMsg("Invalid choice. Please type '1' for movie or '2' for serie.");
             Sleep(2500);
-            searchTitle(username);  // Recursion for retrying
+            searchTitle(username);
             return;
         }
 
-        // Vælg kategori
         ui.displayMsg("\nWhat category do you want to watch?\n1) Crime \n2) Drama\n_____________________");
         String categoryInput = ui.promptTextLine("Input: ").toLowerCase();
         String category = "";
@@ -292,28 +291,26 @@ public abstract class Menu { // (Superclass)
                 return;
         }
         String tmpcategory = category;
-        ArrayList<String> matchingTitles = new ArrayList<>();  // Til at holde de matchende titler
+        ArrayList<String> matchingTitles = new ArrayList<>();
 
-        // Filtrer film eller serier baseret på kategori
-        if (choice.equals("1")) {  // Movie
+
+        if (choice.equals("1")) {
             matchingTitles = Movies.getMovies().stream()
                     .filter(movie -> movie.getCategory().toLowerCase().contains(tmpcategory))  // Filter baseret på kategori
-                    .map(Media::getTitle)  // Ekstraher filmens titel
+                    .map(Media::getTitle)
                     .collect(Collectors.toCollection(ArrayList::new));
-        } else {  // Serie
+        } else {
             matchingTitles = Series.getSeries().stream()
                     .filter(series -> series.getCategory().toLowerCase().contains(tmpcategory))  // Filter baseret på kategori
-                    .map(Media::getTitle)  // Ekstraher seriens titel
+                    .map(Media::getTitle)
                     .collect(Collectors.toCollection(ArrayList::new));
         }
 
-        // Hvis der ikke er nogen matchende titler
         if (matchingTitles.isEmpty()) {
             ui.displayMsg("No titles found for category: " + category);
             return;
         }
 
-        // Pagination (visning af resultater)
         final int pageSize = 10;
         int currentPage = 0;
         boolean browsing = true;
@@ -324,7 +321,7 @@ public abstract class Menu { // (Superclass)
 
             ui.displayMsg("\nResults " + (start + 1) + " to " + end + " of " + matchingTitles.size() + ":");
             for (int i = start; i < end; i++) {
-                ui.displayMsg((i + 1) + ". " + matchingTitles.get(i));  // Vis titlerne
+                ui.displayMsg((i + 1) + ". " + matchingTitles.get(i));
             }
 
             ui.displayMsg("\nType the number you want to watch\n'next', 'prev' to browse between the pages\n\n" +
@@ -345,7 +342,7 @@ public abstract class Menu { // (Superclass)
                     break;
                 case "back":
                     ui.displayMsg("BACK");
-                    startSession(username);  // Go back to main menu
+                    startSession(username);
                     browsing = false;
                     break;
                 default:
@@ -357,7 +354,7 @@ public abstract class Menu { // (Superclass)
                                 Media c = getMedia(selectedTitle, "movie");
                                 playMovie(c, username);
                                 startSession(username);
-                            } else {  // If it's a series
+                            } else {
                                 Media c = getMedia(selectedTitle, "movie");
                                 playSeries(c, username);
                                 startSession(username);

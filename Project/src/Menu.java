@@ -1,6 +1,9 @@
 import util.*;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
+
+import static java.lang.Thread.sleep;
 
 public abstract class Menu { // (Superclass)
 
@@ -58,77 +61,13 @@ public abstract class Menu { // (Superclass)
                                     startSession(username);
                                     break;
                                 default:
-                                    try{
-
-                                        int mi = Integer.parseInt(movieInput)-1;
-                                        int ai = m.getCurrentPage()*9 + mi;
-
-                                        if(ai >= 0 && ai < m.getMovies().size()){
-                                            Media c = m.getMovies().get(ai);
-                                            ui.displayMsg("\nMovie selected: " + ui.promptTextColor("green") + c.getTitle() + ui.promptTextColor("reset"));
-
-                                            boolean secondMenu = true;
-
-                                            while(secondMenu){
-
-                                                ui.displayMsg("\n1) Play\n2) Bookmark\n3) Back\n________________________");
-                                                String userIn = ui.promptTextLine("Input: ");
-
-                                                switch (userIn){
-
-                                                    case "1":
-                                                        saveData(username, c.getTitle(), "data/userHistory.csv");
-
-                                                        int duration = 10; // Seconds
-
-                                                        // Must watch movie till the end as of right now. Can't use promptTextLine as it would
-                                                        // Prompt each time (loop).
-
-                                                        // Sets up our frameRate delay
-                                                        long starttime = System.currentTimeMillis(); // current system time
-
-                                                        while ((System.currentTimeMillis() - starttime) - 1000<= duration*1000) {
-                                                            long timeInSeconds = (System.currentTimeMillis() - starttime) / 1000;
-                                                            int progressBar = (int) (((double) timeInSeconds / duration) * 50);
-                                                            String progress = ui.promptTextColor("RED")+"|".repeat(progressBar);
-                                                            String remainingProgress = ui.promptTextColor("BLACK")+"|".repeat(50 - progressBar) + ui.promptTextColor("RESET");
-
-                                                            ui.displayMsg("Playing: " + c.getTitle() + "\n" + timeInSeconds +  " "+ progress + remainingProgress+ " " + duration + ".");
-
-                                                            Program.sleep(1000);
-                                                        }
-
-                                                        ui.displayMsg("\nMovies has ended. Thanks for watching!\n");
-                                                        //Wait 2,5 second, so the user sees the message above!^^
-                                                        Program.sleep(2500);
-
-                                                        if(duration >= c.getDuration()){
-                                                            ui.displayMsg("Movie has ended. Thanks for watching!");
-                                                        }
-
-                                                        break;
-                                                    case "2":
-                                                        ui.displayMsg("Bookmarked: " + c.getTitle());
-                                                        saveData(username, c.getTitle(), "data/userBookmark.csv");
-                                                        break;
-                                                    case "3":
-                                                        secondMenu = false;
-                                                        break;
-                                                    default:
-                                                        ui.displayMsg("Invalid input. Try again!");
-                                                        break;
-                                                }
-
-                                            }
-
-                                        } else {
-                                            ui.displayMsg("Invalid. Try again!");
-                                        } // If (1)
-
-                                    } catch (NumberFormatException e){
-                                        ui.displayMsg("Invalid input. Try again!");
-                                    } // Try-catch
-
+                                    int mi = Integer.parseInt(movieInput)-1;
+                                    int ai = m.getCurrentPage()*9 + mi;
+                                    if(ai < 0 && ai > m.getMovies().size()){
+                                        ui.displayMsg("ERROR!");
+                                    }
+                                    Media c = m.getMovies().get(ai);
+                                    playMovie(c, username);
                                     break;
 
                             } // Switch-case
@@ -161,9 +100,9 @@ public abstract class Menu { // (Superclass)
                             ui.displayMsg("\nPage " + s.getCurrentPage() + 1);
                             s.seriesDisplay(s.getCurrentPage());
 
-                            String seriesInput2 = ui.promptTextLine("Choose a series: ");
+                            seriesInput = ui.promptTextLine("Choose a series: ");
 
-                            switch (seriesInput2){
+                            switch (seriesInput){
                                 case "next":
                                     s.setNextPage();
                                     break;
@@ -175,175 +114,18 @@ public abstract class Menu { // (Superclass)
                                     startSession(username);
                                     break;
                                 default:
-                                    try{
+                                    int mi = Integer.parseInt(seriesInput)-1;
+                                    int ai = s.getCurrentPage()*9 + mi;
 
-                                        int mi = Integer.parseInt(seriesInput2)-1;
-                                        int ai = s.getCurrentPage()*9 + mi;
-
-                                        if(ai >= 0 && ai < s.getSeries().size()){
-                                            Media c = s.getSeries().get(ai);
-                                            ui.displayMsg("\nSeries selected: " + ui.promptTextColor("green") + c.getTitle() + ui.promptTextColor("reset"));
-
-                                            boolean secondMenu = true;
-
-                                            while(secondMenu){
-
-                                                ui.displayMsg("\n1) Seasons & Episodes\n2) Bookmark\n3) Back\n________________________");
-                                                String userIn = ui.promptTextLine("Input: ");
-
-                                                switch (userIn){
-
-                                                    case "1":
-
-                                                        String se = c.getSeasonAndEpisode().trim();
-
-                                                        if(se.isEmpty()){
-                                                            ui.displayMsg("No seasons or episodes available.");
-                                                            break;
-                                                        }
-
-                                                        ArrayList <Integer> seasons = new ArrayList<>();
-                                                        ArrayList <Integer> episodes = new ArrayList<>();
-
-                                                        // Removes the annoying ; after each data entry in seriesData.csv
-                                                        if(se.endsWith(";")){
-                                                            se = se.substring(0, se.length() -1);
-                                                        }
-
-                                                        String[] values = se.split(", ");
-
-                                                        for (String s : values){
-
-                                                            // Has to have trim first or it bugs. lol. gg.
-                                                            String[] splitIntoValues = s.trim().split("-");
-
-                                                            if(splitIntoValues.length == 2){
-
-                                                                try{
-                                                                    int season = Integer.parseInt(splitIntoValues[0].trim());
-                                                                    int episode = Integer.parseInt(splitIntoValues[1].trim());
-
-                                                                    seasons.add(season);
-                                                                    episodes.add(episode);
-
-                                                                } catch (NumberFormatException e){
-                                                                    ui.displayMsg("Error. Contact dev: " + e.getMessage());
-                                                                } // Try-catch end
-
-                                                            } // If
-
-                                                        } // For-each
-
-                                                        if(seasons.isEmpty()){
-                                                            ui.displayMsg("No seasons found.");
-                                                            break;
-                                                        }
-
-                                                        ui.displayMsg("Seasons & Episodes");
-
-                                                        for(int i = 0; i < seasons.size(); i++){
-
-                                                            ui.displayMsg("Season: " + seasons.get(i) + ": " + episodes.get(i) + " Episodes");
-
-                                                        }
-
-                                                        while(true){
-
-                                                            String userInputSeasonChooser = ui.promptTextLine("Choose a season: ");
-
-                                                            if(userInputSeasonChooser.equalsIgnoreCase("back")){
-                                                                break;
-                                                            }
-
-                                                            try{
-
-                                                                int seasonsPicked = Integer.parseInt(userInputSeasonChooser);
-                                                                int episodeCounter = 0;
-                                                                boolean seasonFound = false;
-
-                                                                for(int i = 0; i < seasons.size(); i++){
-
-                                                                    if(seasons.get(i) == seasonsPicked){
-                                                                        seasonFound = true;
-                                                                        episodeCounter = episodes.get(i);
-                                                                        break;
-                                                                    }
-
-                                                                } // For-end
-
-                                                                if(!seasonFound){
-                                                                    ui.displayMsg("Season wasnt found..");
-                                                                    continue;
-                                                                }
-
-                                                                String episodeInput = ui.promptTextLine("Choose an episode: ");
-                                                                int episodeChosen = Integer.parseInt(episodeInput);
-
-                                                                if(episodeChosen >= 1 && episodeChosen <= episodeCounter){
-
-                                                                    saveData(username, c.getTitle() + " Season " + seasonsPicked + " Episode " + episodeInput, "data/userHistory.csv");
-
-                                                                    int duration = 10; // Seconds
-
-                                                                    // Must watch movie till the end as of right now. Can't use promptTextLine as it would
-                                                                    // Prompt each time (loop).
-
-                                                                    // Sets up our frameRate delay
-                                                                    long starttime = System.currentTimeMillis(); // current system time
-
-                                                                    while ((System.currentTimeMillis() - starttime) - 1000<= duration*1000) {
-                                                                        long timeInSeconds = (System.currentTimeMillis() - starttime) / 1000;
-                                                                        int progressBar = (int) (((double) timeInSeconds / duration) * 50);
-                                                                        String progress = ui.promptTextColor("RED")+"|".repeat(progressBar);
-                                                                        String remainingProgress = ui.promptTextColor("BLACK")+"|".repeat(50 - progressBar) + ui.promptTextColor("RESET");
-
-                                                                        ui.displayMsg("Playing: " + c.getTitle() + " Season " + seasonsPicked + " Episode " + episodeChosen + "\n" + timeInSeconds +  " "+ progress + remainingProgress+ " " + duration + ".");
-
-                                                                        Program.sleep(1000);
-                                                                    }
-
-                                                                    ui.displayMsg("\nSeries has ended. Thanks for watching!\n");
-                                                                    //Wait 2,5 second, so the user sees the message above!^^
-                                                                    Program.sleep(2500);
-
-                                                                    startSession(username);
-
-                                                                } else {
-                                                                    ui.displayMsg("Invalid episode.. Try again");
-                                                                }
-
-                                                            } catch (NumberFormatException e){
-                                                                ui.displayMsg("Invalid input. Try again!");
-                                                            } // Try-catch end
-
-                                                        } // While end (true)
-
-                                                        break;
-                                                    case "2":
-                                                        ui.displayMsg("Bookmarked: " + c.getTitle());
-                                                        saveData(username, c.getTitle(), "data/userBookmark.csv");
-                                                        break;
-                                                    case "3":
-                                                        secondMenu = false;
-                                                        break;
-                                                    default:
-                                                        ui.displayMsg("Invalid input. Try again!");
-                                                        break;
-                                                }
-
-                                            }
-
-                                        } else {
-                                            ui.displayMsg("Invalid. Try again!");
-                                        } // If (1)
-
-                                    } catch (NumberFormatException e){
-                                        ui.displayMsg("Invalid input. Try again!");
-                                    } // Try-catch
+                                    if(ai < 0 && ai > s.getSeries().size()){
+                                        ui.displayMsg("ERROR!");
+                                    }
+                                    Media c = s.getSeries().get(ai);
+                                    playSeries(c, username);
 
                                     break;
 
-                            } // Switch-case
+                            }
 
                         }
 
@@ -352,16 +134,18 @@ public abstract class Menu { // (Superclass)
                 }
 
             case "3": // HISTORY
-                ui.displayMsg("Debug");
+                ui.displayMsg("Jonas skal tilføje sin HISTORY!");
+                Sleep(20000);
                 break;
             case "4": // BOOKMARKED
-                ui.displayMsg("Debug");
+                ui.displayMsg("Jonas skal tilføje sin BOOKMARKED!");
+                Sleep(20000);
                 break;
             case "5": // SEARCH BY CATEGORY
-                ui.displayMsg("Debug");
+                searchCategory(username);
                 break;
             case "6": // SEARCH BY TITLE
-                ui.displayMsg("Debug");
+                searchTitle(username);
                 break;
             case "7":
                 accountSettings(username);
@@ -375,11 +159,472 @@ public abstract class Menu { // (Superclass)
 
     // ________________________________________________________
 
-    public abstract void endSession();
+    public void endSession() {
+        //Logout method?
+    };
 
     // ________________________________________________________
 
-    public abstract void runMenuLoop();
+    private void searchTitle(String username) {
+
+        ui.displayMsg("\nPlease choose what you want to watch\n1) Movie \n2) Serie\n_____________________");
+        String choice = ui.promptTextLine("Input: ").toLowerCase();
+
+        if (!choice.equals("1") && !choice.equals("2")) {
+            ui.displayMsg("Invalid choice. Please type '1' for movie or '2' for serie.");
+            Sleep(2500);
+            searchTitle(username);
+            return;
+        }
+
+        ui.displayMsg("\nPlease enter the title of the " + (choice.equals("1") ? "movie" : "series") + " you want to watch\n_____________________");
+        String titleInput = ui.promptTextLine("Input: ").toLowerCase();
+
+        ArrayList<String> matchingTitles;
+
+        if (choice.equals("1")) {
+            matchingTitles = Movies.getMovies().stream()
+            .map(Media::getTitle)
+            .filter(title -> title.toLowerCase().contains(titleInput))
+            .collect(Collectors.toCollection(ArrayList::new));
+        } else {
+            matchingTitles = Series.getSeries().stream()
+            .map(Media::getTitle)
+            .filter(title -> title.toLowerCase().contains(titleInput))
+            .collect(Collectors.toCollection(ArrayList::new));
+        }
+
+        if (matchingTitles.isEmpty()) {
+            ui.displayMsg("No " + (choice.equals("1") ? "movie" : "series") + " matches your search: " + titleInput);
+            return;
+        }
+
+        final int pageSize = 10;
+        int currentPage = 0;
+        boolean browsing = true;
+
+        while (browsing) {
+            int start = currentPage * pageSize;
+            int end = Math.min(start + pageSize, matchingTitles.size());
+
+            ui.displayMsg("\nResults " + (start + 1) + " to " + end + " of " + matchingTitles.size() + ":");
+            for (int i = start; i < end; i++) {
+                ui.displayMsg((i + 1) + ". " + matchingTitles.get(i));
+            }
+
+            ui.displayMsg("\nType the number you want to watch\n'next', 'prev' to browse between the pages\n\n" +
+            "Type " + ui.promptTextFormat("outline") + " back " + ui.promptTextFormat("outline reset") + " to go back to Dev Menu..");
+
+            String movieChoice = ui.promptTextLine("Choice: ").toLowerCase();
+
+            switch (movieChoice) {
+                case "next":
+                    if ((currentPage + 1) * pageSize < matchingTitles.size()) {
+                        currentPage++;
+                    }
+                    break;
+                case "prev":
+                    if (currentPage > 0) {
+                        currentPage--;
+                    }
+                    break;
+                case "back":
+                    startSession(username);
+                    browsing = false;
+                    break;
+                default:
+                    try {
+                        int selectedIndex = Integer.parseInt(movieChoice) - 1;
+                        if (selectedIndex >= 0 && selectedIndex < matchingTitles.size()) {
+                            String selectedTitle = matchingTitles.get(selectedIndex);
+                            if (choice.equals("1")) {
+                                Media c = getMedia(selectedTitle, "movie");
+                                playMovie(c, username);
+                                startSession(username);
+                            } else {
+                                Media c = getMedia(selectedTitle, "series");
+                                playSeries(c, username);
+                                startSession(username);
+                            }
+                            browsing = false;
+                        } else {
+                            ui.displayMsg("Wrong input. Number out of bounds!");
+                            Sleep(2500);
+                        }
+                    } catch (NumberFormatException e) {
+                        ui.displayMsg("Wrong input (<Number>, <Next>, <Prev> or <Back>). Try again!.");
+                        Sleep(2500);
+                    }
+                    break;
+            }
+        }
+    }
+
+    // ________________________________________________________
+
+    private void searchCategory(String username) {
+
+        ui.displayMsg("\nPlease choose what you want to watch\n1) Movie \n2) Serie\n_____________________");
+        String choice = ui.promptTextLine("Input: ").toLowerCase();
+
+        if (!choice.equals("1") && !choice.equals("2")) {
+            ui.displayMsg("Invalid choice. Please type '1' for movie or '2' for serie.");
+            Sleep(2500);
+            searchTitle(username);  // Recursion for retrying
+            return;
+        }
+
+        // Vælg kategori
+        ui.displayMsg("\nWhat category do you want to watch?\n1) Crime \n2) Drama\n_____________________");
+        String categoryInput = ui.promptTextLine("Input: ").toLowerCase();
+        String category = "";
+        switch (categoryInput) {
+            case "1":
+                category = "crime";
+                break;
+            case "2":
+                category = "drama";
+                break;
+            default:
+                ui.displayMsg("Invalid category. Please choose 1 for Crime or 2 for Drama.");
+                Sleep(2500);
+                searchCategory(username);
+                return;
+        }
+        String tmpcategory = category;
+        ArrayList<String> matchingTitles = new ArrayList<>();  // Til at holde de matchende titler
+
+        // Filtrer film eller serier baseret på kategori
+        if (choice.equals("1")) {  // Movie
+            matchingTitles = Movies.getMovies().stream()
+                    .filter(movie -> movie.getCategory().toLowerCase().contains(tmpcategory))  // Filter baseret på kategori
+                    .map(Media::getTitle)  // Ekstraher filmens titel
+                    .collect(Collectors.toCollection(ArrayList::new));
+        } else {  // Serie
+            matchingTitles = Series.getSeries().stream()
+                    .filter(series -> series.getCategory().toLowerCase().contains(tmpcategory))  // Filter baseret på kategori
+                    .map(Media::getTitle)  // Ekstraher seriens titel
+                    .collect(Collectors.toCollection(ArrayList::new));
+        }
+
+        // Hvis der ikke er nogen matchende titler
+        if (matchingTitles.isEmpty()) {
+            ui.displayMsg("No titles found for category: " + category);
+            return;
+        }
+
+        // Pagination (visning af resultater)
+        final int pageSize = 10;
+        int currentPage = 0;
+        boolean browsing = true;
+
+        while (browsing) {
+            int start = currentPage * pageSize;
+            int end = Math.min(start + pageSize, matchingTitles.size());
+
+            ui.displayMsg("\nResults " + (start + 1) + " to " + end + " of " + matchingTitles.size() + ":");
+            for (int i = start; i < end; i++) {
+                ui.displayMsg((i + 1) + ". " + matchingTitles.get(i));  // Vis titlerne
+            }
+
+            ui.displayMsg("\nType the number you want to watch\n'next', 'prev' to browse between the pages\n\n" +
+                    "Type " + ui.promptTextFormat("outline") + " back " + ui.promptTextFormat("outline reset") + " to go back to Dev Menu..");
+
+            String movieChoice = ui.promptTextLine("Choice: ").toLowerCase();
+
+            switch (movieChoice) {
+                case "next":
+                    if ((currentPage + 1) * pageSize < matchingTitles.size()) {
+                        currentPage++;
+                    }
+                    break;
+                case "prev":
+                    if (currentPage > 0) {
+                        currentPage--;
+                    }
+                    break;
+                case "back":
+                    ui.displayMsg("BACK");
+                    startSession(username);  // Go back to main menu
+                    browsing = false;
+                    break;
+                default:
+                    try {
+                        int selectedIndex = Integer.parseInt(movieChoice) - 1;
+                        if (selectedIndex >= 0 && selectedIndex < matchingTitles.size()) {
+                            String selectedTitle = matchingTitles.get(selectedIndex);
+                            if (choice.equals("1")) {  // If it's a movie
+                                Media c = getMedia(selectedTitle, "movie");
+                                playMovie(c, username);
+                                startSession(username);
+                            } else {  // If it's a series
+                                Media c = getMedia(selectedTitle, "movie");
+                                playSeries(c, username);
+                                startSession(username);
+                            }
+                            browsing = false;
+                        } else {
+                            ui.displayMsg("Wrong input. Number out of bounds!");
+                            Sleep(2500);
+                        }
+                    } catch (NumberFormatException e) {
+                        ui.displayMsg("Wrong input (<Number>, <Next>, <Prev> or <Back>). Try again!.");
+                        Sleep(2500);
+                    }
+                    break;
+            }
+        }
+    }
+
+
+    // ________________________________________________________
+
+    public void playMovie(Media c, String username) {
+        try{
+            ui.displayMsg("\nMovie selected: " + ui.promptTextColor("green") + c.getTitle() + ui.promptTextColor("reset"));
+
+            boolean secondMenu = true;
+
+            while(secondMenu){
+
+                ui.displayMsg("\n1) Play\n2) Bookmark\n3) Back\n________________________");
+                String userIn = ui.promptTextLine("Input: ");
+
+                switch (userIn){
+
+                    case "1":
+                        saveData(username, c.getTitle(), "data/userHistory.csv");
+
+                        int duration = 10; // Seconds
+
+                        // Must watch movie till the end as of right now. Can't use promptTextLine as it would
+                        // Prompt each time (loop).
+
+                        // Sets up our frameRate delay
+                        long starttime = System.currentTimeMillis(); // current system time
+
+                        while ((System.currentTimeMillis() - starttime) - 1000<= duration*1000) {
+                            long timeInSeconds = (System.currentTimeMillis() - starttime) / 1000;
+                            int progressBar = (int) (((double) timeInSeconds / duration) * 50);
+                            String progress = ui.promptTextColor("RED")+"|".repeat(progressBar);
+                            String remainingProgress = ui.promptTextColor("BLACK")+"|".repeat(50 - progressBar) + ui.promptTextColor("RESET");
+
+                            ui.displayMsg("Playing: " + c.getTitle() + "\n" + timeInSeconds +  " "+ progress + remainingProgress+ " " + duration + ".");
+
+                            Program.sleep(1000);
+                        }
+
+                        ui.displayMsg("\nMovies has ended. Thanks for watching!\n");
+                        //Wait 2,5 second, so the user sees the message above!^^
+                        Program.sleep(2500);
+
+                        if(duration >= c.getDuration()){
+                            ui.displayMsg("Movie has ended. Thanks for watching!");
+                        }
+
+                        break;
+                    case "2":
+                        ui.displayMsg("Bookmarked: " + c.getTitle());
+                        saveData(username, c.getTitle(), "data/userBookmark.csv");
+                        break;
+                    case "3":
+                        secondMenu = false;
+                        break;
+                    default:
+                        ui.displayMsg("Invalid input. Try again!");
+                        break;
+                }
+
+            }
+        } catch (NumberFormatException e){
+            ui.displayMsg("Invalid input. Try again!");
+        } // Try-catch
+    }
+
+    // ________________________________________________________
+
+    public void playSeries(Media c, String username) {
+        try{
+
+            /*int mi = Integer.parseInt(seriesInput)-1;
+            int ai = s.getCurrentPage()*9 + mi;
+
+            if(ai >= 0 && ai < s.getSeries().size()){*/
+
+            //Media c = getMedia(seriesInput, "series");
+            ui.displayMsg("\nSeries selected: " + ui.promptTextColor("green") + c.getTitle() + ui.promptTextColor("reset"));
+
+            boolean secondMenu = true;
+
+            while(secondMenu){
+
+                ui.displayMsg("\n1) Seasons & Episodes\n2) Bookmark\n3) Back\n________________________");
+                String userIn = ui.promptTextLine("Input: ");
+
+                switch (userIn){
+
+                    case "1":
+
+                        String se = c.getSeasonAndEpisode().trim();
+
+                        if(se.isEmpty()){
+                            ui.displayMsg("No seasons or episodes available.");
+                            break;
+                        }
+
+                        ArrayList <Integer> seasons = new ArrayList<>();
+                        ArrayList <Integer> episodes = new ArrayList<>();
+
+                        // Removes the annoying ; after each data entry in seriesData.csv
+                        if(se.endsWith(";")){
+                            se = se.substring(0, se.length() -1);
+                        }
+
+                        String[] values = se.split(", ");
+
+                        for (String s : values){
+
+                            // Has to have trim first or it bugs. lol. gg.
+                            String[] splitIntoValues = s.trim().split("-");
+
+                            if(splitIntoValues.length == 2){
+
+                                try{
+                                    int season = Integer.parseInt(splitIntoValues[0].trim());
+                                    int episode = Integer.parseInt(splitIntoValues[1].trim());
+
+                                    seasons.add(season);
+                                    episodes.add(episode);
+
+                                } catch (NumberFormatException e){
+                                    ui.displayMsg("Error. Contact dev: " + e.getMessage());
+                                } // Try-catch end
+
+                            } // If
+
+                        } // For-each
+
+                        if(seasons.isEmpty()){
+                            ui.displayMsg("No seasons found.");
+                            break;
+                        }
+
+                        ui.displayMsg("Seasons & Episodes");
+
+                        for(int i = 0; i < seasons.size(); i++){
+
+                            ui.displayMsg("Season: " + seasons.get(i) + ": " + episodes.get(i) + " Episodes");
+
+                        }
+
+                        while(true){
+
+                            String userInputSeasonChooser = ui.promptTextLine("Choose a season: ");
+
+                            if(userInputSeasonChooser.equalsIgnoreCase("back")){
+                                break;
+                            }
+
+                            try{
+
+                                int seasonsPicked = Integer.parseInt(userInputSeasonChooser);
+                                int episodeCounter = 0;
+                                boolean seasonFound = false;
+
+                                for(int i = 0; i < seasons.size(); i++){
+
+                                    if(seasons.get(i) == seasonsPicked){
+                                        seasonFound = true;
+                                        episodeCounter = episodes.get(i);
+                                        break;
+                                    }
+
+                                } // For-end
+
+                                if(!seasonFound){
+                                    ui.displayMsg("Season wasnt found..");
+                                    continue;
+                                }
+
+                                String episodeInput = ui.promptTextLine("Choose an episode: ");
+                                int episodeChosen = Integer.parseInt(episodeInput);
+
+                                if(episodeChosen >= 1 && episodeChosen <= episodeCounter){
+
+                                    saveData(username, c.getTitle() + " Season " + seasonsPicked + " Episode " + episodeInput, "data/userHistory.csv");
+
+                                    int duration = 10; // Seconds
+
+                                    // Must watch movie till the end as of right now. Can't use promptTextLine as it would
+                                    // Prompt each time (loop).
+
+                                    // Sets up our frameRate delay
+                                    long starttime = System.currentTimeMillis(); // current system time
+
+                                    while ((System.currentTimeMillis() - starttime) - 1000<= duration*1000) {
+                                        long timeInSeconds = (System.currentTimeMillis() - starttime) / 1000;
+                                        int progressBar = (int) (((double) timeInSeconds / duration) * 50);
+                                        String progress = ui.promptTextColor("RED")+"|".repeat(progressBar);
+                                        String remainingProgress = ui.promptTextColor("BLACK")+"|".repeat(50 - progressBar) + ui.promptTextColor("RESET");
+
+                                        ui.displayMsg("Playing: " + c.getTitle() + " Season " + seasonsPicked + " Episode " + episodeChosen + "\n" + timeInSeconds +  " "+ progress + remainingProgress+ " " + duration + ".");
+
+                                        Program.sleep(1000);
+                                    }
+
+                                    ui.displayMsg("\nSeries has ended. Thanks for watching!\n");
+                                    //Wait 2,5 second, so the user sees the message above!^^
+                                    Program.sleep(2500);
+
+                                    startSession(username);
+
+                                } else {
+                                    ui.displayMsg("Invalid episode.. Try again");
+                                }
+
+                            } catch (NumberFormatException e){
+                                ui.displayMsg("Invalid input. Try again!");
+                            } // Try-catch end
+
+                        } // While end (true)
+
+                        break;
+                    case "2":
+                        ui.displayMsg("Bookmarked: " + c.getTitle());
+                        saveData(username, c.getTitle(), "data/userBookmark.csv");
+                        break;
+                    case "3":
+                        secondMenu = false;
+                        break;
+                    default:
+                        ui.displayMsg("Invalid input. Try again!");
+                        break;
+                }
+
+            }
+
+        } catch (NumberFormatException e){
+            ui.displayMsg("Invalid input. Try again!");
+        } // Try-catch
+    }
+
+    // ________________________________________________________
+
+
+    public Media getMedia(String movieInput, String mediaType){
+        if (mediaType.equalsIgnoreCase("movie")) {
+            return Movies.getMovies().stream()
+                    .filter(media -> media.getTitle().equalsIgnoreCase(movieInput))
+                    .findFirst()
+                    .orElse(null);
+        } else {
+            return Series.getSeries().stream()
+                    .filter(media -> media.getTitle().equalsIgnoreCase(movieInput))
+                    .findFirst()
+                    .orElse(null);
+
+        }
+    }
 
     // ________________________________________________________
 
@@ -507,6 +752,14 @@ public abstract class Menu { // (Superclass)
 
     public String toCSVHistory(String user, String title){
         return user + ", " + title;
+    }
+
+    private void Sleep(int amount) {
+        try {
+            Thread.sleep(amount);
+        } catch (InterruptedException e) {
+            ui.displayMsg("Somewthing went wrong" + e);
+        } // Try-catch end
     }
 
 }

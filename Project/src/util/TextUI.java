@@ -713,5 +713,12 @@ public class TextUI { // Our own custom generic util.TextUI class
     }
 
 
+    // ________________________________________________________
+
+    public void clearConsole(){
+        displayMsg("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    }
+
+
 
 } // util.TextUI end

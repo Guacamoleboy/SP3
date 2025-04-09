@@ -41,12 +41,6 @@ public class Media {
 
     // ________________________________________________________
 
-    public void getMedia(int ID){
-
-    }
-
-    // ________________________________________________________
-
     public String getSeasonAndEpisode(){
         return this.seasonAndEpisode;
     }

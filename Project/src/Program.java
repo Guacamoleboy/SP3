@@ -235,11 +235,12 @@ public class Program {
         saveData();
 
         // I think it's great having some sort of slowdown here
-        try {
+        /*try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             ui.displayMsg("Error contact a developer" + " | Dev msg: " + e.getMessage());
-        }
+        }*/
+        sleep(2000);
 
         // Sending user to login method
         login();
@@ -375,11 +376,7 @@ public class Program {
                     }
 
                     // Delay for visual approach
-                    try{
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e){
-                        ui.displayMsg("Error. Contact dev.." + " | Dev msg: " + e.getMessage());
-                    }
+                    sleep(2000);
 
                     login();
 
@@ -403,12 +400,7 @@ public class Program {
 
                     }
 
-                    try{
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e){
-                        ui.displayMsg("Error. Contact dev. Dev msg: " + e.getMessage());
-                    }
-
+                    sleep(1000);
                     login();
 
                     // __________________________ EMAIL ________________________________
@@ -550,11 +542,13 @@ public class Program {
                 ui.displayMsg("\nWelcome, " + ui.promptTextColor("red") +playerUser + ui.promptTextColor("reset") + "! Loading Main Menu..");
                 ui.displayMsg("______________________________________");
 
-                try {
+                /*try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     ui.displayMsg("Error. Contact a dev...");
-                }
+                }*/
+
+                sleep(1000);
                 currentUser = Main.p.getUserByName(playerUser);
                 mainmenu.startSession(playerUser);
                 break;
@@ -563,12 +557,7 @@ public class Program {
 
             ui.displayMsg("________________________________________\n\nToo many fail attempts. Shutting down...");
 
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                ui.displayMsg("Error. Contact a developer");
-            }
-
+            sleep(2000);
             System.exit(0);
 
         } // While end

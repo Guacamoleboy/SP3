@@ -133,11 +133,4 @@ public class SupportMenu extends Menu{
 
     }
 
-    // ________________________________________________________
-
-    @Override
-    public void runMenuLoop(){
-
-    }
-
 }

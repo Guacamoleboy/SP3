@@ -5,7 +5,7 @@ import util.*;
 public class Movies {
 
     // Attributes
-    private ArrayList <Media> movies;
+    private static ArrayList <Media> movies;
     private int page = 0;
     private static FileIO io = new FileIO();
     private static TextUI ui = new TextUI(Main.exitWord);
@@ -104,7 +104,7 @@ public class Movies {
 
     // ________________________________________________________
 
-    public ArrayList <Media> getMovies(){
+    public static ArrayList <Media> getMovies(){
 
         // Placeholder
         return movies;

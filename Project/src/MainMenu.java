@@ -17,13 +17,6 @@ public class MainMenu extends Menu { // Menu for everyone other than devs & admi
 
     // ________________________________________________________
 
-    @Override
-    public void runMenuLoop(){
-
-    }
-
-    // ________________________________________________________
-
     public void accountSettings(String username){
 
         super.accountSettings(username);

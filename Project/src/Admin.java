@@ -65,9 +65,9 @@ public class Admin {
         for (User user : Program.user) {
             String msg =
                     "ID: "+ user.getID() +
-                            " Username: " + user.getName()+
-                            " User is banned: " + user.getBanned()+
-                            " User is: " + user.getStatus();
+                    " Username: " + user.getName()+
+                    " User is banned: " + user.getBanned()+
+                    " User is: " + user.getStatus();
 
             ui.displayMsg(msg);
         }
@@ -306,6 +306,8 @@ public class Admin {
         changeStatus(adminUsername);
     }
 
+    // ________________________________________________________
+
     public static void changeMembership(String adminUsername){
         String in4 = ui.promptTextLine("\nUsername: ");
         User u = Main.p.getUserByName(in4);
@@ -370,41 +372,41 @@ public class Admin {
 
     }
 
-// ________________________________________________________
+    // ________________________________________________________
 
-public static boolean bannedWords(String word) {
+    public static boolean bannedWords(String word) {
 
-    if (bannedWords.stream().anyMatch(w -> w.equals(word.toLowerCase()))) {
-        ui.displayMsg("Please don't use offensive words!\n");
-        return true;
+        if (bannedWords.stream().anyMatch(w -> w.equals(word.toLowerCase()))) {
+            ui.displayMsg("Please don't use offensive words!\n");
+            return true;
+        }
+        return false;
     }
-    return false;
-}
 
-// ________________________________________________________
+    // ________________________________________________________
 
-public static String banWord(String word){
-    bannedWords.add(word.toLowerCase());
-    return "You banned the word: "+ word +"!\n";
-}
+    public static String banWord(String word){
+        bannedWords.add(word.toLowerCase());
+        return "You banned the word: "+ word +"!\n";
+    }
 
-// ________________________________________________________
+    // ________________________________________________________
 
-public static String unbanWord(String word){
-    bannedWords.remove(word.toLowerCase());
-    return "You unbanned the word: "+ word +"!\n";
-}
+    public static String unbanWord(String word){
+        bannedWords.remove(word.toLowerCase());
+        return "You unbanned the word: "+ word +"!\n";
+    }
 
-// ________________________________________________________
+    // ________________________________________________________
 
-public static void addMovie() {
-    ui.displayMsg(ui.promptTextColor("RED") + "This has to be made!"+ ui.promptTextColor("RESET"));
-}
+    public static void addMovie() {
+        ui.displayMsg(ui.promptTextColor("RED") + "This has to be made!"+ ui.promptTextColor("RESET"));
+    }
 
-// ________________________________________________________
+    // ________________________________________________________
 
-public static void addSeries() {
-    ui.displayMsg(ui.promptTextColor("RED") + "This has to be made!"+ ui.promptTextColor("RESET"));
-}
+    public static void addSeries() {
+        ui.displayMsg(ui.promptTextColor("RED") + "This has to be made!"+ ui.promptTextColor("RESET"));
+    }
 
 } // Admin end

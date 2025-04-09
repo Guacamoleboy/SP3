@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Series {
 
     // Attributes
-    private ArrayList <Media> series;
+    private static ArrayList <Media> series;
     private int page = 0;
     private static FileIO io = new FileIO();
     private static TextUI ui = new TextUI(Main.exitWord);
@@ -77,8 +77,8 @@ public class Series {
 
     // ________________________________________________________
 
-    public ArrayList<Media> getSeries(){
-        return this.series;
+    public static ArrayList<Media> getSeries(){
+        return series;
     }
 
     // ________________________________________________________

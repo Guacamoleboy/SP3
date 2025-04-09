@@ -1,28 +1,42 @@
-import util.FileIO;
+import util.*;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class Media {
 
     // Attributes
-    private int ID;
     private String title;
-    private File file;
     private int releaseYear;
-    private double rating;
+    private String releaseYearSeries;
     private String category;
-    private float duration;
+    private String rating;
+    private int duration = 50;
+    private String seasonAndEpisode;
+
+    private static TextUI ui = new TextUI(Main.exitWord);
+    private static FileIO io = new FileIO();
 
     // ________________________________________________________
 
-    public Media(int ID, String title, File file, int releaseYear, double rating, String category, float duration){
-        this.ID = ID;
+    public Media(String title, int releaseYear, String category, String rating, int duration){
         this.title = title;
-        this.file = file;
         this.releaseYear = releaseYear;
-        this.rating = rating;
         this.category = category;
+        this.rating = rating;
         this.duration = duration;
+    }
+
+    // ________________________________________________________
+
+    // OVERLOADING WITH DIFFERENT PARAMETERS ALLOWS 2 CONSTRUCTORS. 1 FOR MOVIES AND 1 FOR SERIES
+    public Media(String title, String releaseYearSeries, String category, String rating, int duration, String seasonAndEpisode){
+        this.title = title;
+        this.releaseYearSeries = releaseYearSeries;
+        this.category = category;
+        this.rating = rating;
+        this.duration = duration;
+        this.seasonAndEpisode = seasonAndEpisode;
     }
 
     // ________________________________________________________
@@ -33,25 +47,37 @@ public class Media {
 
     // ________________________________________________________
 
-    public void getCategory(int ID){
-
+    public String getSeasonAndEpisode(){
+        return this.seasonAndEpisode;
     }
 
     // ________________________________________________________
 
-    public void getReleaseYear(int ID){
-
+    public String getTitle(){
+        return this.title;
     }
 
     // ________________________________________________________
 
-    public void getRating(int ID){
-
+    public String getCategory(){
+        return this.category;
     }
 
     // ________________________________________________________
 
-    public float getDuration(){
+    public int getReleaseYear(){
+        return this.releaseYear;
+    }
+
+    // ________________________________________________________
+
+    public String getRating(){
+        return this.rating;
+    }
+
+    // ________________________________________________________
+
+    public int getDuration(){
         return this.duration;
     }
 

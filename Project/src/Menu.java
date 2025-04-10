@@ -193,18 +193,28 @@ public abstract class Menu { // (Superclass)
 
     private void searchTitle(String username) {
 
-        ui.displayMsg("\nPlease choose what you want to watch\n1) Movie \n2) Serie\n_____________________");
+        ui.displayMsg("\nPlease choose what you want to watch\n1) Movie \n2) Serie\n3) Back\n_____________________");
         String choice = ui.promptTextLine("Input: ").toLowerCase();
 
-        if (!choice.equals("1") && !choice.equals("2")) {
+        if (!choice.equals("1") && !choice.equals("2") && !choice.equals("3")) {
             ui.displayMsg("Invalid choice. Please type '1' for movie or '2' for serie.");
             Sleep(2500);
             searchTitle(username);
             return;
         }
 
-        ui.displayMsg("\nPlease enter the title of the " + (choice.equals("1") ? "movie" : "series") + " you want to watch\n_____________________");
+        if (choice.equals("3")) {
+            startSession(username);
+            return;
+        }
+
+        ui.displayMsg("\nPlease enter the title of the " + (choice.equals("1") ? "movie" : "series") + " you want to watch\n\n" +
+                "Type " + ui.promptTextFormat("outline") + " back " + ui.promptTextFormat("outline reset") + " to go back to Main Menu..");
         String titleInput = ui.promptTextLine("Input: ").toLowerCase();
+        if (titleInput.equalsIgnoreCase("back")) {
+            startSession(username);
+            return;
+        }
 
         ArrayList<String> matchingTitles;
 
@@ -239,7 +249,7 @@ public abstract class Menu { // (Superclass)
             }
 
             ui.displayMsg("\nType the number you want to watch\n'next', 'prev' to browse between the pages\n\n" +
-            "Type " + ui.promptTextFormat("outline") + " back " + ui.promptTextFormat("outline reset") + " to go back to Dev Menu..");
+            "Type " + ui.promptTextFormat("outline") + " back " + ui.promptTextFormat("outline reset") + " to go back to Main Menu..");
 
             String movieChoice = ui.promptTextLine("Choice: ").toLowerCase();
 
@@ -297,6 +307,11 @@ public abstract class Menu { // (Superclass)
             ui.displayMsg("Invalid choice. Please type '1' for movie or '2' for serie or '3' for back.");
             Sleep(2500);
             searchTitle(username);
+            return;
+        }
+
+        if (choice.equals("3")) {
+            startSession(username);
             return;
         }
 

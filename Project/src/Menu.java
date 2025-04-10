@@ -134,12 +134,14 @@ public abstract class Menu { // (Superclass)
                 }
 
             case "3": // HISTORY
-                ui.displayMsg("Jonas skal tilføje sin HISTORY!");
-                Sleep(20000);
+                ui.displayMsg("Your history: \n" + getHistory(username, "data/userHistory.csv"));
+                Sleep(2000);
+                startSession(username);
                 break;
             case "4": // BOOKMARKED
-                ui.displayMsg("Jonas skal tilføje sin BOOKMARKED!");
-                Sleep(20000);
+                ui.displayMsg("Your bookmarked: \n" + getHistory(username, "data/userBookmark.csv"));
+                Sleep(2000);
+                startSession(username);
                 break;
             case "5": // SEARCH BY CATEGORY
                 searchCategory(username);
@@ -161,24 +163,58 @@ public abstract class Menu { // (Superclass)
 
     public void endSession() {
         //Logout method?
-    };
+    }
+
+    // ________________________________________________________
+
+    public String getHistory(String name, String path){
+
+        ArrayList <String> data = io.readData(path);
+        String finalOutput = "";
+
+        for (String s : data){
+
+            String[] values = s.split(", ");
+            String username = values[0].trim();
+            String userHistory = values[1].trim();
+
+            if(name.equalsIgnoreCase(username)){
+                finalOutput = userHistory;
+            }
+
+        } // For-loop end
+
+        // Placeholder
+        return finalOutput;
+
+    }
 
     // ________________________________________________________
 
     private void searchTitle(String username) {
 
-        ui.displayMsg("\nPlease choose what you want to watch\n1) Movie \n2) Serie\n_____________________");
+        ui.displayMsg("\nPlease choose what you want to watch\n1) Movie \n2) Serie\n3) Back\n_____________________");
         String choice = ui.promptTextLine("Input: ").toLowerCase();
 
-        if (!choice.equals("1") && !choice.equals("2")) {
+        if (!choice.equals("1") && !choice.equals("2") && !choice.equals("3")) {
             ui.displayMsg("Invalid choice. Please type '1' for movie or '2' for serie.");
             Sleep(2500);
             searchTitle(username);
             return;
         }
 
-        ui.displayMsg("\nPlease enter the title of the " + (choice.equals("1") ? "movie" : "series") + " you want to watch\n_____________________");
+        if (choice.equals("3")) {
+            startSession(username);
+            return;
+        }
+
+        ui.displayMsg("\nPlease enter the title of the " + (choice.equals("1") ? "movie" : "series") + " you want to watch\n\n" +
+                "Type " + ui.promptTextFormat("outline") + " back " + ui.promptTextFormat("outline reset") + " to go back to Main Menu..");
         String titleInput = ui.promptTextLine("Input: ").toLowerCase();
+        if (titleInput.equalsIgnoreCase("back")) {
+            startSession(username);
+            return;
+        }
 
         ArrayList<String> matchingTitles;
 
@@ -213,7 +249,7 @@ public abstract class Menu { // (Superclass)
             }
 
             ui.displayMsg("\nType the number you want to watch\n'next', 'prev' to browse between the pages\n\n" +
-            "Type " + ui.promptTextFormat("outline") + " back " + ui.promptTextFormat("outline reset") + " to go back to Dev Menu..");
+            "Type " + ui.promptTextFormat("outline") + " back " + ui.promptTextFormat("outline reset") + " to go back to Main Menu..");
 
             String movieChoice = ui.promptTextLine("Choice: ").toLowerCase();
 
@@ -264,19 +300,25 @@ public abstract class Menu { // (Superclass)
 
     private void searchCategory(String username) {
 
-        ui.displayMsg("\nPlease choose what you want to watch\n1) Movie \n2) Serie\n_____________________");
+        ui.displayMsg("\nPlease choose what you want to watch\n1) Movie \n2) Serie\n3) Back\n_____________________");
         String choice = ui.promptTextLine("Input: ").toLowerCase();
 
-        if (!choice.equals("1") && !choice.equals("2")) {
-            ui.displayMsg("Invalid choice. Please type '1' for movie or '2' for serie.");
+        if (!choice.equals("1") && !choice.equals("2") && !choice.equals("3")) {
+            ui.displayMsg("Invalid choice. Please type '1' for movie or '2' for serie or '3' for back.");
             Sleep(2500);
             searchTitle(username);
             return;
         }
 
-        ui.displayMsg("\nWhat category do you want to watch?\n1) Crime \n2) Drama\n_____________________");
+        if (choice.equals("3")) {
+            startSession(username);
+            return;
+        }
+
+        ui.displayMsg("\nWhat category do you want to watch?\n1) Crime \n2) Drama\n3) Back\n_____________________");
         String categoryInput = ui.promptTextLine("Input: ").toLowerCase();
         String category = "";
+
         switch (categoryInput) {
             case "1":
                 category = "crime";
@@ -284,12 +326,17 @@ public abstract class Menu { // (Superclass)
             case "2":
                 category = "drama";
                 break;
+            case "3":
+                category = "back";
+                startSession(username);
+                break;
             default:
                 ui.displayMsg("Invalid category. Please choose 1 for Crime or 2 for Drama.");
                 Sleep(2500);
                 searchCategory(username);
                 return;
         }
+
         String tmpcategory = category;
         ArrayList<String> matchingTitles = new ArrayList<>();
 
@@ -299,11 +346,14 @@ public abstract class Menu { // (Superclass)
                     .filter(movie -> movie.getCategory().toLowerCase().contains(tmpcategory))  // Filter baseret på kategori
                     .map(Media::getTitle)
                     .collect(Collectors.toCollection(ArrayList::new));
-        } else {
+        } else if (choice.equals("2")) {
             matchingTitles = Series.getSeries().stream()
                     .filter(series -> series.getCategory().toLowerCase().contains(tmpcategory))  // Filter baseret på kategori
                     .map(Media::getTitle)
                     .collect(Collectors.toCollection(ArrayList::new));
+        } else {
+            startSession(username);
+            return;
         }
 
         if (matchingTitles.isEmpty()) {
@@ -373,7 +423,6 @@ public abstract class Menu { // (Superclass)
         }
     }
 
-
     // ________________________________________________________
 
     public void playMovie(Media c, String username) {
@@ -390,7 +439,8 @@ public abstract class Menu { // (Superclass)
                 switch (userIn){
 
                     case "1":
-                        saveData(username, c.getTitle(), "data/userHistory.csv");
+
+                        saveData(username, getHistory(username, "data/userHistory.csv") + "; " + c.getTitle(), "data/userHistory.csv");
 
                         int duration = 10; // Seconds
 
@@ -422,7 +472,7 @@ public abstract class Menu { // (Superclass)
                         break;
                     case "2":
                         ui.displayMsg("Bookmarked: " + c.getTitle());
-                        saveData(username, c.getTitle(), "data/userBookmark.csv");
+                        saveData(username, getHistory(username, "data/userBookmark.csv") + "; " + c.getTitle(), "data/userBookmark.csv");
                         break;
                     case "3":
                         secondMenu = false;

@@ -455,12 +455,14 @@ public class Program {
                     }
 
                 } else {
+
                     // Checks if username exist
                     if (!usernameCheck(playerUser)) {
-                        System.out.println("\nAccount not found..");
+                        ui.displayMsg("\nAccount not found..");
                         counter++;
                         continue;
                     }
+
                 }
 
                 String playerPass = ui.promptTextLine("Enter Password: ");
@@ -470,7 +472,7 @@ public class Program {
 
                 // Checks if username and password match
                 if (!passwordCheck(playerPass, playerUser)) {
-                    System.out.println("\nPassword doesn't match the username..");
+                    ui.displayMsg("\nPassword doesn't match the username..");
                     counter++;
                     continue;
                 }
